@@ -18,6 +18,7 @@ public class Mapper_CupCake
         Connection conn = c.getConnection();
         String query = "SELECT * FROM Cupcake_top JOIN Cupcake_bottom WHERE id_top = ? AND id_bottom = ?";
         PreparedStatement stmt = c.getConnection().prepareStatement(query);
+
         stmt.setInt(1, tID);
         stmt.setInt(2, bID);
         ResultSet rs = stmt.executeQuery(query);
