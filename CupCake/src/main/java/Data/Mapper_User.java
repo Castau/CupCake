@@ -82,9 +82,7 @@ public class Mapper_User {
         stmt.setString(1, username);
         stmt.setString(2, password);
         stmt.setString(3, email);
-        stmt.execute();
-        
-        Boolean check = username.equals(getUserByName(username));
-        return check;
+
+        return stmt.execute();
     }
 }

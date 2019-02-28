@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Logic.Controller_User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,14 +13,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author stein
+ * @author Camilla
  */
 
 public class CMD_Customer extends Command {
      @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        String recipeID = request.getParameter("userID");
+        int recipenum = Integer.parseInt(recipeID);
+        
+        Controller_User controller = new Controller_User();
+        
+        
        
         
         try (PrintWriter out = response.getWriter()) {
