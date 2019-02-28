@@ -37,7 +37,7 @@ public abstract class Command {
                 command = new customerCMD();
                 break;
             default: 
-                command = new UnknownCMD();
+                command = new unknownCMD();
         }
         return command;
     }
