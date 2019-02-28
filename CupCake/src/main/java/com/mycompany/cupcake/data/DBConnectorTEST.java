@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * @author Camilla
  */
-public class DBConectorTEST {
+public class DBConnectorTEST {
     public static void main(String[] args) throws SQLException {
         System.out.println("RUNNING");
         
