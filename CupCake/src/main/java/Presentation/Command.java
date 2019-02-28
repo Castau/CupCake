@@ -25,19 +25,21 @@ public abstract class Command {
 
         switch (path){
             case "login":
-                command = new loginCMD();
+                command = new CMD_Login();
                 break;
             case "shop":
-                command = new shopCMD();
+                command = new CMD_SHOP();
                 break;
             case "cart": 
-                command = new shopCartCMD();
+                command = new CMD_ShoppingCart();
                 break;
             case "customer": 
-                command = new customerCMD();
+                command = new CMD_Customer();
                 break;
             default: 
-                command = new unknownCMD();
+                command = new CMD_Unknown();
         }
-//        return command;
+        return command;
+    }
+}
     

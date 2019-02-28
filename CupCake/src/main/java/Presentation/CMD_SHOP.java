@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author stein
  */
-public class loginCMD extends Command {
-    @Override
+public class CMD_SHOP extends Command {
+     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
                
@@ -24,11 +24,10 @@ public class loginCMD extends Command {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Login</title>");            
+                out.println("<title>Shop</title>");            
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Login</h1>");
-                out.println("<p><a href=\"/?action=shop\">Log in</a></p>");
+                out.println("<h1>Shop</h1>");
                 out.println("</body>");
                 out.println("</html>");
             }
