@@ -13,7 +13,7 @@ public class DBConnector {
     private final String IP = "207.154.233.238";
     private final String PORT = "3306";
     public final String DATABASE = "cupcake";
-    private final String USERNAME = "camilla";
+    private final String USERNAME = "admin";
     private final String PASSWORD = "1234";
     private Connection connection = null;
 
