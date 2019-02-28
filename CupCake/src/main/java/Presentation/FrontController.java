@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "FrontController", urlPatterns =
 {
-    "/"
+    "/*"
 })
 public class FrontController extends HttpServlet
 {
@@ -41,7 +41,7 @@ public class FrontController extends HttpServlet
             Command c = Command.from(request);
             c.execute(request, response);
         } 
-        catch (Exception e)
+        catch (IOException | ServletException ex)
         {
             response.setContentType("text/html;charset=UTF-8");
             try (PrintWriter out = response.getWriter())
@@ -52,7 +52,7 @@ public class FrontController extends HttpServlet
                 out.println("<title>Error</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Error: " + "</h1>");
+                out.println("<h1>Error: " + ex + "</h1>");
                 out.println("<p>Bad URL</p>");
                 out.println("</body>");
                 out.println("</html>");
