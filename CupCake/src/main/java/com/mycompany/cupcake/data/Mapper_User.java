@@ -1,5 +1,6 @@
 package com.mycompany.cupcake.data;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class Mapper_User {
         }
         return user;
     }
-    
+
     public Model_User getUserByName(String userName) throws SQLException {
 
         Model_User user = new Model_User();
@@ -50,8 +51,8 @@ public class Mapper_User {
         }
         return user;
     }
-    
-    public ArrayList<Model_User> getAllUsers(String userName) throws SQLException {
+
+    public ArrayList<Model_User> getAllUsers() throws SQLException {
 
         ArrayList<Model_User> allUsers = new ArrayList();
         Model_User user = new Model_User();
@@ -70,5 +71,17 @@ public class Mapper_User {
         }
         return allUsers;
     }
-    
+
+    public boolean createUser(String username, String password, String email) throws SQLException {
+
+        String sqlQuery = "INSERT INTO cupcake.User\n"
+                + "(username, password, email)\n"
+                + "VALUE\n"
+                + "('" + username + "', '" + password + "', '" + email + "');";
+        PreparedStatement preStmt = connection.getConnection().prepareStatement(sqlQuery);
+        preStmt.execute();
+        
+        Boolean check = username.equals(getUserByName(username));
+        return check;
+    }
 }
