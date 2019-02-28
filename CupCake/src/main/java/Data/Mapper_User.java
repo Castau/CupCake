@@ -37,8 +37,8 @@ public class Mapper_User {
     public Model_User getUserByName(String userName) throws SQLException {
 
         Model_User user = new Model_User();
-        String sqlQuery = "SELECT * FROM cupcake.User\n"
-                + "WHERE username = " + userName + ";";
+        String sqlQuery = "SELECT * FROM cupcake.User "
+                + "WHERE username = '" + userName + "'";
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
 
         while (rs.next()) {

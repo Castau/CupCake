@@ -78,5 +78,5 @@ public class Model_User {
 }
 
 enum Role {
-    ADMIN, USER;
+    admin, user;
 }
