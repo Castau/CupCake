@@ -8,6 +8,7 @@ package Presentation;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -36,7 +37,7 @@ public abstract class Command {
                 command = new customerCMD();
                 break;
             default: 
-                command = new UnknownCommand();
+                command = new UnknownCMD();
         }
         return command;
     }

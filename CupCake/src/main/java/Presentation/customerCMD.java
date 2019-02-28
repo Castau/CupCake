@@ -15,21 +15,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author stein
  */
-public class shopCMD extends Command {
+
+public class customerCMD extends Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-               
-            try (PrintWriter out = response.getWriter()) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Shop</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Shop</h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }
+       
+        
+        try (PrintWriter out = response.getWriter()) {
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Invoices</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1></h1>");
+            out.println("<p>SOMETHING</p>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
 }
