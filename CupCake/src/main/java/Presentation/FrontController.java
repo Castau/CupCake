@@ -52,8 +52,8 @@ public class FrontController extends HttpServlet
                 out.println("<title>Error</title>");
                 out.println("</head>");
                 out.println("<body>");
+                out.println("<p></p>");
                 out.println("<h1>Error: " + ex + "</h1>");
-                out.println("<p>Bad URL</p>");
                 out.println("</body>");
                 out.println("</html>");
             }
