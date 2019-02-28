@@ -28,7 +28,7 @@ public abstract class Command {
                 command = new CMD_Login();
                 break;
             case "shop":
-                command = new CMD_SHOP();
+                command = new CMD_Shop();
                 break;
             case "cart": 
                 command = new CMD_ShoppingCart();
