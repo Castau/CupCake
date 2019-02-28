@@ -28,12 +28,12 @@ public class unknownCMD extends Command
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Error</title>");
+            out.println("<title>ERROR 404</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Error</h1>");
-            out.println("<p>Bad URL</p>");
-            out.println("</body>");
+            out.println("<h1>Error 404 - no such webpage</h1>");
+            out.println("<h2>Unknown page/path: " + request.getPathInfo() + "</h2>");
+            out.println("<a href=\"/cupcake/login\"><h2>Start over</h2></a>");
             out.println("</html>");
         }
     }
