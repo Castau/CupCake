@@ -18,9 +18,9 @@ public class Mapper_Invoice
 
     DBConnector connection;
 
-    public Mapper_Invoice(DBConnector connection)
+    public Mapper_Invoice() throws SQLException
     {
-        this.connection = connection;
+        connection =  new DBConnector();
     }
 
     /* This is for Model_Invoice*/
@@ -37,6 +37,24 @@ public class Mapper_Invoice
             invoice.setTotalPrice(rs.getInt("totalprice"));
         }
         return invoice;
+    }
+    
+    public ArrayList<Model_Invoice> getAllInvoicesByID(int userID) throws SQLException
+    {
+        ArrayList<Model_Invoice> allInvoices = new ArrayList();
+        Model_Invoice invoice = new Model_Invoice();
+        String sqlQuery = "SELECT * FROM cupcake.Invoice;"
+                + "WHERE id_user = " + userID + ";";
+        ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
+
+        while (rs.next())
+        {
+            invoice.setId_invoice(rs.getInt("id_invoice"));
+            invoice.setId_user(rs.getInt("id_user"));
+            invoice.setTotalPrice(rs.getInt("totalprice"));
+            allInvoices.add(invoice);
+        }
+        return allInvoices;
     }
 
     public List<Model_Invoice> getAllInvoices() throws SQLException

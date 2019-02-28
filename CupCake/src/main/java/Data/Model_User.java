@@ -1,5 +1,7 @@
 package Data;
 
+import java.util.ArrayList;
+
 /**
  * @author Camilla
  */
@@ -10,17 +12,19 @@ public class Model_User {
     private double balance;
     private String email;
     private Role role;
+    private ArrayList<Model_Invoice> invoices;
 
     public Model_User() {
     }
 
-    public Model_User(int userID, String userName, String password, double balance, String email, Role role) {
+    public Model_User(int userID, String userName, String password, double balance, String email, Role role, ArrayList<Model_Invoice> invoices) {
         this.userID = userID;
         this.userName = userName;
         this.password = password;
         this.balance = balance;
         this.email = email;
         this.role = role;
+        this.invoices = invoices;
     }
 
     public int getUserID() {

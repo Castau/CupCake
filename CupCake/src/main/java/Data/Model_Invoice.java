@@ -19,7 +19,6 @@ public class Model_Invoice
     private int id_invoice;
     private int id_user;
     private double totalPrice;
-    private Model_InvoiceDetails invoiceDetails;
     private ArrayList<Model_InvoiceDetails> invoiceDetals;
 
     public Model_Invoice()
@@ -31,7 +30,6 @@ public class Model_Invoice
         this.id_invoice = invoiceID;
         this.id_user = userID;
         this.totalPrice = totalPrice;
-        this.invoiceDetails = invoiceDetails;
         this.invoiceDetals = invoiceDetals;
     }
 
@@ -63,16 +61,6 @@ public class Model_Invoice
     public void setTotalPrice(double totalPrice)
     {
         this.totalPrice = totalPrice;
-    }
-
-    public Model_InvoiceDetails getInvoiceDetails()
-    {
-        return invoiceDetails;
-    }
-
-    public void setInvoiceDetails(Model_InvoiceDetails invoiceDetails)
-    {
-        this.invoiceDetails = invoiceDetails;
     }
 
     public ArrayList<Model_InvoiceDetails> getInvoiceDetals()

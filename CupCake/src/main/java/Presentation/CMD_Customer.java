@@ -8,6 +8,9 @@ package Presentation;
 import Logic.Controller_User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,10 +25,14 @@ public class CMD_Customer extends Command {
         response.setContentType("text/html;charset=UTF-8");
         
         String recipeID = request.getParameter("userID");
-        int recipenum = Integer.parseInt(recipeID);
+        int userID = Integer.parseInt(recipeID);
         
         Controller_User controller = new Controller_User();
-        
+         try {
+             controller.getInvoices(userID);
+         } catch (SQLException ex) {
+             System.out.println("SQLException" + ex);
+         }
         
        
         
