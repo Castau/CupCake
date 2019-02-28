@@ -39,6 +39,5 @@ public abstract class Command {
             default: 
                 command = new UnknownCMD();
         }
-        return command;
-    }
-}
+//        return command;
+    
