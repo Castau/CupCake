@@ -75,6 +75,14 @@ public class Model_User {
         this.role = role;
     }
     
+    public ArrayList<Model_Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(ArrayList<Model_Invoice> invoices) {
+        this.invoices = invoices;
+    }
+    
 }
 
 enum Role {

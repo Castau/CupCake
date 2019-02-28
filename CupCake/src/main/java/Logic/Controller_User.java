@@ -27,9 +27,14 @@ public class Controller_User
         return password.equals(passwordDB);
     }
 
-    public ArrayList<Model_Invoice> getInvoices(int userID) throws SQLException {
+    public Model_User getUserWithInvoices(int userID) throws SQLException {
         Mapper_Invoice mapperInvoice = new Mapper_Invoice();
-        return mapperInvoice.getAllInvoicesByID(userID);
+        ArrayList<Model_Invoice> invoices = mapperInvoice.getAllInvoicesByID(userID);
+        Mapper_User mapperUser = new Mapper_User();
+        Model_User user = mapperUser.getUserByID(userID);
+        user.setInvoices(invoices);
+        
+        return user;    
     }
     
 }

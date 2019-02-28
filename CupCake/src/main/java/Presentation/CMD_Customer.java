@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.Model_User;
 import Logic.Controller_User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,33 +19,42 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Camilla
  */
-
 public class CMD_Customer extends Command {
-     @Override
+
+    @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String recipeID = request.getParameter("userID");
         int userID = Integer.parseInt(recipeID);
-        
+
         Controller_User controller = new Controller_User();
-         try {
-             controller.getInvoices(userID);
-         } catch (SQLException ex) {
-             System.out.println("SQLException" + ex);
-         }
-        
-       
-        
+        Model_User user = null;
+        try {
+            user = controller.getUserWithInvoices(userID);
+        } catch (SQLException ex) {
+            System.out.println("SQLException" + ex);
+        }
+
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Invoices</title>");            
+            out.println("<title>Invoices</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1></h1>");
-            out.println("<p>SOMETHING</p>");
+            out.println("<h1> User Info </h1>");
+            out.println("<p> Username " + user.getUserName() + " </p>");
+            out.println("<p> E-mail " + user.getEmail() + " </p>");
+            out.println("<p> Role " + user.getRole() + " </p>");
+            out.println("<h1> User Invoices </h1>");
+            out.println("<br/>");
+            for (int i = 0; i < user.getInvoices().size(); i++) {
+                out.println("<a href='#'><p> "
+                       + "Invoice ID " + user.getInvoices().get(i).getId_invoice() 
+                       + "Total price " + user.getInvoices().get(i).getTotalPrice() +  "</p></a>");
+            }
+            out.println("<br/>");
             out.println("</body>");
             out.println("</html>");
         }

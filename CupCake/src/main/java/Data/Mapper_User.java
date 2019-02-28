@@ -29,7 +29,7 @@ public class Mapper_User {
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setBalance(rs.getDouble("balance"));
-            user.setRole(Role.valueOf(rs.getString("role")));
+            user.setRole(Role. valueOf(rs.getString("role")));
         }
         return user;
     }
