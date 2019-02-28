@@ -1,4 +1,4 @@
-package com.mycompany.cupcake.data;
+package Data;
 
 /**
  * @author Camilla

@@ -1,4 +1,4 @@
-package com.mycompany.cupcake.data;
+package Data;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

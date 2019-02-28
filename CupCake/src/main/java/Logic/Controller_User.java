@@ -1,4 +1,4 @@
-package com.mycompany.cupcake.logic;
+package Logic;
 
 /**
  * @author Camilla
