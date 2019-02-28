@@ -76,10 +76,14 @@ public class Mapper_User {
 
         String sqlQuery = "INSERT INTO cupcake.User\n"
                 + "(username, password, email)\n"
-                + "VALUE\n"
-                + "('" + username + "', '" + password + "', '" + email + "');";
-        PreparedStatement preStmt = connection.getConnection().prepareStatement(sqlQuery);
-        preStmt.execute();
+                + "values (?, ?, ?)";
+        
+        PreparedStatement stmt = connection.getConnection().prepareStatement(sqlQuery);
+        stmt.setString(1, username);
+        stmt.setString(1, password);
+        stmt.setString(1, email);
+        stmt.execute();
+
         
         Boolean check = username.equals(getUserByName(username));
         return check;
