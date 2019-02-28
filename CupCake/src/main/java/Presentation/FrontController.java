@@ -38,8 +38,8 @@ public class FrontController extends HttpServlet
     {
         try
         {
-            //Command c = Command.from(request);
-            //c.execute(request, response);
+            Command c = Command.from(request);
+            c.execute(request, response);
         } 
         catch (Exception e)
         {
