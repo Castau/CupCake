@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author stein
  */
 public class loginCMD extends Command {
+    @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
                
