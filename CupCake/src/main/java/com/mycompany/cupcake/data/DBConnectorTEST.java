@@ -3,7 +3,6 @@ package com.mycompany.cupcake.data;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * @author Camilla
@@ -22,7 +21,6 @@ public class DBConnectorTEST {
         while (rs.next()) {
             res= rs.getString("bottom_name");
         }
-        
         System.out.println(res);
     }
     
