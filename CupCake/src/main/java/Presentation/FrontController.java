@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,8 +41,7 @@ public class FrontController extends HttpServlet
         {
             Command c = Command.from(request);
             c.execute(request, response);
-        } 
-        catch (IOException | ServletException ex)
+        } catch (IOException | ServletException ex)
         {
             response.setContentType("text/html;charset=UTF-8");
             try (PrintWriter out = response.getWriter())
@@ -73,6 +73,39 @@ public class FrontController extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        String path = request.getPathInfo().substring(1);
+        HttpSession session = request.getSession(false); //Do not touch
+        //Read documentation on above :false: if needed.
+        //false means do not create new session. 
+        //if set to true, new session will be created. Everything below will then be disregarded and user is granted free access.
+        //Avoid this unless specifically needed.
+
+        if (session == null || session.getAttribute("username") == null)
+        {
+            //valid session doesn't exist -- or user log in went wrong.
+            //do something like send the user to a login screen
+
+            if (!path.equals("login")) //If user IS NOT at /login ->
+            {
+                response.setContentType("text/html;charset=UTF-8");
+
+                try (PrintWriter out = response.getWriter())
+                {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Servlet LoginServlet</title>");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<h1>Session or user invalid, try again!</h1>");
+                    out.println("<a href=\"/cupcake/login/\"><h2>Start over</h2></a>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }
+
+        }
+
         processRequest(request, response);
     }
 

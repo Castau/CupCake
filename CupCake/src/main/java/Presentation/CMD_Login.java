@@ -82,11 +82,20 @@ public class CMD_Login extends Command
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>User is valid: " + valid + "</h1>");
-            if (valid)out.println("<h1>successfully logged in</h1>");
-            out.println("<h1>Username: " + username + "</h1>");
-            out.println("<h1>Password: " + password + "</h1>");
-            out.println("<p><a href=\"/?action=cupcake/shop\">Log in</a></p>");
-            out.println("<p>test</p>");
+            if (valid)out.println("<h2 style=\"color:green\">successfully logged in</h1>");
+            if (valid == false) 
+            {
+                out.println("<a href=\"/cupcake/login/\"><h2 style =\"color:red\">FAIL! Start over</h2></a>");
+                request.getSession().invalidate();
+            }
+            out.println("<h3>Username: " + username + "</h3>");
+            out.println("<h3>Password: " + password + "</h3>");
+            if(valid)
+            {
+                out.println("<form action=/cupcake/shop>");
+                out.println("<input type=\"submit\" value = \"Log in/Continue\"/>");
+                out.println("</form>");
+            }
             out.println("</body>");
             out.println("</html>");
         }
