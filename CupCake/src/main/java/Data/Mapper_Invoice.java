@@ -43,8 +43,9 @@ public class Mapper_Invoice
     {
         ArrayList<Model_Invoice> allInvoices = new ArrayList();
         Model_Invoice invoice = new Model_Invoice();
-        String sqlQuery = "SELECT * FROM cupcake.Invoice;"
-                + "WHERE id_user = " + userID + ";";
+        String sqlQuery = "SELECT * FROM cupcake.Invoice "
+                + "WHERE id_user = '" + userID + "';";
+        System.out.println("QUERY " + sqlQuery);
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
 
         while (rs.next())
