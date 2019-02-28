@@ -24,7 +24,7 @@ public abstract class Command {
         //String path = request.getParameter("path");
 
         switch (path){
-            case "":
+            case "login":
                 command = new loginCMD();
                 break;
             case "shop":
@@ -37,7 +37,7 @@ public abstract class Command {
                 command = new customerCMD();
                 break;
             default: 
-                command = new UnknownCMD();
+                command = new unknownCMD();
         }
 //        return command;
     

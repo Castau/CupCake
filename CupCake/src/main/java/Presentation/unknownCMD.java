@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 
-public class UnknownCMD extends Command {
+public class unknownCMD extends Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
                
