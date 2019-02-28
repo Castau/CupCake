@@ -33,8 +33,7 @@ public class unknownCMD extends Command
             out.println("<body>");
             out.println("<h1>Error 404 - no such webpage</h1>");
             out.println("<h2>Unknown page/path: " + request.getPathInfo() + "</h2>");
-            out.println("<a href=\"/CupCake/login\"><h2>Start over</h2></a>");
-            out.println("</body>");
+            out.println("<a href=\"/cupcake/login\"><h2>Start over</h2></a>");
             out.println("</html>");
         }
     }
