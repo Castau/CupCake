@@ -18,8 +18,13 @@ public class Mapper_CupCake
         Connection conn = c.getConnection();
         String query = "SELECT * FROM Cupcake_top JOIN Cupcake_bottom WHERE id_top = ? AND id_bottom = ?";
         PreparedStatement stmt = c.getConnection().prepareStatement(query);
+<<<<<<< HEAD
         stmt.setString(1, "" + tID);
         stmt.setString(2, "" + bID);
+=======
+        stmt.setInt(1, tID);
+        stmt.setInt(2, bID);
+>>>>>>> 04fb3923fa209bc12bef11a97969fd42d78dce98
         ResultSet rs = stmt.executeQuery(query);
         Model_CupCake cupCake = null;
         while(rs.next())
