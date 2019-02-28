@@ -28,6 +28,7 @@ public class loginCMD extends Command {
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1>Login</h1>");
+                out.println("<p><a href=\"/?action=shop\">Log in</a></p>");
                 out.println("</body>");
                 out.println("</html>");
             }
