@@ -14,34 +14,38 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author stein
  */
-public abstract class Command {
+public abstract class Command
+{
 
     public abstract void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-    public static Command from(HttpServletRequest request){
+    public static Command from(HttpServletRequest request)
+    {
         Command command;
         String path = request.getPathInfo().substring(1);
         //String path = request.getParameter("path");
 
-        switch (path){
+        switch (path)
+        {
             case "login":
                 command = new CMD_Login();
                 break;
             case "shop":
                 command = new CMD_Shop();
                 break;
-            case "cart": 
+            case "cart":
                 command = new CMD_ShoppingCart();
                 break;
-            case "customer": 
+            case "customer":
                 command = new CMD_Customer();
                 break;
-            case "index":
-                
-            default: 
+
+            case "customerinvoice":
+                command = new CMD_CustomerInvoiceDetails();
+                break;
+            default:
                 command = new CMD_Unknown();
         }
         return command;
     }
 }
-    

@@ -34,6 +34,13 @@ public class Controller_User
         Model_User user = mapperUser.getUserByID(userID);
         user.setInvoices(invoices);
         
+        
+        return user;    
+    }
+    
+    public Model_User getUser(int userID) throws SQLException {
+        Mapper_User mapperUser = new Mapper_User();
+        Model_User user = mapperUser.getUserByID(userID);
         return user;    
     }
     

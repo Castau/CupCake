@@ -27,8 +27,23 @@ public class Mapper_Invoice
     public Model_Invoice getInvoiceByID(int invoiceID) throws SQLException
     {
         Model_Invoice invoice = new Model_Invoice();
-        String sqlQuery = "SELECT * FROM cupcake.Invoice"
+        String sqlQuery = "SELECT * FROM cupcake.Invoice "
                 + "WHERE id_invoice = " + invoiceID + ";";
+        ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
+        while (rs.next())
+        {
+            invoice.setId_invoice(rs.getInt("id_invoice"));
+            invoice.setId_user(rs.getInt("id_user"));
+            invoice.setTotalPrice(rs.getInt("totalprice"));
+        }
+        return invoice;
+    }
+    
+    public Model_Invoice getInvoiceByUserID(int userID) throws SQLException
+    {
+        Model_Invoice invoice = new Model_Invoice();
+        String sqlQuery = "SELECT * FROM cupcake.Invoice "
+                + "WHERE id_user = " + userID + ";";
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
         while (rs.next())
         {
@@ -94,7 +109,7 @@ public class Mapper_Invoice
     public Model_InvoiceDetails getInvoiceDetailsByID(int idInvoiceDetail) throws SQLException
     {
         Model_InvoiceDetails invoiceDetails = new Model_InvoiceDetails();
-        String sqlQuery = "SELECT * FROM cupcake.Invoice_Details"
+        String sqlQuery = "SELECT * FROM cupcake.Invoice_Details "
                 + "WHERE id_invoice_details = " + idInvoiceDetail + ";";
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
         while (rs.next())
@@ -109,9 +124,9 @@ public class Mapper_Invoice
         return invoiceDetails;
     }
 
-    public List<Model_InvoiceDetails> getAllInvoiceDetails() throws SQLException
+    public ArrayList<Model_InvoiceDetails> getAllInvoiceDetails() throws SQLException
     {
-        List<Model_InvoiceDetails> allInvoiceDetails = new ArrayList();
+        ArrayList<Model_InvoiceDetails> allInvoiceDetails = new ArrayList();
         Model_InvoiceDetails invoiceDetails = new Model_InvoiceDetails();
         String sqlQuery = "SELECT * FROM cupcake.Invoice_Details;";
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
