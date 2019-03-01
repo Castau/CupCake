@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Presentation;
 
 import java.io.IOException;
@@ -20,7 +15,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "FrontController", urlPatterns =
 {
-    "/*"
+    "/app/*"
 })
 public class FrontController extends HttpServlet
 {
@@ -79,31 +74,35 @@ public class FrontController extends HttpServlet
         //false means do not create new session. 
         //if set to true, new session will be created. Everything below will then be disregarded and user is granted free access.
         //Avoid this unless specifically needed.
-
-        if (session == null || session.getAttribute("username") == null)
+        
+        //System.out.println("(search #1338) pathname: " + path);
+        if (!"index".equals(path))
         {
-            //valid session doesn't exist -- or user log in went wrong.
-            //do something like send the user to a login screen
-
-            if (!path.equals("login")) //If user IS NOT at /login ->
+            if (session == null || session.getAttribute("username") == null)
             {
-                response.setContentType("text/html;charset=UTF-8");
+                //valid session doesn't exist -- or user log in went wrong.
+                //do something like send the user to a login screen
 
-                try (PrintWriter out = response.getWriter())
+                if (!path.equals("login")) //If user IS NOT at desired URL path
                 {
-                    out.println("<!DOCTYPE html>");
-                    out.println("<html>");
-                    out.println("<head>");
-                    out.println("<title>Servlet LoginServlet</title>");
-                    out.println("</head>");
-                    out.println("<body>");
-                    out.println("<h1>Session or user invalid, try again!</h1>");
-                    out.println("<a href=\"/cupcake/login/\"><h2>Start over</h2></a>");
-                    out.println("</body>");
-                    out.println("</html>");
-                }
-            }
+                    response.setContentType("text/html;charset=UTF-8");
 
+                    try (PrintWriter out = response.getWriter())
+                    {
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<head>");
+                        out.println("<title>Servlet LoginServlet</title>");
+                        out.println("</head>");
+                        out.println("<body>");
+                        out.println("<h1>Session or user invalid, try again!</h1>");
+                        out.println("<a href=\"/cupcake/login/\"><h2>Start over</h2></a>");
+                        out.println("</body>");
+                        out.println("</html>");
+                    }
+                }
+
+            }
         }
 
         processRequest(request, response);

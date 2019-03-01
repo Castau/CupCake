@@ -83,6 +83,7 @@ public class Mapper_User {
         stmt.setString(2, password);
         stmt.setString(3, email);
 
-        return stmt.execute();
+        boolean success = stmt.execute();
+        return success;
     }
 }
