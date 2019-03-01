@@ -36,6 +36,8 @@ public abstract class Command {
             case "customer": 
                 command = new CMD_Customer();
                 break;
+            case "index":
+                
             default: 
                 command = new CMD_Unknown();
         }

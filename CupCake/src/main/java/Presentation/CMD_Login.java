@@ -89,7 +89,7 @@ public class CMD_Login extends Command
                 System.out.println("Failed to validate password");
                 Logger.getLogger(CMD_Login.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
             if (valid) //user exists
             {
                 try
@@ -134,7 +134,7 @@ public class CMD_Login extends Command
                 }
                 if (valid == false)
                 {
-                    out.println("<a href=\"/cupcake/login/\"><h2 style =\"color:red\">FAIL! Start over</h2></a>");
+                    out.println("<a href=\"/cupcake/index/\"><h2 style =\"color:red\">FAIL! Start over</h2></a>");
                     request.getSession().invalidate();
                 }
                 out.println("<h3>Username: " + username + "</h3>");
