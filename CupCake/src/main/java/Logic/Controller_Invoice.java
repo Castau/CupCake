@@ -19,6 +19,8 @@ public class Controller_Invoice {
     public Model_Invoice getInvoiceWithInvoiceDetails(int invoiceID) throws SQLException {
         Mapper_Invoice mapperInvoice = new Mapper_Invoice();
         Model_Invoice invoice = mapperInvoice.getInvoiceByID(invoiceID);
+        //Check up on this method
+        //Fix your life
         ArrayList<Model_InvoiceDetails> invoiceDetails = mapperInvoice.getInvoiceByID(invoiceID).getInvoiceDetails();
         invoice.setInvoiceDetals(invoiceDetails);
 
