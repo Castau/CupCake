@@ -36,6 +36,9 @@ public abstract class Command {
             case "customer": 
                 command = new CMD_Customer();
                 break;
+            case "customerinvoice":
+                command = new CMD_CustomerInvoiceDetails();
+                break;
             default: 
                 command = new CMD_Unknown();
         }

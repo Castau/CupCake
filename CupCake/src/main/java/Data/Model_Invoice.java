@@ -63,7 +63,7 @@ public class Model_Invoice
         this.totalPrice = totalPrice;
     }
 
-    public ArrayList<Model_InvoiceDetails> getInvoiceDetals()
+    public ArrayList<Model_InvoiceDetails> getInvoiceDetails()
     {
         return invoiceDetals;
     }
