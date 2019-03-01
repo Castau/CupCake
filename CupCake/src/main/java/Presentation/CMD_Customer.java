@@ -25,8 +25,8 @@ public class CMD_Customer extends Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String recipeID = request.getParameter("userID");
-        int userID = Integer.parseInt(recipeID);
+        String userid = request.getParameter("userID");
+        int userID = Integer.parseInt(userid);
 
         Controller_User controller = new Controller_User();
         Model_User user = null;
@@ -50,7 +50,7 @@ public class CMD_Customer extends Command {
             out.println("<h1> User Invoices </h1>");
             out.println("<br/>");
             for (int i = 0; i < user.getInvoices().size(); i++) {
-                out.println("<a href='#'><p> "
+                out.println("<a href='#'><p>"
                        + "Invoice ID " + user.getInvoices().get(i).getId_invoice() 
                        + "Total price " + user.getInvoices().get(i).getTotalPrice() +  "</p></a>");
             }
