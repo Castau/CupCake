@@ -28,13 +28,9 @@ public class Controller_User
     }
 
     public Model_User getUserWithInvoices(int userID) throws SQLException {
-        Mapper_Invoice mapperInvoice = new Mapper_Invoice();
-        ArrayList<Model_Invoice> invoices = mapperInvoice.getAllInvoicesByID(userID);
         Mapper_User mapperUser = new Mapper_User();
-        Model_User user = mapperUser.getUserByID(userID);
-        user.setInvoices(invoices);
-        
-        
+        Model_User user = mapperUser.getUserWithInvoice(userID);
+
         return user;    
     }
     

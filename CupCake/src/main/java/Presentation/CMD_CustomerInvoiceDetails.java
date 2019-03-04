@@ -9,8 +9,6 @@ import Logic.Controller_User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,10 +27,8 @@ public class CMD_CustomerInvoiceDetails extends Command {
         
         Controller_User controllerUser = new Controller_User();
         Controller_Invoice controllerInvoice = new Controller_Invoice();
-        Controller_CupCake controllerCake = new Controller_CupCake();
         Model_Invoice invoice = null;
         Model_User user = null;
-        Model_CupCake cake = null;
         int userID = 0;
         try {
             invoice = controllerInvoice.getInvoiceWithInvoiceDetails(invoiceID);
@@ -56,22 +52,12 @@ public class CMD_CustomerInvoiceDetails extends Command {
             out.println("<br/>");
             for (int i = 0; i < invoice.getInvoiceDetails().size(); i++) 
             {
-                int top = invoice.getInvoiceDetails().get(i).getId_Top();
-                int bottom = invoice.getInvoiceDetails().get(i).getId_Bottom();
-                try
-                {
-                    cake = controllerCake.getCupCake(top, bottom);
-                } catch (SQLException ex)
-                {
-                    System.out.println("Couldn't fetch cake (CMD_Customer_invoice_details)");
-                    Logger.getLogger(CMD_CustomerInvoiceDetails.class.getName()).log(Level.SEVERE, null, ex);
-                }
                 out.println("<p>"
-                       + "Cake top name: " + cake.getTopName()
-                       + " price: " + cake.getTopPrice()
+                       + "Cake top name: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getTopName()
+                       + " price: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getTopPrice()
                        + "<br/>"
-                       + "Cake bottom name: " + cake.getBottomName()
-                       + " price: " + cake.getBottomPrice()
+                       + "Cake bottom name: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getBottomName()
+                       + " price: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getBottomPrice()
                        + "<br/>" 
                        + "</p>");
             }

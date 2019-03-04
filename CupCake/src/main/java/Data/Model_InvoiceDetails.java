@@ -1,5 +1,7 @@
 package Data;
 
+import java.util.ArrayList;
+
 /**
  * Fields: (All are related to the invoice in question) id_Invoice_Details - the
  * ID of this specific order id_Invoice - ID of the invoice which this
@@ -14,23 +16,22 @@ public class Model_InvoiceDetails
 
     private int id_Invoice_Details;
     private int id_Invoice;
-    private int id_Top;
-    private int id_Bottom;
     private int quantity;
     private double price;
+    private ArrayList<Model_CupCake> cupcakes;
+    
 
     public Model_InvoiceDetails()
     {
     }
 
-    public Model_InvoiceDetails(int id_Invoice_Details, int id_Invoice, int id_Top, int id_Bottom, int quantity, double price)
+    public Model_InvoiceDetails(int id_Invoice_Details, int id_Invoice, int quantity, double price, ArrayList<Model_CupCake> cupcakes)
     {
         this.id_Invoice_Details = id_Invoice_Details;
         this.id_Invoice = id_Invoice;
-        this.id_Top = id_Top;
-        this.id_Bottom = id_Bottom;
         this.quantity = quantity;
         this.price = price;
+        this.cupcakes = cupcakes;
     }
 
     public int getId_Invoice_Details()
@@ -53,26 +54,6 @@ public class Model_InvoiceDetails
         this.id_Invoice = id_Invoice;
     }
 
-    public int getId_Bottom()
-    {
-        return id_Bottom;
-    }
-
-    public void setId_Bottom(int id_Bottom)
-    {
-        this.id_Bottom = id_Bottom;
-    }
-
-    public int getId_Top()
-    {
-        return id_Top;
-    }
-
-    public void setId_Top(int id_Top)
-    {
-        this.id_Top = id_Top;
-    }
-
     public int getQuantity()
     {
         return quantity;
@@ -91,6 +72,14 @@ public class Model_InvoiceDetails
     public void setPrice(double price)
     {
         this.price = price;
+    }
+
+    public ArrayList<Model_CupCake> getCupcakes() {
+        return cupcakes;
+    }
+
+    public void setCupcakes(ArrayList<Model_CupCake> cupcakes) {
+        this.cupcakes = cupcakes;
     }
 
 }
