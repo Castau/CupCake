@@ -29,9 +29,10 @@
     String bottom4 = "Pistacio";
     String bottom5 = "Almond";
     
-    Model_User user = (Model_User) request.getSession().getAttribute("user");
-    int userID = user.getUserID();
-    Cart cart = new Cart(userID);
+    Model_User user = (Model_User) request.getAttribute("user");
+    //int userID = user.getUserID();
+    //Cart cart = new Cart(userID);
+    Mapper_CupCake mc = new Mapper_CupCake();
 %>
 
 <%!
@@ -51,14 +52,9 @@
     }
 %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
+<jsp:include page='Header.jsp'></jsp:include>
+
+
         <section class="cake-chooser-top">
             <label for="top">What type of top would you like?</label>
             <select name="top" id="top">
@@ -86,21 +82,35 @@
         <form>
             <button onclick="
                     <%
-                            Mapper_CupCake mc = new Mapper_CupCake();
-                            Model_CupCake cake = new Model_CupCake();
-                            try
-                            {
-                                cake = mc.getCupCake(1, 1);
-                            } catch (SQLException SQLx)
-                            {
-                                System.out.println("Failed to fetch cupcake");
-                            }
-                            cart.addToCart(cake);
-                            System.out.println("" + cart.getCakes().size());
+                        Model_CupCake cake = new Model_CupCake();
+                        try
+                        {
+                            cake = mc.getCupCake(1, 1);
+                        } catch (SQLException SQLx)
+                        {
+                            System.out.println("Failed to fetch cupcake");
+                        }
+                        //cart.addToCart(cake);
+                        //System.out.println("" + cart.getCakes().size());
                     %>
                     ">
                 Choose cake
             </button>
         </form>
-    </body>
-</html>
+        <form action="app/cart" method="get" target="">
+            <%
+                request.getSession().setAttribute("cart", cart);
+            %>
+         <button type="submit">Order cake(s)</button>
+        </form>  
+                    
+        <!--            
+        <form>
+            <button onclick="
+                    href = '/app/cart';
+                    ">           
+                Order cake(s)
+            </button>
+        </form>
+        -->
+<jsp:include page='Footer.jsp'></jsp:include>

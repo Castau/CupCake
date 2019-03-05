@@ -30,9 +30,10 @@ public class CMD_Shop extends Command
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html;charset=UTF-8");
-
+        
         Mapper_CupCake mc = new Mapper_CupCake();
         Model_User user = (Model_User) request.getSession().getAttribute("user");
+        request.setAttribute("user", user);
         System.out.println("" + user.getUserName());
         Cart cart = new Cart(user.getUserID());
         
