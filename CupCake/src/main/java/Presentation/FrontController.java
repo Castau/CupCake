@@ -38,6 +38,7 @@ public class FrontController extends HttpServlet
             c.execute(request, response);
         } catch (IOException | ServletException ex)
         {
+            System.out.println("FrontController exception  " + ex);
             response.setContentType("text/html;charset=UTF-8");
             try (PrintWriter out = response.getWriter())
             {

@@ -32,6 +32,7 @@ public class CMD_Customer extends Command
         try 
         {
             userID = Integer.parseInt(userid);
+            request.getRequestDispatcher("jsp/test.jsp").forward(request, response);
         }
         catch (NumberFormatException nx)
         {
