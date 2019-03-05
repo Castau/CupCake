@@ -15,11 +15,11 @@ public class DBConnectorTEST {
         Connection conn = db.getConnection();
         String res = "";
         
-        String sqlQuery = "SELECT * FROM cupcake.Cupcake_bottom;";
+        String sqlQuery = "SELECT password FROM cupcake.User";
         ResultSet rs = conn.prepareStatement(sqlQuery).executeQuery();
 
         while (rs.next()) {
-            res= rs.getString("bottom_name");
+            res= rs.getString("password");
         }
         System.out.println(res);
     }
