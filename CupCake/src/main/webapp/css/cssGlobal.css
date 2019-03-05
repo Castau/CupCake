@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
-/*NavigationBar css*/
+/*-------NavigationBar css-------*/
 
 #NavBar
 {
@@ -39,19 +39,20 @@
     float: right;
     text-align: right;
 }
-.userLink
-{
-    border-right: 5px solid #bbb;
-}
 
 #NavBar #user form /*logoutform*/
 {
-    padding-top: 7.5%;
+    padding-top: 3%;
     float: right;
     display: inline-block;
+
+}
+#logoutbutton
+{
+    background-color: red;
 }
 
-/*Footer css*/
+/*-------Footer css-------*/
 
 #footerLink
 {
@@ -64,7 +65,18 @@
     text-align: center;
 }
 
-/*Other css*/
+/*-------Index.jsp css-------*/
+#IndexImages
+{
+    text-align: center;
+}
+
+#loginbutton
+{
+    background-color: #4CAF50;
+}
+
+/*-------Other/Global css-------*/
 html, body
 {
     /*text-align: center;*/
@@ -78,7 +90,6 @@ html, body
 
 button
 {
-    background-color: #4CAF50;
     /*border: none;*/
     font-family: inherit;
     font-size: small;
@@ -87,16 +98,15 @@ button
     font-size: 16px;
 }
 
-.logoutbutton 
-{
-    padding-right: 5px !important;
-    background-color: red !important;
-}
-
 .button:hover 
 {
     background-color: #111;
 }
+
+/*.button:active
+{
+    background-color: purple;
+}*/
 h1, h2
 {
     padding: 0px;
@@ -106,7 +116,7 @@ h1, h2
 
 h1, h2, h3, h4, h5, p, a
 {
- font-family: 'Oswald', sans-serif;   
+    font-family: 'Oswald', sans-serif;   
 }
 
 .padding

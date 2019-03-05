@@ -47,6 +47,7 @@ public abstract class Command
                 break;
             default:
                 command = new CMD_Unknown();
+                break;
         }
         return command;
     }
