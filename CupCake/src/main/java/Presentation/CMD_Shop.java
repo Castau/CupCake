@@ -5,8 +5,10 @@
  */
 package Presentation;
 
+import Data.Cart;
 import Data.Mapper_CupCake;
 import Data.Model_CupCake;
+import Data.Model_User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -30,12 +32,25 @@ public class CMD_Shop extends Command
         response.setContentType("text/html;charset=UTF-8");
 
         Mapper_CupCake mc = new Mapper_CupCake();
+        Model_User user = (Model_User) request.getSession().getAttribute("user");
+        System.out.println("" + user.getUserName());
+        Cart cart = new Cart(user.getUserID());
+        
+        
         ArrayList<Model_CupCake> cupcakes = new ArrayList();
         try
         {
             cupcakes = mc.getAllCupCakes();
         } catch (SQLException ex)
         {
+            Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try
+        {
+            cart.addToCart(mc.getCupCake(1, 1));
+        } catch (Exception ex)
+        {
+            System.out.println("Shit didn't work");
             Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
         }
         try (PrintWriter out = response.getWriter())

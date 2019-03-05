@@ -26,7 +26,7 @@ public class Model_User {
         this.role = role;
         this.invoices = invoices;
     }
-
+    
     public int getUserID() {
         return userID;
     }
