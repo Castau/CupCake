@@ -44,6 +44,7 @@ public abstract class Command
                 break;
             case "logout":
                 command = new CMD_Logout();
+                break;
             default:
                 command = new CMD_Unknown();
         }
