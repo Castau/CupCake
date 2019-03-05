@@ -1,25 +1,86 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 05-03-2019, 10:38:26
-    Author     : Shevitar
-*/
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
-.headStyle
+/*Header css*/
+
+#header
+{
+    text-align: center;
+}
+
+#header #headerh1
+{
+    background-color: aquamarine;
+    display: inline;
+    color: #111;
+}
+
+/*index.html css */
+.indexH1
 {
     color: aquamarine;
 }
 
-#head
+/*NavigationBar css*/
+
+#NavBar
 {
-    color: blue;
+    background: #333;
+    width: 100%;
+    display: inline-block;
+    color: white;
 }
 
-#header #head
+#NavBar a /*Links*/
 {
-    color: red;
-    display: inline-block;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 8px 8px;
+    text-decoration: none;
+    /*border-right: 1px solid #bbb;*/
+}
+#NavBar a:hover
+{
+    background-color: #111;
+}
+
+#NavBar a:active {
+    background-color: #4CAF50;
+}
+
+#NavBar #site
+{
+    float: left;
+    text-align: left;
+}
+
+#NavBar #user
+{
+    float: right;
+    text-align: right;
+}
+
+#NavBar #user form button
+{
+    border: solid black 1px;
+    padding: 8px 8px;
+}
+
+/*Footer css*/
+
+#footerLink
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+/*Other css*/
+body
+{
+    font-family: 'Oswald', sans-serif;
 }
