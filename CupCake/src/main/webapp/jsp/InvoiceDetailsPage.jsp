@@ -31,8 +31,8 @@
         <title>Customer Page</title>
     </head>
     <body>
-        <h2>Customer Page</h2>
-        <h3>Invoice details:</h3>
+        <h3>Customer Page</h3>
+        <h4>Invoice details:</h4>
         <br/>
         <p>User name: <span id="UserName"><%= userName%></span></p>
         <p>UserID: <span id="UserID"><%= userID%></span></p>

@@ -21,7 +21,7 @@
     </head>
     <body>
         <div>
-            
+
             <h1>
                 <img src="images/cupcake_logo.png" width="25" height="25" alt=""/>
                 Copenhagen Cupcakes
