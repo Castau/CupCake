@@ -21,4 +21,5 @@ and open the template in the editor.
 #header #head
 {
     color: red;
+    display: inline-block;
 }

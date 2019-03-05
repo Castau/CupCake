@@ -4,6 +4,13 @@
     Author     : Shevitar
 --%>
 
+<%@page import="Data.Model_User"%>
+
+<%
+    Model_User user = (Model_User) session.getAttribute("user");
+    String username = user.getUserName();
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,5 +22,7 @@
     <body>
         <div id="header">
             <h1 id="head">Welcome to the CupCake Website!</h1>
+            <p id="head"> Logged in as: </p>
+            <%= username %>
         </div>
         
