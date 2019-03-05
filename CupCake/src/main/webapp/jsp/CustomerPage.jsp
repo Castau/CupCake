@@ -26,13 +26,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Customer JSP Page</h1>
+        <h1>Customer Page</h1>
         <h3>Customer details:</h3>
         <br/>
 
         <p>Logged in as: <span id="UserName"><%= userName%></span></p>
         <p>UserID: <span id="UserID"><%= userID%></span></p>
-        <br/>
         <p>E-mail: <span id="UserEmail"><%= userEmail%></span></p>
         <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
         <br/>

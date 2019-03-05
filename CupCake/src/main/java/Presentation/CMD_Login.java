@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author stein
+ * @author runin
  */
 public class CMD_Login extends Command
 {

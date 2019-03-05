@@ -1,9 +1,7 @@
 package Presentation;
 
-import Data.Model_CupCake;
 import Data.Model_Invoice;
 import Data.Model_User;
-import Logic.Controller_CupCake;
 import Logic.Controller_Invoice;
 import Logic.Controller_User;
 import java.io.IOException;
@@ -34,35 +32,12 @@ public class CMD_CustomerInvoiceDetails extends Command {
             invoice = controllerInvoice.getInvoiceWithInvoiceDetails(invoiceID);
             userID = invoice.getId_user();
             user = controllerUser.getUser(userID);
+            request.setAttribute("user", user);
+            request.setAttribute("invoice", invoice);
+            request.getRequestDispatcher("/jsp/InvoiceDetailsPage.jsp").forward(request, response);
 
         } catch (SQLException ex) {
             System.out.println("SQLException" + ex);
-        }
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Invoices</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1> User Info </h1>");
-            out.println("<p> Username " + user.getUserName() + " </p>");
-            out.println("<h1> User Invoice Details </h1>");
-            out.println("<br/>");
-            for (int i = 0; i < invoice.getInvoiceDetails().size(); i++) {
-                out.println("<p>"
-                        + "Cake top name: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getTopName()
-                        + " price: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getTopPrice()
-                        + "<br/>"
-                        + "Cake bottom name: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getBottomName()
-                        + " price: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getBottomPrice()
-                        + "<br/>"
-                        + "</p>");
-            }
-            out.println("<br/>");
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 
