@@ -3,7 +3,9 @@
     Created on : 05-03-2019, 12:44:10
     Author     : Camilla
 --%>
-
+<jsp:include page='Footer.jsp'></jsp:include>
+<jsp:include page='Header.jsp'></jsp:include>
+<jsp:include page='NavigationBar.jsp'></jsp:include>
 <%@page import="Data.Model_InvoiceDetails"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Data.Model_Invoice"%>
@@ -24,10 +26,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="../css/cssHeader.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Customer Page</title>
     </head>
     <body>
+        <h2>Customer Page</h2>
+        <h3>Invoice details:</h3>
+        <br/>
         <p>User name: <span id="UserName"><%= userName%></span></p>
         <p>UserID: <span id="UserID"><%= userID%></span></p>
         <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
