@@ -31,26 +31,49 @@
         <title>Customer Page</title>
     </head>
     <body>
-        <div class="col-md-6 padding">
+        <div class="padding">
             <h4>Invoice details:</h4>
             <br/>
-            <p>User name: <span id="UserName"><%= userName%></span></p>
-            <p>UserID: <span id="UserID"><%= userID%></span></p>
-            <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
-            <p>Invoice Details for invoice: <span id="InvoiceDetails"><%= invoiceID%></span></p>
-
-            <%
-                for (int i = 0; i < invoiceDetails.size(); i++) {
-                    out.println("<p>"
-                            + "Cake top name: " + invoiceDetails.get(i).getCupcakes().get(i).getTopName()
-                            + " price: " + invoiceDetails.get(i).getCupcakes().get(i).getTopPrice()
-                            + "<br/>"
-                            + "Cake bottom name: " + invoiceDetails.get(i).getCupcakes().get(i).getBottomName()
-                            + " price: " + invoiceDetails.get(i).getCupcakes().get(i).getBottomPrice()
-                            + "<br/>"
-                            + "</p>");
-                }
-            %>
+            <p>User name: <%= userName%></p>
+            <p>UserID: <%= userID%></p>
+            <p>Balance: <%= balance%> $</p>
+            <br/>
+            <p>Invoice Details for invoice number: <%= invoiceID%></p>
+            <br/>
+            <table class="table">
+                <tr>
+                    <th>
+                        Cake Top
+                    </th>
+                    <th>
+                        Cake Top Price
+                    </th>
+                    <th>
+                        Cake bottom
+                    </th>
+                    <th>
+                        Cake bottom Price
+                    </th>
+                </tr>
+                <%
+                        for (int i = 0; i < invoiceDetails.size(); i++) {%>
+                <tr>
+                    <td>
+                        <%= invoiceDetails.get(i).getCupcakes().get(i).getTopName()%>
+                    </td>
+                    <td>
+                        <%= invoiceDetails.get(i).getCupcakes().get(i).getTopPrice()%>
+                    </td>
+                    <td>
+                        <%= invoiceDetails.get(i).getCupcakes().get(i).getBottomName()%>
+                    </td>
+                    <td>
+                        <%= invoiceDetails.get(i).getCupcakes().get(i).getBottomPrice()%>
+                    </td>
+                </tr>
+                <% }%>
+            </table>
+            <p>Total price: <%=invoice.getTotalPrice()%></p>
         </div>
     </body>
 </html>
