@@ -27,13 +27,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../css/cssHeader.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer Page</title>
     </head>
     <body>
-        
-        <h3>Invoice details:</h3>
+
+        <h4>Invoice details:</h4>
         <br/>
         <p>User name: <span id="UserName"><%= userName%></span></p>
         <p>UserID: <span id="UserID"><%= userID%></span></p>

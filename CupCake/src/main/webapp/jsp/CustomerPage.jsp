@@ -25,28 +25,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../css/cssHeader.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer Page</title>
     </head>
     <body>
 
-        <h3>Customer details:</h3>
-        <br/>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Customer details:</h4>
+                <br/>
+                <p>Logged in as: <span id="UserName"><%= userName%></span></p>
+                <p>UserID: <span id="UserID"><%= userID%></span></p>
+                <p>E-mail: <span id="UserEmail"><%= userEmail%></span></p>
+                <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
+            </div>
+            <div class="col-md-6">
+                <h4>Invoices:</h4>
 
-        <p>Logged in as: <span id="UserName"><%= userName%></span></p>
-        <p>UserID: <span id="UserID"><%= userID%></span></p>
-        <p>E-mail: <span id="UserEmail"><%= userEmail%></span></p>
-        <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
-        <br/>
-        <p>Invoices:</p>
-
-        <%
-            for (int i = 0; i < userInvoices.size(); i++)
-            {
-                out.println("<a href='app/customerinvoice?invoiceid=" + userInvoices.get(i).getId_invoice() + "'><p>"
-                        + "Invoice ID | " + userInvoices.get(i).getId_invoice()
-                        + " | Total price | " + userInvoices.get(i).getTotalPrice() + "</p></a>");
-            }
-        %>
-        <jsp:include page='Footer.jsp'></jsp:include>
+                <%
+                    for (int i = 0; i < userInvoices.size(); i++) {
+                        out.println("<a href='app/customerinvoice?invoiceid=" + userInvoices.get(i).getId_invoice() + "'><p>"
+                                + "Invoice ID | " + userInvoices.get(i).getId_invoice()
+                                + " | Total price | " + userInvoices.get(i).getTotalPrice() + "</p></a>");
+                    }
+                %>
+            </div>
+        </div>
+<jsp:include page='Footer.jsp'></jsp:include>
