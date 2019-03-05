@@ -24,7 +24,7 @@ public class CMD_CustomerInvoiceDetails extends Command {
 
         String invoiceid = request.getParameter("invoiceid");
         int invoiceID = Integer.parseInt(invoiceid);
-        
+
         Controller_User controllerUser = new Controller_User();
         Controller_Invoice controllerInvoice = new Controller_Invoice();
         Model_Invoice invoice = null;
@@ -50,16 +50,15 @@ public class CMD_CustomerInvoiceDetails extends Command {
             out.println("<p> Username " + user.getUserName() + " </p>");
             out.println("<h1> User Invoice Details </h1>");
             out.println("<br/>");
-            for (int i = 0; i < invoice.getInvoiceDetails().size(); i++) 
-            {
+            for (int i = 0; i < invoice.getInvoiceDetails().size(); i++) {
                 out.println("<p>"
-                       + "Cake top name: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getTopName()
-                       + " price: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getTopPrice()
-                       + "<br/>"
-                       + "Cake bottom name: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getBottomName()
-                       + " price: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getBottomPrice()
-                       + "<br/>" 
-                       + "</p>");
+                        + "Cake top name: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getTopName()
+                        + " price: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getTopPrice()
+                        + "<br/>"
+                        + "Cake bottom name: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getBottomName()
+                        + " price: " + invoice.getInvoiceDetails().get(i).getCupcakes().get(i).getBottomPrice()
+                        + "<br/>"
+                        + "</p>");
             }
             out.println("<br/>");
             out.println("</body>");
