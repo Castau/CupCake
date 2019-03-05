@@ -31,25 +31,28 @@
         <title>Customer Page</title>
     </head>
     <body>
+        <div class="col-md-6 padding">
+            <h4>Invoice details:</h4>
+            <br/>
+            <p>User name: <span id="UserName"><%= userName%></span></p>
+            <p>UserID: <span id="UserID"><%= userID%></span></p>
+            <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
+            <p>Invoice Details for invoice: <span id="InvoiceDetails"><%= invoiceID%></span></p>
 
-        <h4>Invoice details:</h4>
-        <br/>
-        <p>User name: <span id="UserName"><%= userName%></span></p>
-        <p>UserID: <span id="UserID"><%= userID%></span></p>
-        <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
-        <p>Invoice Details for invoice: <span id="InvoiceDetails"><%= invoiceID%></span></p>
-        
-        <%
-            for (int i = 0; i < invoiceDetails.size(); i++) {
-                out.println("<p>"
-                        + "Cake top name: " + invoiceDetails.get(i).getCupcakes().get(i).getTopName()
-                        + " price: " + invoiceDetails.get(i).getCupcakes().get(i).getTopPrice()
-                        + "<br/>"
-                        + "Cake bottom name: " + invoiceDetails.get(i).getCupcakes().get(i).getBottomName()
-                        + " price: " + invoiceDetails.get(i).getCupcakes().get(i).getBottomPrice()
-                        + "<br/>"
-                        + "</p>");
-            }
-        %>
-        
+            <%
+                for (int i = 0; i < invoiceDetails.size(); i++) {
+                    out.println("<p>"
+                            + "Cake top name: " + invoiceDetails.get(i).getCupcakes().get(i).getTopName()
+                            + " price: " + invoiceDetails.get(i).getCupcakes().get(i).getTopPrice()
+                            + "<br/>"
+                            + "Cake bottom name: " + invoiceDetails.get(i).getCupcakes().get(i).getBottomName()
+                            + " price: " + invoiceDetails.get(i).getCupcakes().get(i).getBottomPrice()
+                            + "<br/>"
+                            + "</p>");
+                }
+            %>
+        </div>
+    </body>
+</html>
+
 <jsp:include page='Footer.jsp'></jsp:include>

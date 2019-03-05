@@ -25,16 +25,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer Page</title>
     </head>
     <body>
-
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row antimargin">
+            <div class="col-md-6 padding">
                 <h4>Customer details:</h4>
                 <br/>
                 <p>Logged in as: <span id="UserName"><%= userName%></span></p>
@@ -42,8 +38,9 @@
                 <p>E-mail: <span id="UserEmail"><%= userEmail%></span></p>
                 <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 padding">
                 <h4>Invoices:</h4>
+                <br/>
 
                 <%
                     for (int i = 0; i < userInvoices.size(); i++) {
@@ -54,4 +51,4 @@
                 %>
             </div>
         </div>
-<jsp:include page='Footer.jsp'></jsp:include>
+        <jsp:include page='Footer.jsp'></jsp:include>

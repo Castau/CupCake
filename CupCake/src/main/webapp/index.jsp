@@ -16,7 +16,7 @@
     <p>What kind of cupcakes</p>
     <p>Images of said cupcakes</p>
     <p>"log in to order these gdamn cupcakes"</p>
-    <form action="app/customer" method="get">
+    <form action="app/login" method="get">
         <div>
             <label for="username">Username</label>
             <input name="username" id="username" value="admin" style="display: inline-block">

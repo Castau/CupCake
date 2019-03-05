@@ -103,3 +103,19 @@ h1, h2
     margin: 0px;
     text-align: center;
 }
+
+h1, h2, h3, h4, h5, p, a
+{
+ font-family: 'Oswald', sans-serif;   
+}
+
+.padding
+{
+    padding: 30px 30px 30px 30px;
+}
+
+.antimargin
+{
+    margin-left: 15px;
+    margin-right: 15px;
+}
