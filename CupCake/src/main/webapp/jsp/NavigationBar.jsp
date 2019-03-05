@@ -22,10 +22,10 @@
         else
         {
         %>
-        <a href="app/CustomerPage.jsp"><%= user.getUserName()%></a>
+        <a href="app/CustomerPage.jsp"><%= user.getUserName()%> |</a>
         <!--<a href="Controller?command=userlogout">Log out</a>-->
-        <form action="app/logout" method="post">
-            <button type="submit"/>Log out</button>
+        <form id = "logoutform" action="app/logout" method="post">
+            <button id = "logoutbutton" type="submit"/>Log out</button>
         </form>
         <%
             }
