@@ -16,13 +16,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!--<link rel="stylesheet" type="text/css" href="../css/cssHeader.css">--> <!--Already defined in index.jsp-->
+        <link rel="stylesheet" type="text/css" href="css/cssHeader.css">
         <title>CupCake</title>
     </head>
     <body>
         <div>
-            <h1>Welcome to Copenhagen Cupcakes!</h1>
-            <h2>Please login or register to continue</h2>
-            <!--<p id="head"> Logged in as: </p>
-            <%/*= username*/%>-->
+            
+            <h1>
+                <img src="images/cupcake_logo.png" width="25" height="25" alt=""/>
+                Copenhagen Cupcakes
+                <img src="images/cupcake_logo.png" width="25" height="25" alt=""/>
+            </h1>
         </div>
