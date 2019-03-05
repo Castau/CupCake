@@ -15,9 +15,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <base href="${pageContext.request.contextPath}/" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/cssHeader.css">
-        <title>CupCake</title>
+        <link rel="icon" href="images/favicon.png" type="image/png">
+        <title>Copenhagen Cupcakes</title>
     </head>
     <body>
         <div>
