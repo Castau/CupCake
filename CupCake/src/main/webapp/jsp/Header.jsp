@@ -21,7 +21,8 @@
     </head>
     <body>
         <div>
-            <h1>Welcome to the CupCake Website!</h1>
+            <h1>Welcome to Copenhagen Cupcakes!</h1>
+            <h2>Please login or register to continue</h2>
             <!--<p id="head"> Logged in as: </p>
             <%/*= username*/%>-->
         </div>
