@@ -21,9 +21,9 @@ public class CMD_Logout extends Command
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         HttpSession session = request.getSession();
-        if (session.getAttribute("userloggedin") != null)
+        if (session.getAttribute("user") != null)
         {
-            session.setAttribute("userloggedin", null);
+            session.setAttribute("user", null);
             response.sendRedirect("index.jsp");
         }
     }
