@@ -19,45 +19,75 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Camilla
  */
-public class CMD_Customer extends Command {
+public class CMD_Customer extends Command
+{
 
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         response.setContentType("text/html;charset=UTF-8");
 
         String userid = request.getParameter("userid");
-        int userID = Integer.parseInt(userid);
-
-        Controller_User controller = new Controller_User();
-        Model_User user = null;
-        try {
-            user = controller.getUserWithInvoices(userID);
-        } catch (SQLException ex) {
-            System.out.println("SQLException" + ex);
+        int userID = -1;
+        try 
+        {
+            userID = Integer.parseInt(userid);
         }
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Invoices</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1> User Info </h1>");
-            out.println("<p> Username " + user.getUserName() + " </p>");
-            out.println("<p> E-mail " + user.getEmail() + " </p>");
-            out.println("<p> Role " + user.getRole() + " </p>");
-            out.println("<h1> User Invoices </h1>");
-            out.println("<br/>");
-            for (int i = 0; i < user.getInvoices().size(); i++) {
-                out.println("<a href='customerinvoice?invoiceid=" + user.getInvoices().get(i).getId_invoice() + "'><p>"
-                       + "Invoice ID " + user.getInvoices().get(i).getId_invoice() 
-                       + " Total price " + user.getInvoices().get(i).getTotalPrice() +  "</p></a>");
+        catch (NumberFormatException nx)
+        {
+            System.out.println("Null userid");
+        }
+        if (userid == null)
+        {
+            try (PrintWriter out = response.getWriter())
+            {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>No user found</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1> No user found </h1>");
+                out.println("<p> You must enter a user ID (as a parameter) </p>");
+                out.println("</body>");
+                out.println("</html>");
             }
-            out.println("<br/>");
-            out.println("</body>");
-            out.println("</html>");
+        } else
+        {
+            Controller_User controller = new Controller_User();
+            Model_User user = null;
+            try
+            {
+                user = controller.getUserWithInvoices(userID);
+            } catch (SQLException ex)
+            {
+                System.out.println("SQLException" + ex);
+            }
+
+            try (PrintWriter out = response.getWriter())
+            {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Invoices</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1> User Info </h1>");
+                out.println("<p> Username " + user.getUserName() + " </p>");
+                out.println("<p> E-mail " + user.getEmail() + " </p>");
+                out.println("<p> Role " + user.getRole() + " </p>");
+                out.println("<h1> User Invoices </h1>");
+                out.println("<br/>");
+                for (int i = 0; i < user.getInvoices().size(); i++)
+                {
+                    out.println("<a href='customerinvoice?invoiceid=" + user.getInvoices().get(i).getId_invoice() + "'><p>"
+                            + "Invoice ID " + user.getInvoices().get(i).getId_invoice()
+                            + " Total price " + user.getInvoices().get(i).getTotalPrice() + "</p></a>");
+                }
+                out.println("<br/>");
+                out.println("</body>");
+                out.println("</html>");
+            }
         }
     }
-
 }
