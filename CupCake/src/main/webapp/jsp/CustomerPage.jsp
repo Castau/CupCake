@@ -3,8 +3,9 @@
     Created on : 05-03-2019, 10:09:48
     Author     : Camilla
 --%>
-<jsp:include page='Footer.jsp'></jsp:include>
+
 <jsp:include page='Header.jsp'></jsp:include>
+    <h2>Customer Page</h2>
 <jsp:include page='NavigationBar.jsp'></jsp:include>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Data.Model_Invoice"%>
@@ -29,7 +30,7 @@
         <title>Customer Page</title>
     </head>
     <body>
-        <h2>Customer Page</h2>
+
         <h3>Customer details:</h3>
         <br/>
 
@@ -41,11 +42,11 @@
         <p>Invoices:</p>
 
         <%
-            for (int i = 0; i < userInvoices.size(); i++) {
-                out.println("<a href='customerinvoice?invoiceid=" + userInvoices.get(i).getId_invoice() + "'><p>"
+            for (int i = 0; i < userInvoices.size(); i++)
+            {
+                out.println("<a href='app/customerinvoice?invoiceid=" + userInvoices.get(i).getId_invoice() + "'><p>"
                         + "Invoice ID | " + userInvoices.get(i).getId_invoice()
                         + " | Total price | " + userInvoices.get(i).getTotalPrice() + "</p></a>");
             }
         %>
-    </body>
-</html>
+        <jsp:include page='Footer.jsp'></jsp:include>

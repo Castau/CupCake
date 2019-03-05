@@ -75,12 +75,24 @@ html, body
     font-family: 'Oswald', sans-serif;
 
 }
+
 button
 {
+    background-color: #4CAF50;
+    /*border: none;*/
     font-family: inherit;
     font-size: small;
     text-align: center;
+    display: inline-block;
+    font-size: 16px;
 }
+
+.logoutbutton 
+{
+    padding-right: 5px !important;
+    background-color: red !important;
+}
+
 .button:hover 
 {
     background-color: #111;

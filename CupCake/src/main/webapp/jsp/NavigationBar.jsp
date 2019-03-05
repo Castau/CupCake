@@ -24,7 +24,7 @@
         %>
         <a href="app/CustomerPage.jsp"><%= user.getUserName()%> |</a>
         <!--<a href="Controller?command=userlogout">Log out</a>-->
-        <form id = "logoutform" action="app/logout" method="post">
+        <form id = "logoutform" action="logout" method="post">
             <button id = "logoutbutton" type="submit"/>Log out</button>
         </form>
         <%
