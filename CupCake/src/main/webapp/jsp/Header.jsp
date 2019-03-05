@@ -7,8 +7,8 @@
 <%@page import="Data.Model_User"%>
 
 <%
-    Model_User user = (Model_User) session.getAttribute("user");
-    String username = user.getUserName();
+    /*Model_User user = (Model_User) session.getAttribute("user");
+    String username = user.getUserName();*/
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,13 +16,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="../css/cssHeader.css">
+        <!--<link rel="stylesheet" type="text/css" href="../css/cssHeader.css">--> <!--Already defined in index.jsp-->
         <title>CupCake</title>
     </head>
     <body>
         <div id="header">
-            <h1 id="head">Welcome to the CupCake Website!</h1>
-            <p id="head"> Logged in as: </p>
-            <%= username %>
+            <h1 id="headerh1">Welcome to the CupCake Website!</h1>
+            <!--<p id="head"> Logged in as: </p>
+            <%/*= username*/%>-->
         </div>
-        
