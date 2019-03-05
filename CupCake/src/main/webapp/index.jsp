@@ -8,6 +8,15 @@
 <jsp:include page='jsp/Header.jsp'></jsp:include>
 <h2>Please login or register to continue</h2>
 <jsp:include page='jsp/NavigationBar.jsp'></jsp:include>
+<h3>Here are some of our <em>most popular cupcakes</em></h3>
+
+<img style="display: inline" src="images/Frosting.png" alt=""/>
+<img src="images/Vanilla.png" alt=""/>
+<img src="images/Peanut.png" alt=""/>
+<img src="images/Chocolate.png" alt=""/>
+<img src="images/Pecan.png" alt=""/>
+<img src="images/Strawberry.png" alt=""/>
+
 
 
     <h3>Hello Cupcake!</h3>

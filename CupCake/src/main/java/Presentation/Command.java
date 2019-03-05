@@ -42,6 +42,9 @@ public abstract class Command
             case "customerinvoice":
                 command = new CMD_CustomerInvoiceDetails();
                 break;
+            case "logout":
+                command = new CMD_Logout();
+                break;
             default:
                 command = new CMD_Unknown();
         }
