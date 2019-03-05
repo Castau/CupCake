@@ -20,8 +20,8 @@
         <title>CupCake</title>
     </head>
     <body>
-        <div id="header">
-            <h1 id="headerh1">Welcome to the CupCake Website!</h1>
+        <div>
+            <h1>Welcome to the CupCake Website!</h1>
             <!--<p id="head"> Logged in as: </p>
             <%/*= username*/%>-->
         </div>

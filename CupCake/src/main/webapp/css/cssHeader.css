@@ -1,25 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
-/*Header css*/
-
-#header
-{
-    text-align: center;
-}
-
-#header #headerh1
-{
-    background-color: aquamarine;
-    display: inline;
-    color: #111;
-}
-
-/*index.html css */
-.indexH1
-{
-    color: aquamarine;
-}
-
 /*NavigationBar css*/
 
 #NavBar
@@ -78,7 +58,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: inherit ;
     background-color: #333;
     color: white;
     text-align: center;
@@ -87,15 +67,23 @@
 /*Other css*/
 html, body
 {
-    width: 100%;
+    /*text-align: center;*/
+    /*width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0;*/
     font-family: 'Oswald', sans-serif;
+    
 }
 button
 {
     font-family: inherit;
     font-size: small;
+    text-align: center;
+}
+h1, h2
+{
+    padding: 0px;
+    margin: 0px;
     text-align: center;
 }
