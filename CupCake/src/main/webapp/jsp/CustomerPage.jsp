@@ -33,22 +33,41 @@
             <div class="col-md-6 padding">
                 <h4>Customer details:</h4>
                 <br/>
-                <p>Logged in as: <span id="UserName"><%= userName%></span></p>
-                <p>UserID: <span id="UserID"><%= userID%></span></p>
-                <p>E-mail: <span id="UserEmail"><%= userEmail%></span></p>
-                <p>Balance: <span id="UserBalance"><%= balance%>$</span></p>
+                <p>Logged in as: <%= userName%></p>
+                <p>UserID: <%= userID%></p>
+                <p>E-mail: <%= userEmail%></p>
+                <p>Balance: <%= balance%> $</p>
             </div>
             <div class="col-md-6 padding">
                 <h4>Invoices:</h4>
                 <br/>
-
-                <%
-                    for (int i = 0; i < userInvoices.size(); i++) {
-                        out.println("<a href='app/customerinvoice?invoiceid=" + userInvoices.get(i).getId_invoice() + "'><p>"
-                                + "Invoice ID | " + userInvoices.get(i).getId_invoice()
-                                + " | Total price | " + userInvoices.get(i).getTotalPrice() + "</p></a>");
-                    }
-                %>
+                <table class="table">
+                    <tr>
+                        <th>
+                            Invoice ID
+                        </th>
+                        <th>
+                            Total price
+                        </th>
+                        <th>
+                            See details
+                        </th>
+                    </tr>
+                    <%
+                        for (int i = 0; i < userInvoices.size(); i++) {%>
+                    <tr>
+                        <td>
+                            <%= userInvoices.get(i).getId_invoice()%>
+                        </td>
+                        <td>
+                            <%= userInvoices.get(i).getTotalPrice()%>
+                        </td>
+                        <td>
+                            <a href="app/customerinvoice?invoiceid=<%=userInvoices.get(i).getId_invoice()%>"> Order details</a>
+                        </td>
+                    </tr>
+                    <% } %>
+                </table>
             </div>
         </div>
         <jsp:include page='Footer.jsp'></jsp:include>
