@@ -27,8 +27,8 @@ public class Mapper_CupCake
         {
             String topName = rs.getString("top_name");
             String bottomName = rs.getString("bottom_name");
-            double topPrice = Integer.parseInt(rs.getString("top_price"));
-            double bottomPrice = Integer.parseInt(rs.getString("bottom_price"));
+            double topPrice = rs.getInt("top_price");
+            double bottomPrice = rs.getInt("bottom_price");
             cupCake = new Model_CupCake(bID, tID, bottomName, topName, bottomPrice, topPrice);
         }
         return cupCake;
@@ -44,12 +44,12 @@ public class Mapper_CupCake
         Model_CupCake cupCake = null;
         while(rs.next())
         {
-            int topID = Integer.parseInt(rs.getString("id_top"));
-            int bottomID = Integer.parseInt(("id_bottom"));
+            int topID = rs.getInt("id_top");
+            int bottomID = rs.getInt("id_bottom");
             String topName = rs.getString("top_name");
             String bottomName = rs.getString("bottom_name");
-            double topPrice = Integer.parseInt(rs.getString("top_price"));
-            double bottomPrice = Integer.parseInt(rs.getString("bottom_price"));
+            double topPrice = rs.getInt("top_price");
+            double bottomPrice = rs.getInt("bottom_price");
             cupCake = new Model_CupCake(topID, bottomID, bottomName, topName, bottomPrice, topPrice);
             allCupCakes.add(cupCake);
         }

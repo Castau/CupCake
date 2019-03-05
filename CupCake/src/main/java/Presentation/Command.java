@@ -37,7 +37,7 @@ public abstract class Command
                 command = new CMD_ShoppingCart();
                 break;
             case "customer":
-                command = new CMD_Customer();
+                command = new CMD_Customer();   
                 break;
 
             case "customerinvoice":
