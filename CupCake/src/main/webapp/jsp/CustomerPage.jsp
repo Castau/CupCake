@@ -27,7 +27,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../css/cssHeader.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer Page</title>
     </head>
@@ -49,7 +48,7 @@
 
                 <%
                     for (int i = 0; i < userInvoices.size(); i++) {
-                        out.println("<a href='customerinvoice?invoiceid=" + userInvoices.get(i).getId_invoice() + "'><p>"
+                        out.println("<a href='app/customerinvoice?invoiceid=" + userInvoices.get(i).getId_invoice() + "'><p>"
                                 + "Invoice ID | " + userInvoices.get(i).getId_invoice()
                                 + " | Total price | " + userInvoices.get(i).getTotalPrice() + "</p></a>");
                     }
