@@ -21,8 +21,6 @@
     String userName = user.getUserName();
     double balance = user.getBalance();
     ArrayList<Model_InvoiceDetails> invoiceDetails = invoice.getInvoiceDetails();
-    ArrayList<Model_CupCake> cupcakes = (ArrayList<Model_CupCake>) request.getAttribute("cupcakes");
-
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -58,11 +56,11 @@
                     </th>
                 </tr>
                 <%
-                    for (int i = 0; i < cupcakes.size(); i++) {
-                        String topName = cupcakes.get(i).getTopName();
-                        Double topPrice = cupcakes.get(i).getTopPrice();
-                        String bottomName = cupcakes.get(i).getBottomName();
-                        Double bottomPrice = cupcakes.get(i).getBottomPrice();
+                    for (int i = 0; i < invoiceDetails.size(); i++) {
+                        String topName = invoiceDetails.get(i).getCupcakes().getTopName();
+                        Double topPrice = invoiceDetails.get(i).getCupcakes().getTopPrice();
+                        String bottomName = invoiceDetails.get(i).getCupcakes().getBottomName();
+                        Double bottomPrice = invoiceDetails.get(i).getCupcakes().getBottomPrice();
 
                         out.print("<tr>");
                         out.print("<td>" + topName + "</td>");

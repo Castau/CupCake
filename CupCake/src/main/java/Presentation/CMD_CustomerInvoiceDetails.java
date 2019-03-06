@@ -31,21 +31,12 @@ public class CMD_CustomerInvoiceDetails extends Command {
         Model_Invoice invoice = null;
         Model_User user = null;
         int userID = 0;
-        ArrayList<Model_CupCake> cupcakes = new ArrayList();
-        ArrayList<Model_InvoiceDetails> invoiceDetails;
         try {
             invoice = controllerInvoice.getInvoiceWithInvoiceDetails(invoiceID);
             userID = invoice.getId_user();
             user = controllerUser.getUser(userID);
             request.setAttribute("user", user);
             request.setAttribute("invoice", invoice);
-            invoiceDetails = invoice.getInvoiceDetails();
-            
-            for (int i = 0; i < invoiceDetails.size(); i++) {
-                cupcakes.add(invoiceDetails.get(i).getCupcakes());
-            }
-            request.setAttribute("cupcakes", cupcakes);
-            
             request.getRequestDispatcher("/jsp/InvoiceDetailsPage.jsp").forward(request, response);
 
         } catch (SQLException ex) {
