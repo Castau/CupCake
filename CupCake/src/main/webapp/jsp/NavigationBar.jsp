@@ -16,10 +16,12 @@
         <nav id="home">
             <a href=".">Home</a>
         </nav>
-        
+        <!--<%/*if (user != null)
+        {*/%>-->
         <nav id ="shop">
-            <a href="shop.jsp">Shop</a>
+            <a href="app/shop">Shop</a>
         </nav>
+       <!-- <%/*}*/%>-->
     </div>
     <div id ="rightBar">
         
