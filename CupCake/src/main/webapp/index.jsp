@@ -9,12 +9,13 @@
     <h2>Please login or register to continue</h2>
 <jsp:include page='jsp/NavigationBar.jsp'></jsp:include>
 
-    <div id="IndexImages">
+    <div id="IndexText" class = "padding">
         <h3>Here are some of our <em>most popular cupcakes</em></h3>
         <img src="images/cupcake.jpeg"  height="125" width="125" alt="fail to load 1"/>
         <img src="images/cupcake2.jpg" height="125" width="125" alt="fail to load 2"/>
         <img src="images/cupcake3.jpg" height="125" width="125" alt="fail to load 3"/>
         <img src="images/cupcake4.jpeg" height="125" width="125" alt="fail to load 4"/>
+        <h4>Here we add a list of all our cupcake options</h4>
     </div>
     <h3>Hello Cupcake!</h3>
     <p>Ideas for this page:</p>

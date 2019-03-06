@@ -12,30 +12,43 @@
 
 <div id="NavBar">
 
-    <nav id="site">
-        <a href=".">Home</a>
-    </nav>
+    <div id="leftBar">
+        <nav id="home">
+            <a href=".">Home</a>
+        </nav>
+        
+        <nav id ="shop">
+            <a href="shop.jsp">Shop</a>
+        </nav>
+    </div>
+    <div id ="rightBar">
+        
+        <nav id="cart">
+            <a href="ShoppingCart.jsp"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping cart</a>
+        </nav>
+        
+        <nav id="user">
 
-    <nav id="user">
-
-        <%            if (user == null)
+            <%            if (user == null)
+                {
+            %>
+            <a href="login">Login/Register</a>
+            <%
+            } else
             {
-        %>
-        <a href="login">Login/Register</a>
-        <%
+            %>
+            <a href="app/customer"><%= username%></a>
+        </nav>
+        <nav id="logout">
+            <form id = "logoutform" action="app/logout" method="post">
+                <button class ="button" id="logoutbutton" type="submit"/>Log out</button>
+            </form>
+        </nav>
+    </div>
+    <%
         }
-        else
-        {
-        %>
-        <a href="app/customer"><%= username%> |</a>
-        <!--<a href="Controller?command=userlogout">Log out</a>-->
-        <form id = "logoutform" action="app/logout" method="post">
-            <button class ="button" id="logoutbutton" type="submit"/>Log out</button>
-        </form>
-        <%
-            }
-        %>
+    %>
 
-    </nav>
+
 
 </div>
