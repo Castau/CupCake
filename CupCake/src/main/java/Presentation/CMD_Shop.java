@@ -33,28 +33,32 @@ public class CMD_Shop extends Command
         
         Mapper_CupCake mc = new Mapper_CupCake();
         Model_User user = (Model_User) request.getSession().getAttribute("user");
-        request.setAttribute("user", user);
         System.out.println("" + user.getUserName());
-        Cart cart = new Cart(user.getUserID());
-        
-        
-        ArrayList<Model_CupCake> cupcakes = new ArrayList();
-        try
+        Cart cart = null;
+        if (request.getSession().getAttribute("cart") == null)
         {
-            cupcakes = mc.getAllCupCakes();
-        } catch (SQLException ex)
-        {
-            Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
+            cart = new Cart(user.getUserID());
         }
-        try
+        else
         {
-            cart.addToCart(mc.getCupCake(1, 1));
-        } catch (Exception ex)
-        {
-            System.out.println("couldn't add to cart");
-            Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
+            cart = (Cart) request.getSession().getAttribute("cart");
         }
+        if (request.getParameter("top") != null)
+        {
+            int top = Integer.parseInt(request.getParameter("top"));
+            int bottom = Integer.parseInt(request.getParameter("bottom"));
+            try
+            {
+                Model_CupCake cake = mc.getCupCake(top, bottom);
+                cart.addToCart(cake);
+            } catch (SQLException ex)
+            {
+                System.out.println("Could not fetch cupcake from database in CMD_Shop");
+                Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        System.out.println("Amount of shit in the cart: " + cart.getCakes().size());
+        request.getSession().setAttribute("cart", cart);
         request.getRequestDispatcher("/jsp/ShopPage.jsp").forward(request, response);
     }
-
 }
