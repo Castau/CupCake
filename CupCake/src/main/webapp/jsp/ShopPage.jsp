@@ -30,6 +30,7 @@
     String bottom5 = "Almond";
     
     Cart cart = (Cart)request.getSession().getAttribute("cart");
+    double finalPrice = 0;
 %>
 
 
@@ -73,7 +74,8 @@
                     <tr>
                         <th>CupCake top</th>
                         <th>CupCake bottom</th>
-                        <th>Total price</th>
+                        <th>Total cake price</th>
+                        <th>Final price</th>
                     </tr>
                     <%
                         for (int i = 0; i < cart.getCakes().size(); i++)
@@ -87,9 +89,13 @@
                         </td>
                         <td>
                             <%= cart.getCakes().get(i).getTotalPrice()%>
+                            <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
+                        </td>
+                    <% }%>
+                        <td>
+                            <%= finalPrice%>
                         </td>
                     </tr>
-                    <% }%>
                 </table> 
             </br>
             </br>
