@@ -4,6 +4,7 @@
     Author     : Camilla
 --%>
 
+<%@page import="Data.Model_CupCake"%>
 <jsp:include page='Header.jsp'></jsp:include>
     <h2>Customer Invoices</h2>
 <jsp:include page='NavigationBar.jsp'></jsp:include>
@@ -20,6 +21,7 @@
     String userName = user.getUserName();
     double balance = user.getBalance();
     ArrayList<Model_InvoiceDetails> invoiceDetails = invoice.getInvoiceDetails();
+    ArrayList<Model_CupCake> cupcakes = (ArrayList<Model_CupCake>) request.getAttribute("cupcakes");
 
 %>
 
@@ -56,22 +58,20 @@
                     </th>
                 </tr>
                 <%
-                        for (int i = 0; i < invoiceDetails.size(); i++) {%>
-                <tr>
-                    <td>
-                        <%= invoiceDetails.get(i).getCupcakes().get(i).getTopName()%>
-                    </td>
-                    <td>
-                        <%= invoiceDetails.get(i).getCupcakes().get(i).getTopPrice()%>
-                    </td>
-                    <td>
-                        <%= invoiceDetails.get(i).getCupcakes().get(i).getBottomName()%>
-                    </td>
-                    <td>
-                        <%= invoiceDetails.get(i).getCupcakes().get(i).getBottomPrice()%>
-                    </td>
-                </tr>
-                <% }%>
+                    for (int i = 0; i < cupcakes.size(); i++) {
+                        String topName = cupcakes.get(i).getTopName();
+                        Double topPrice = cupcakes.get(i).getTopPrice();
+                        String bottomName = cupcakes.get(i).getBottomName();
+                        Double bottomPrice = cupcakes.get(i).getBottomPrice();
+
+                        out.print("<tr>");
+                        out.print("<td>" + topName + "</td>");
+                        out.print("<td>" + topPrice + "</td>");
+                        out.print("<td>" + bottomName + "</td>");
+                        out.print("<td>" + bottomPrice + "</td>");
+                        out.print("</tr>");
+                    }
+                %>
             </table>
             <p>Total price: <%=invoice.getTotalPrice()%></p>
         </div>

@@ -18,20 +18,20 @@ public class Model_InvoiceDetails
     private int id_Invoice;
     private int quantity;
     private double price;
-    private ArrayList<Model_CupCake> cupcakes;
+    private Model_CupCake cupcake;
     
 
     public Model_InvoiceDetails()
     {
     }
 
-    public Model_InvoiceDetails(int id_Invoice_Details, int id_Invoice, int quantity, double price, ArrayList<Model_CupCake> cupcakes)
+    public Model_InvoiceDetails(int id_Invoice_Details, int id_Invoice, int quantity, double price, Model_CupCake cupcake)
     {
         this.id_Invoice_Details = id_Invoice_Details;
         this.id_Invoice = id_Invoice;
         this.quantity = quantity;
         this.price = price;
-        this.cupcakes = cupcakes;
+        this.cupcake = cupcake;
     }
 
     public int getId_Invoice_Details()
@@ -74,12 +74,12 @@ public class Model_InvoiceDetails
         this.price = price;
     }
 
-    public ArrayList<Model_CupCake> getCupcakes() {
-        return cupcakes;
+    public Model_CupCake getCupcakes() {
+        return cupcake;
     }
 
-    public void setCupcakes(ArrayList<Model_CupCake> cupcakes) {
-        this.cupcakes = cupcakes;
+    public void setCupcakes(Model_CupCake cupcakes) {
+        this.cupcake = cupcakes;
     }
 
 }

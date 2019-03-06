@@ -96,11 +96,8 @@ public class Mapper_Invoice {
 
     public Model_Invoice getInvoiceWithDetails(int invoiceID) throws SQLException {
 
-        Model_CupCake cake = new Model_CupCake();
-        Model_InvoiceDetails invoiceDetails = new Model_InvoiceDetails();
         Model_Invoice invoice = new Model_Invoice();
         ArrayList<Model_InvoiceDetails> detailsList = new ArrayList();
-        ArrayList<Model_CupCake> cakeList = new ArrayList();
         String sqlQuery = "SELECT Invoice_Details.id_invoice, Invoice.id_user, Invoice.totalprice, Invoice_Details.id_invoice_details,\n"
                 + " Invoice_Details.quantity, Cupcake_bottom.id_bottom, Cupcake_bottom.bottom_name,\n"
                 + " Cupcake_bottom.bottom_price, Cupcake_top.id_top, Cupcake_top.top_name, Cupcake_top.top_price\n"
@@ -116,6 +113,8 @@ public class Mapper_Invoice {
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
 
         while (rs.next()) {
+            Model_CupCake cake = new Model_CupCake();
+            Model_InvoiceDetails invoiceDetails = new Model_InvoiceDetails();
             if (invoice.getId_invoice() <= 0) {
                 invoice.setId_invoice(rs.getInt("id_invoice"));
                 invoice.setId_user(rs.getInt("id_user"));
@@ -134,10 +133,9 @@ public class Mapper_Invoice {
             cake.setTopName(rs.getString("top_name"));
             cake.setTopPrice(rs.getDouble("top_price"));
 
-            cakeList.add(cake);
+            invoiceDetails.setCupcakes(cake);
             detailsList.add(invoiceDetails);
         }
-        invoiceDetails.setCupcakes(cakeList);
         invoice.setInvoiceDetals(detailsList);
         
         return invoice;
