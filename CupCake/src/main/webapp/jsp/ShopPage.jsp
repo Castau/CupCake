@@ -88,20 +88,20 @@
             function addCakeToCart() 
             {
                 <%
-                    Model_CupCake cake = new Model_CupCake();
-                    String topID = request.getParameter("top");
-                    System.out.println("topID: " + topID);
-                    String bottomID = request.getParameter("bottom");
-                    try
-                    {
-                        cake = mc.getCupCake(Integer.parseInt(topID), Integer.parseInt(bottomID)); //fix this
-                    } catch (SQLException SQLx)
-                    {
-                        System.out.println("Failed to fetch cupcake");
-                    }
-                    cart.addToCart(cake);
-                    System.out.println(cake.getTopID() +" "+ cake.getBottomID());
-                    System.out.println("Cart size: " + cart.getCakes().size());
+                    //Model_CupCake cake = new Model_CupCake();
+                    //String topID = request.getParameter("top");
+                    //System.out.println("topID: " + topID);
+                    //String bottomID = request.getParameter("bottom");
+                    //try
+                    //{
+                    //    cake = mc.getCupCake(Integer.parseInt(topID), Integer.parseInt(bottomID)); //fix this
+                    //} catch (SQLException SQLx)
+                    //{
+                    //    System.out.println("Failed to fetch cupcake");
+                    //}
+                    //cart.addToCart(cake);
+                    //System.out.println(cake.getTopID() +" "+ cake.getBottomID());
+                    //System.out.println("Cart size: " + cart.getCakes().size());
                 %>
             }
             </script>
