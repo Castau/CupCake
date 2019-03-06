@@ -90,7 +90,6 @@ public class Mapper_User {
     public Model_User getUserWithInvoice(int userID) throws SQLException {
 
         Model_User user = new Model_User();
-        Model_Invoice invoice = new Model_Invoice();
         ArrayList<Model_Invoice> userInvoices = new ArrayList();
         String sqlQuery = "SELECT * FROM cupcake.User\n"
                 + " LEFT JOIN cupcake.Invoice\n"
@@ -99,6 +98,7 @@ public class Mapper_User {
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
 
         while (rs.next()) {
+            Model_Invoice invoice = new Model_Invoice();
             if (user.getUserID() <= 0) {
                 user.setUserID(rs.getInt("id_user"));
                 user.setUserName(rs.getString("username"));
