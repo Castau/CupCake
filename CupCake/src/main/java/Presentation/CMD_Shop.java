@@ -51,36 +51,10 @@ public class CMD_Shop extends Command
             cart.addToCart(mc.getCupCake(1, 1));
         } catch (Exception ex)
         {
-            System.out.println("Shit didn't work");
+            System.out.println("couldn't add to cart");
             Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try (PrintWriter out = response.getWriter())
-        {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Shop</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Shop</h1>");
-            out.println("<br/>");
-            for (int i = 0; i < cupcakes.size(); i++)
-            {
-                double total = cupcakes.get(i).getTopPrice() + cupcakes.get(i).getBottomPrice();
-                out.println("<p>"
-                        + "Cake top name: " + cupcakes.get(i).getTopName()
-                        + " price: " + cupcakes.get(i).getTopPrice()
-                        + "<br/>"
-                        + "Cake bottom name: " + cupcakes.get(i).getBottomName()
-                        + " price: " + cupcakes.get(i).getBottomPrice()
-                        + "<br/>"
-                        + "Total price: " + total
-                        + "</p>");
-                out.println("<br/>");
-            }
-            out.println("</body>");
-            out.println("</html>");
-        }
+        request.getRequestDispatcher("/jsp/ShopPage.jsp").forward(request, response);
     }
 
 }

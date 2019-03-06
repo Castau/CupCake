@@ -20,7 +20,7 @@ public class Mapper_CupCake
         PreparedStatement stmt = c.getConnection().prepareStatement(query);
         stmt.setInt(1, tID);
         stmt.setInt(2, bID);
-        ResultSet rs = stmt.executeQuery(query);
+        ResultSet rs = stmt.executeQuery();
         Model_CupCake cupCake = null;
         while(rs.next())
         {
