@@ -10,6 +10,7 @@ public class Model_CupCake {
     private String topName;
     private double bottomPrice;
     private double topPrice;
+    private double totalPrice;
 
     public Model_CupCake() {
     }
@@ -21,8 +22,14 @@ public class Model_CupCake {
         this.topName = topName;
         this.bottomPrice = bottomPrice;
         this.topPrice = topPrice;
+        this.totalPrice = bottomPrice + topPrice;
     }
 
+    public double getTotalPrice()
+    {
+        return totalPrice;
+    }
+    
     public int getBottomID() {
         return bottomID;
     }

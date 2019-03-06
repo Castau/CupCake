@@ -46,10 +46,11 @@
                 <button class ="button" id="logoutbutton" type="submit"/>Log out</button>
             </form>
         </nav>
-    </div>
-    <%
+        <%
         }
     %>
+    </div>
+    
 
 
 

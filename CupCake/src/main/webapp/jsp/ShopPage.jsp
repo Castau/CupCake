@@ -29,10 +29,7 @@
     String bottom4 = "Pistacio";
     String bottom5 = "Almond";
     
-    Model_User user = (Model_User) request.getAttribute("user");
-    int userID = user.getUserID();
-    Cart cart = new Cart(userID);
-    Mapper_CupCake mc = new Mapper_CupCake();
+    Cart cart = (Cart)request.getAttribute("cart");
 %>
 
 
@@ -55,33 +52,60 @@
 <jsp:include page='Header.jsp'></jsp:include>
 
     <div>
-        <section class="top">
-            <label for="top">What type of top would you like?</label>
-            <select name="top" id="top">
-                <option value="1"><%=top1%></option>
-                <option value="2"><%=top2%></option>
-                <option value="3"><%=top3%></option>
-                <option value="4"><%=top4%></option>
-                <option value="5"><%=top5%></option>
-                <option value="6"><%=top6%></option>
-                <option value="7"><%=top7%></option>
-                <option value="8"><%=top8%></option>
-                <option value="9"><%=top9%></option>
-            </select>
-        </section>
-        <section class="bottom">
-            <label for="bottom">What type of top would you like?</label>
-            <select name="bottom" id="bottom">
-                <option value="1"><%=bottom1%></option>
-                <option value="2"><%=bottom2%></option>
-                <option value="3"><%=bottom3%></option>
-                <option value="4"><%=bottom4%></option>
-                <option value="5"><%=bottom5%></option>
-            </select>
-        </section>
+        <form>
+            <section class="top">
+                <label for="top">What type of top would you like?</label>
+                <select name="top" id="top">
+                    <option value="1"><%=top1%></option>
+                    <option value="2"><%=top2%></option>
+                    <option value="3"><%=top3%></option>
+                    <option value="4"><%=top4%></option>
+                    <option value="5"><%=top5%></option>
+                    <option value="6"><%=top6%></option>
+                    <option value="7"><%=top7%></option>
+                    <option value="8"><%=top8%></option>
+                    <option value="9"><%=top9%></option>
+                </select>
+            </section>
+            <section class="bottom">
+                <label for="bottom">What type of top would you like?</label>
+                <select name="bottom" id="bottom">
+                    <option value="1"><%=bottom1%></option>
+                    <option value="2"><%=bottom2%></option>
+                    <option value="3"><%=bottom3%></option>
+                    <option value="4"><%=bottom4%></option>
+                    <option value="5"><%=bottom5%></option>
+                </select>
+            </section>
+                <button>
+                    Add cake to cart
+                </button>
+        </form>
+                <table style="width:50%">
+                    <tr>
+                        <th>CupCake top</th>
+                        <th>CupCake bottom</th>
+                        <th>Total price</th>
+                    </tr>
+                    <%
+                        for (int i = 0; i < cart.getCakes().size(); i++)
+                        {%>
+                    <tr>
+                        <td>
+                            <%= cart.getCakes().get(i).getTopName()%>
+                        </td>
+                        <td>
+                            <%= cart.getCakes().get(i).getBottomName()%>
+                        </td>
+                        <td>
+                            <%= cart.getCakes().get(i).getTotalPrice()%>
+                        </td>
+                    </tr>
+                    <% }%>
+                </table> 
             <form onsubmit="addCakeToCart()">
                 <button>
-                    Choose cake
+                    This should be deleted
                 </button>
             </form>
             <script>
@@ -107,7 +131,6 @@
             </script>
         <form action="app/cart" method="get" target="">
             <%
-                request.setAttribute("cart", cart);
             %>
          <button type="submit">Order cake(s)</button>
         </form>  
