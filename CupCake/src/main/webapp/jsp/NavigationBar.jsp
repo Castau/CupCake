@@ -16,19 +16,18 @@
         <nav id="home">
             <a href=".">Home</a>
         </nav>
-        <!--<%/*if (user != null)
-        {*/%>-->
+
         <nav id ="shop">
             <a href="app/shop">Shop</a>
         </nav>
-       <!-- <%/*}*/%>-->
+
     </div>
     <div id ="rightBar">
-        
+
         <nav id="cart">
-            <a href="ShoppingCart.jsp"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping cart</a>
+            <a href="ShoppingCart.jsp"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping Cart</a>
         </nav>
-        
+
         <nav id="user">
 
             <%            if (user == null)
@@ -46,11 +45,10 @@
                 <button class ="button" id="logoutbutton" type="submit"/>Log out</button>
             </form>
         </nav>
+        <%
+            }
+        %>
     </div>
-    <%
-        }
-    %>
-
-
 
 </div>
+
