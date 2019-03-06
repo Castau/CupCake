@@ -9,6 +9,15 @@
     display: inline-block;
     color: white;
 }
+#leftBar
+{
+    float: left;
+}
+
+#rightBar
+{
+    float: right;
+}
 
 #NavBar a /*Links*/
 {
@@ -17,7 +26,7 @@
     text-align: center;
     padding: 8px 8px;
     text-decoration: none;
-    /*border-right: 1px solid #bbb;*/
+    border-right: 2px solid #bbb;
 }
 #NavBar a:hover
 {
@@ -28,27 +37,39 @@
     background-color: #4CAF50;
 }
 
-#NavBar #site
+#NavBar #home
 {
     float: left;
     text-align: left;
 }
 
+#NavBar #shop
+{
+    float: right;
+}
+
+#NavBar #cart
+{
+    float: left;
+}
+
 #NavBar #user
 {
-    float: right;
-    text-align: right;
+    text-align: center;
+    float: left;
 }
 
-#NavBar #user form /*logoutform*/
+#NavBar #logout
 {
-    padding-top: 3%;
+    text-align: center;
     float: right;
-    display: inline-block;
-
 }
+
 #logoutbutton
 {
+    margin-top: 4px;
+    margin-right: 4px;
+    margin-left: 4px;
     background-color: red;
 }
 
@@ -66,9 +87,10 @@
 }
 
 /*-------Index.jsp css-------*/
-#IndexImages
+#IndexText
 {
     text-align: center;
+    padding: 0;
 }
 
 #loginbutton
