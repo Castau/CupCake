@@ -35,13 +35,13 @@ public class CMD_Shop extends Command
         Model_User user = (Model_User) request.getSession().getAttribute("user");
         System.out.println("" + user.getUserName());
         Cart cart = null;
-        if (request.getAttribute("cart") == null)
+        if (request.getSession().getAttribute("cart") == null)
         {
             cart = new Cart(user.getUserID());
         }
         else
         {
-            cart = (Cart) request.getAttribute("cart");
+            cart = (Cart) request.getSession().getAttribute("cart");
         }
         if (request.getParameter("top") != null)
         {
@@ -57,9 +57,8 @@ public class CMD_Shop extends Command
                 Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        request.setAttribute("cart", cart);
+        System.out.println("Amount of shit in the cart: " + cart.getCakes().size());
+        request.getSession().setAttribute("cart", cart);
         request.getRequestDispatcher("/jsp/ShopPage.jsp").forward(request, response);
     }
-
 }

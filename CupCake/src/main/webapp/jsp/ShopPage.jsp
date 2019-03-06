@@ -29,25 +29,10 @@
     String bottom4 = "Pistacio";
     String bottom5 = "Almond";
     
-    Cart cart = (Cart)request.getAttribute("cart");
+    Cart cart = (Cart)request.getSession().getAttribute("cart");
 %>
 
 
-<%!
-    public void addCakeToCart(int topID, int bottomID, Cart cart, Mapper_CupCake mc)
-    {
-        Model_CupCake cake = new Model_CupCake();
-        try
-        {
-            cake = mc.getCupCake(topID, bottomID);
-        } catch (SQLException SQLx)
-        {
-            System.out.println("Failed to fetch cupcake");
-        }
-        cart.addToCart(cake);
-        System.out.println("Cart size: " + cart.getCakes().size());
-    }
-%>
 
 <jsp:include page='Header.jsp'></jsp:include>
 
@@ -80,6 +65,9 @@
                 <button>
                     Add cake to cart
                 </button>
+                </br>
+                </br>
+                <p>Shopping cart:</p>
         </form>
                 <table style="width:50%">
                     <tr>
@@ -103,36 +91,10 @@
                     </tr>
                     <% }%>
                 </table> 
-            <form onsubmit="addCakeToCart()">
-                <button>
-                    This should be deleted
-                </button>
-            </form>
-            <script>
-            function addCakeToCart() 
-            {
-                <%
-                    //Model_CupCake cake = new Model_CupCake();
-                    //String topID = request.getParameter("top");
-                    //System.out.println("topID: " + topID);
-                    //String bottomID = request.getParameter("bottom");
-                    //try
-                    //{
-                    //    cake = mc.getCupCake(Integer.parseInt(topID), Integer.parseInt(bottomID)); //fix this
-                    //} catch (SQLException SQLx)
-                    //{
-                    //    System.out.println("Failed to fetch cupcake");
-                    //}
-                    //cart.addToCart(cake);
-                    //System.out.println(cake.getTopID() +" "+ cake.getBottomID());
-                    //System.out.println("Cart size: " + cart.getCakes().size());
-                %>
-            }
-            </script>
+            </br>
+            </br>
         <form action="app/cart" method="get" target="">
-            <%
-            %>
-         <button type="submit">Order cake(s)</button>
+            <button type="submit">Order cake(s)</button>
         </form>  
     </div>        
 <jsp:include page='Footer.jsp'></jsp:include>
