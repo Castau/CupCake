@@ -53,7 +53,6 @@ public class Mapper_Invoice {
         Model_Invoice invoice = new Model_Invoice();
         String sqlQuery = "SELECT * FROM cupcake.Invoice "
                 + "WHERE id_user = '" + userID + "';";
-        System.out.println("QUERY " + sqlQuery);
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
 
         while (rs.next()) {
@@ -89,7 +88,6 @@ public class Mapper_Invoice {
         {
             id = rs.getInt("id_invoice");
         }
-        System.out.println("id of latest invoice: " + id);
         return id;
     }
     

@@ -16,7 +16,6 @@
 <%
     Cart cart = (Cart) request.getSession().getAttribute("cart");
     Model_User user = (Model_User) request.getSession().getAttribute("user");
-    System.out.println("Username from ShoppingCartPage: " + user.getUserName());
     double cash = user.getBalance();
     String username = user.getUserName();
     double finalPrice = 0;
