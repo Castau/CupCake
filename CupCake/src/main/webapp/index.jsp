@@ -18,7 +18,7 @@
 <jsp:include page='jsp/Header.jsp'></jsp:include>
     <h2>Please log in or register to continue</h2>
 <jsp:include page='jsp/NavigationBar.jsp'></jsp:include>
-    <div id="IndexImages" >
+    <div id="IndexImages" class="row">
         <h3>Here are some of our <em>most popular cupcakes</em></h3>
         <div class="col-md-1 col-md-offset-4">
             <img src="images/cupcake.jpeg" height="125" width="125" alt="fail to load 1"/>
@@ -37,11 +37,16 @@
             <p>Strawberry/Vanilla</p>
         </div>
     </div>
-    <div id ="IndexText" class=" col-md-4 col-md-offset-4">
+    <br/>
+    <br/>
+    <div class="row">
+        <div id ="IndexText" class=" col-md-4 col-md-offset-4">
 
-        <h4>Current cupcake options</h4>
+            <h4>Current cupcake options</h4>
+        </div>
     </div>
-    <div id="IndexTableTopStyle" class=" col-md-1 col-md-offset-5">
+    <br/>
+    <div id="IndexTableTopStyle" class="col-md-2 col-md-offset-4 col-sm-2 col-sm-offset-4 col-xs-3 col-xs-offset-3">
         <table class="table-condensed">
             <tr class=" padding">
                 <th>
@@ -51,8 +56,7 @@
             </tr>
 
         <%
-            for (int i = 0; i < allTops.size(); i++)
-            {%>
+            for (int i = 0; i < allTops.size(); i++) {%>
         <tr>
             <% String topName = allTops.get(i).getTopName();
                     int topID = allTops.get(i).getTopID();
@@ -61,19 +65,18 @@
     </table>
 </div>
 
-<div id="IndexTableBottomStyle" class=" col-md-1"> <!--col-md-offset-1-->
+<div id="IndexTableBottomStyle" class="col-md-2 col-md-offset-1 col-sm-2 col-xs-3"> <!--col-md-offset-1-->
     <table class="table-condensed">
         <tr>
             <th>
                 Cupcake bottoms
             </th>
         </tr>
-        <%  for (int j = 0; j < allBottoms.size(); j++)
-            {%><tr><%
-                        String bottomName = allBottoms.get(j).getBottomName();
-                        int bottomID = allBottoms.get(j).getBottomID();
-                        out.print("<td> #" + bottomID + " " + bottomName + "</td>");
-                    }%></tr>
+        <%  for (int j = 0; j < allBottoms.size(); j++) {%><tr><%
+                    String bottomName = allBottoms.get(j).getBottomName();
+                    int bottomID = allBottoms.get(j).getBottomID();
+                    out.print("<td> #" + bottomID + " " + bottomName + "</td>");
+                }%></tr>
         </tr>
     </table>
 </div>
