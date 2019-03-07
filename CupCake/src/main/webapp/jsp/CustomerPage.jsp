@@ -42,7 +42,7 @@
                 <h4>Invoices:</h4>
                 <br/>
                 <table class="table">
-                    <tr>
+                    <tr class=" padding">
                         <th>
                             Invoice ID
                         </th>
@@ -66,8 +66,11 @@
                             <a href="app/customerinvoice?invoiceid=<%=userInvoices.get(i).getId_invoice()%>"> Order details</a>
                         </td>
                     </tr>
-                    <% } %>
+                    <% }%>
                 </table>
             </div>
         </div>
-        <jsp:include page='Footer.jsp'></jsp:include>
+    </body>
+</html>
+
+<jsp:include page='Footer.jsp'></jsp:include>

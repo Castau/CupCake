@@ -6,22 +6,22 @@
 package Presentation;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author stein
+ * @author Shevitar
  */
-public class CMD_ShoppingCart extends Command {
-     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+public class CMD_Checkout extends Command
+{
+
+    @Override
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("/jsp/ShoppingCart.jsp").forward(request, response);
-        
+        request.getRequestDispatcher("/jsp/ShopCheckOut.jsp").forward(request, response);
     }
-
+    
 }

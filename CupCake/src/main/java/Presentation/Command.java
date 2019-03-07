@@ -36,6 +36,9 @@ public abstract class Command
             case "cart":
                 command = new CMD_ShoppingCart();
                 break;
+            case "checkout":
+                command = new CMD_Checkout();
+                break;
             case "customer":
                 command = new CMD_Customer();   
                 break;
@@ -44,6 +47,9 @@ public abstract class Command
                 break;
             case "logout":
                 command = new CMD_Logout();
+                break;
+                case "admin":
+                command = new CMD_Admin();
                 break;
             default:
                 command = new CMD_Unknown();

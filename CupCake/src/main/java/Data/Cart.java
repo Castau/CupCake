@@ -41,4 +41,9 @@ public class Cart
         cakes.add(cupcake);
     }
     
+    public void clearCart()
+    {
+        cakes = new ArrayList();
+    }
+    
 }
