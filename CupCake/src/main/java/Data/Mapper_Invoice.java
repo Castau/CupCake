@@ -65,13 +65,13 @@ public class Mapper_Invoice {
         return allInvoices;
     }
 
-    public List<Model_Invoice> getAllInvoices() throws SQLException {
-        List<Model_Invoice> allInvoices = new ArrayList();
-        Model_Invoice invoice = new Model_Invoice();
+    public ArrayList<Model_Invoice> getAllInvoices() throws SQLException {
+        ArrayList<Model_Invoice> allInvoices = new ArrayList();
         String sqlQuery = "SELECT * FROM cupcake.Invoice;";
         ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
 
         while (rs.next()) {
+            Model_Invoice invoice = new Model_Invoice();
             invoice.setId_invoice(rs.getInt("id_invoice"));
             invoice.setId_user(rs.getInt("id_user"));
             invoice.setTotalPrice(rs.getInt("totalprice"));
