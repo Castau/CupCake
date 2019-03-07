@@ -26,11 +26,11 @@
         <title>Copenhagen Cupcakes</title>
     </head>
     <body>
-        <div>
+        <div id="HeaderStyle">
 
-            <h1>
+            <h1><a href="." >
                 <img src="images/cupcake_logo.png" width="25" height="25" alt=""/>
                 Copenhagen Cupcakes
                 <img src="images/cupcake_logo.png" width="25" height="25" alt=""/>
-            </h1>
+                </a></h1>
         </div>
