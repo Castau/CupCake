@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 
 /**
  *
@@ -58,19 +56,4 @@ public class Mapper_CupCake
         return allCupCakes;
     }
 
-//    public ArrayList<Model_CupCake> getAllCupcakesNoDuplicates() throws SQLException //these damn cupcakes aren't unique
-//    {
-//        ArrayList<Model_CupCake> allCupcakes = getAllCupCakes(); //Get all cupcakes
-//        LinkedHashSet<Model_CupCake> noDuplicates = new LinkedHashSet<>(); //New LinkedHashSet (no duplicates)
-//
-//        //noDuplicates.addAll(allCupcakes); //Add all cupcakes, therefore removing duplicates
-//        for (Model_CupCake cupcake : allCupcakes)
-//        {
-//            noDuplicates.add(cupcake);
-//        }
-//        allCupcakes.clear(); //Clear original cupcake-arraylist
-//        allCupcakes.addAll(noDuplicates); //Add no-duplicates collection to original cupcake-arraylist
-//
-//        return allCupcakes;
-//    }
 }
