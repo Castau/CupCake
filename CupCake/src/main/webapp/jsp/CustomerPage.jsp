@@ -66,8 +66,11 @@
                             <a href="app/customerinvoice?invoiceid=<%=userInvoices.get(i).getId_invoice()%>"> Order details</a>
                         </td>
                     </tr>
-                    <% } %>
+                    <% }%>
                 </table>
             </div>
         </div>
-        <jsp:include page='Footer.jsp'></jsp:include>
+    </body>
+</html>
+
+<jsp:include page='Footer.jsp'></jsp:include>

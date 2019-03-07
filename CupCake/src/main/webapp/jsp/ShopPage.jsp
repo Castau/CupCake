@@ -3,7 +3,9 @@
     Created on : 05-03-2019, 14:48:28
     Author     : Shevitar
 --%>
-
+<jsp:include page='Header.jsp'></jsp:include>
+    <h2>Shop</h2>
+<jsp:include page='NavigationBar.jsp'></jsp:include>
 <%@page import="java.sql.SQLException"%>
 <%@page import="Data.Model_CupCake"%>
 <%@page import="Data.Cart"%>
@@ -28,17 +30,15 @@
     String bottom3 = "Nutmeg";
     String bottom4 = "Pistacio";
     String bottom5 = "Almond";
-    
-    Cart cart = (Cart)request.getSession().getAttribute("cart");
+
+    Cart cart = (Cart) request.getSession().getAttribute("cart");
     double finalPrice = 0;
 %>
 
-
-
-<jsp:include page='Header.jsp'></jsp:include>
-
-    <div>
-        <h3>The shop</h3>
+<div class="row antimargin">
+    <div class="col-md-6 padding">
+        <h4>CupCake Shop</h4>
+        <br/>
         <form>
             <section class="top">
                 <label for="top">What type of top would you like?</label>
@@ -64,53 +64,60 @@
                     <option value="5"><%=bottom5%></option>
                 </select>
             </section>
-                <button>
-                    Add cake to cart
-                </button>
-                </br>
-                </br>
-                <p>Shopping cart:</p>
+                <br/>
+            <button>
+                Add cake to cart
+            </button>
+            </br>
+            </br>
         </form>
-            <div>
-                <table style="width:50%">
-                    <tr>
-                        <th>CupCake top</th>
-                        <th>CupCake bottom</th>
-                        <th>Total cake price</th>
-                        <th>Final price</th>
-                    </tr>
-                    <%
-                        for (int i = 0; i < cart.getCakes().size(); i++)
-                        {%>
-                    <tr>
-                        <td>
-                            <%= cart.getCakes().get(i).getTopName()%>
-                        </td>
-                        <td>
-                            <%= cart.getCakes().get(i).getBottomName()%>
-                        </td>
-                        <td>
-                            <%= cart.getCakes().get(i).getTotalPrice()%>
-                            <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
-                        </td>
-                    <% }%>
-                        <td>
-                            <%= finalPrice%>
-                        </td>
-                    </tr>
-                </table> 
-            </div>
-            </br>
-            <div>
-                <form>
-                    <button name="clear" type="submit" value="clear">
-                        Empty the cart
-                    </button>
-                </form>
-            </br>
-            </div>
+    </div>
+
+    <div class="col-md-6 padding">
+        <h4>Shopping cart:</h4>
+        <br/>
+        <table style="width:75%">
+            <tr>
+                <th>CupCake top</th>
+                <th>CupCake bottom</th>
+                <th>Total cake price</th>
+                <th>Final price</th>
+            </tr>
+            <%
+                for (int i = 0; i < cart.getCakes().size(); i++) {%>
+            <tr>
+                <td>
+                    <%= cart.getCakes().get(i).getTopName()%>
+                </td>
+                <td>
+                    <%= cart.getCakes().get(i).getBottomName()%>
+                </td>
+                <td>
+                    <%= cart.getCakes().get(i).getTotalPrice()%>
+                    <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
+                </td>
+                <% }%>
+                <td>
+                    <%= finalPrice%>
+                </td>
+            </tr>
+        </table> 
+
+        </br>
+
+        <form>
+            <br/>
+            <button name="clear" type="submit" value="clear">
+                Empty the cart
+            </button>
+        </form>
+        </br>
+
         <form action="app/cart" method="get" target="">
             <button type="submit">Order cake(s)</button>
         </form>  
-    </div>        
+    </div>
+</div>
+
+
 <jsp:include page='Footer.jsp'></jsp:include>

@@ -4,7 +4,7 @@
     Author     : Camilla
 --%>
 <jsp:include page='Header.jsp'></jsp:include>
-    <h2>Customer Page</h2>
+    <h2>Admin Page</h2>
 <jsp:include page='NavigationBar.jsp'></jsp:include>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Data.Model_Invoice"%>
