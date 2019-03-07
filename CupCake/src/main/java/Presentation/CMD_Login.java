@@ -9,7 +9,6 @@ import Data.Mapper_User;
 import Data.Model_User;
 import Logic.Controller_User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -92,10 +91,6 @@ public class CMD_Login extends Command
             {
                 session.invalidate();
                 request.getRequestDispatcher("/jsp/Login.jsp");
-                //Create user instead?
-                //Discuss: Do we have multiple forms on the login page
-                //One for login, one for registration? 
-                //Task 3.3 specifically asks for an extra parameter
             }
 
         }

@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.Model_User;
 import Logic.Controller_Invoice;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,7 +22,12 @@ public class CMD_Admin extends Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        Model_User user = (Model_User) request.getSession().getAttribute("user");
+        if (Model_User.Role.admin != user.getRole()){
+            response.sendRedirect("/cupcake/app/customer");
+            return;
+        }
+        
         Controller_Invoice controller = new Controller_Invoice();
         try {
             request.setAttribute("allInvoices", controller.getAllInvoicesAdmin());

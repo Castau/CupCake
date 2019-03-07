@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 
 /**
  *
@@ -75,7 +73,7 @@ public class Mapper_CupCake
         }
         return allCupcakeTops;
     }
-    
+
     public ArrayList<Model_CupCake.Cupcake_Bottom> getAllCupcakeBottoms() throws SQLException
     {
         DBConnector c = new DBConnector();

@@ -51,6 +51,9 @@ public abstract class Command
                 case "admin":
                 command = new CMD_Admin();
                 break;
+                case "addbalance":
+                command = new CMD_Balance();
+                break;
             default:
                 command = new CMD_Unknown();
                 break;

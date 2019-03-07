@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * This class is for handling all CRUD operations related to @Model_Invoice &
@@ -191,56 +188,4 @@ public class Mapper_Invoice {
         return invoice;
 
     }
-
-    /*This is for Model_InvoiceDetails*/
-//    public Model_InvoiceDetails getInvoiceDetailsByID(int idInvoiceDetail) throws SQLException
-//    {
-//        Model_InvoiceDetails invoiceDetails = new Model_InvoiceDetails();
-//        String sqlQuery = "SELECT * FROM cupcake.Invoice_Details "
-//                + "WHERE id_invoice_details = " + idInvoiceDetail + ";";
-//        ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
-//        while (rs.next())
-//        {
-//            invoiceDetails.setId_Invoice_Details(rs.getInt("id_invoice_details"));
-//            invoiceDetails.setId_Invoice(rs.getInt("id_invoice"));
-//            invoiceDetails.setQuantity(rs.getInt("quantity"));
-//            invoiceDetails.setPrice(rs.getDouble("price"));
-//        }
-//        return invoiceDetails;
-//    }
-//
-//    public ArrayList<Model_InvoiceDetails> getAllInvoiceDetails() throws SQLException
-//    {
-//        ArrayList<Model_InvoiceDetails> allInvoiceDetails = new ArrayList();
-//        Model_InvoiceDetails invoiceDetails = new Model_InvoiceDetails();
-//        String sqlQuery = "SELECT * FROM cupcake.Invoice_Details;";
-//        ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
-//
-//        while (rs.next())
-//        {
-//            invoiceDetails.setId_Invoice_Details(rs.getInt("id_invoice_details"));
-//            invoiceDetails.setId_Invoice(rs.getInt("id_invoice"));
-//            invoiceDetails.setQuantity(rs.getInt("quantity"));
-//            invoiceDetails.setPrice(rs.getDouble("price"));
-//
-//            allInvoiceDetails.add(invoiceDetails);
-//        }
-//        return allInvoiceDetails;
-//    }
-//
-//    public boolean addInvoiceDetail(Model_InvoiceDetails i) throws SQLException
-//    {
-//        //int invoiceDetails_id, int id_top, int id_bottom, int quantity, double price
-//        String sqlQuery = "INSERT INTO cupcake.Invoice_Details"
-//                + "(id_invoice_details, id_invoice, id_top, id_bottom, quantity, price)"
-//                + "VALUES (?, ?, ?, ?, ?, ?)";
-//
-//        PreparedStatement stmt = connection.getConnection().prepareStatement(sqlQuery);
-//        stmt.setInt(1, i.getId_Invoice_Details());
-//        stmt.setInt(2, i.getId_Invoice());
-//        stmt.setInt(3, i.getQuantity());
-//        stmt.setDouble(4, i.getPrice());
-//        return stmt.execute();
-//
-//    }
 }
