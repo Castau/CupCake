@@ -25,7 +25,7 @@
     <div id ="rightBar">
 
         <nav id="cart">
-            <a href="ShoppingCart.jsp"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping Cart</a>
+            <a href="jsp/ShoppingCart.jsp"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping Cart</a>
         </nav>
 
         <nav id="user">
@@ -33,7 +33,7 @@
             <%            if (user == null)
                 {
             %>
-            <a href="login">Login/Register</a>
+            <a href="jsp/Login.jsp">Login/Register</a>
             <%
             } else
             {

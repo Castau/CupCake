@@ -87,14 +87,44 @@
 }
 
 /*-------Index.jsp css-------*/
+#IndexImages
+{
+    text-align: center;
+}
+
 #IndexText
 {
     text-align: center;
 }
 
-#loginbutton
+#IndexTable
 {
+
+}
+
+/*-------Login.jsp css-------*/
+#login
+{
+    border: solid 1px black;
+    text-align: center;
+    padding-bottom: 25px;
+}
+#register
+{
+    border: solid 1px black;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#LoginSubmit
+{
+    text-align: left;
     background-color: #4CAF50;
+}
+
+#registerButton
+{
+    background-color: #0099ff;
 }
 
 /*-------Other/Global css-------*/
