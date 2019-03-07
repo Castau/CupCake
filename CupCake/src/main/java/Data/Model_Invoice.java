@@ -19,18 +19,18 @@ public class Model_Invoice
     private int id_invoice;
     private int id_user;
     private double totalPrice;
-    private ArrayList<Model_InvoiceDetails> invoiceDetals;
+    private ArrayList<Model_InvoiceDetails> invoiceDetails;
 
     public Model_Invoice()
     {
     }
 
-    public Model_Invoice(int invoiceID, int userID, double totalPrice, Model_InvoiceDetails invoiceDetails, ArrayList<Model_InvoiceDetails> invoiceDetals)
+    public Model_Invoice(int invoiceID, int userID, double totalPrice, ArrayList<Model_InvoiceDetails> invoiceDetails)
     {
         this.id_invoice = invoiceID;
         this.id_user = userID;
         this.totalPrice = totalPrice;
-        this.invoiceDetals = invoiceDetals;
+        this.invoiceDetails = invoiceDetails;
     }
 
     public int getId_invoice()
@@ -65,12 +65,12 @@ public class Model_Invoice
 
     public ArrayList<Model_InvoiceDetails> getInvoiceDetails()
     {
-        return invoiceDetals;
+        return invoiceDetails;
     }
 
     public void setInvoiceDetals(ArrayList<Model_InvoiceDetails> invoiceDetals)
     {
-        this.invoiceDetals = invoiceDetals;
+        this.invoiceDetails = invoiceDetals;
     }
 
 }

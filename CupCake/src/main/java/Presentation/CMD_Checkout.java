@@ -5,6 +5,8 @@
  */
 package Presentation;
 
+import Data.Model_Invoice;
+import Data.Model_User;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +23,21 @@ public class CMD_Checkout extends Command
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html;charset=UTF-8");
+        
+        Model_User user = (Model_User)request.getSession().getAttribute("user");
+        boolean buyPermission = (boolean)request.getSession().getAttribute("buyPermission");
+        Model_Invoice invoice = new Model_Invoice
+        double balance = user.getBalance();
+        double finalPrice = (double)request.getSession().getAttribute("finalPrice");
+        
+        if (buyPermission)
+        {
+            user.setBalance(balance - finalPrice);
+        }
+        else
+        {
+        }
+        
         request.getRequestDispatcher("/jsp/ShopCheckOut.jsp").forward(request, response);
     }
     

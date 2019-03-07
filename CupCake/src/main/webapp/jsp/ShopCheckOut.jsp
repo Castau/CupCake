@@ -11,7 +11,7 @@
 <%
     Model_User user = (Model_User)request.getSession().getAttribute("user");
     boolean buyPermission = (boolean)request.getSession().getAttribute("buyPermission");
-    System.out.println("Do we have the ####ing permission or what? :" + buyPermission);
+    System.out.println("Do we have the ####ing permission or what? : " + buyPermission);
     String msg = "";
     if (buyPermission)
     {
@@ -32,6 +32,7 @@
         {
             user.setBalance(balance - finalPrice);
         }
+        //Write the actual code to make the actual changes in the DB
         request.getSession().setAttribute("user", user);
     %>
         
