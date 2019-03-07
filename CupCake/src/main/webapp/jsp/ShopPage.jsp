@@ -70,6 +70,7 @@
                 </br>
                 <p>Shopping cart:</p>
         </form>
+            <div>
                 <table style="width:50%">
                     <tr>
                         <th>CupCake top</th>
@@ -97,8 +98,16 @@
                         </td>
                     </tr>
                 </table> 
+            </div>
             </br>
+            <div>
+                <form>
+                    <button name="clear" type="submit" value="clear">
+                        Empty the cart
+                    </button>
+                </form>
             </br>
+            </div>
         <form action="app/cart" method="get" target="">
             <button type="submit">Order cake(s)</button>
         </form>  
