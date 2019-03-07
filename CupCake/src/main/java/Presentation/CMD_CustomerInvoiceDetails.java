@@ -34,8 +34,10 @@ public class CMD_CustomerInvoiceDetails extends Command {
 
             Model_User sessionUser = (Model_User) request.getSession().getAttribute("user");
             if (invoice.getId_user() != sessionUser.getUserID()) {
-                response.sendRedirect("/cupcake/app/customer");
-                return;
+                if (Model_User.Role.admin != sessionUser.getRole()) {
+                    response.sendRedirect("/cupcake/app/customer");
+                    return;
+                }
             }
             request.setAttribute("user", user);
             request.setAttribute("invoice", invoice);
