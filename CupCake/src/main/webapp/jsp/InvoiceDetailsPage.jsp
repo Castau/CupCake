@@ -57,10 +57,10 @@
                 </tr>
                 <%
                     for (int i = 0; i < invoiceDetails.size(); i++) {
-                        String topName = invoiceDetails.get(i).getCupcakes().getTopName();
-                        Double topPrice = invoiceDetails.get(i).getCupcakes().getTopPrice();
-                        String bottomName = invoiceDetails.get(i).getCupcakes().getBottomName();
-                        Double bottomPrice = invoiceDetails.get(i).getCupcakes().getBottomPrice();
+                        String topName = invoiceDetails.get(i).getCupcake().getTopName();
+                        Double topPrice = invoiceDetails.get(i).getCupcake().getTopPrice();
+                        String bottomName = invoiceDetails.get(i).getCupcake().getBottomName();
+                        Double bottomPrice = invoiceDetails.get(i).getCupcake().getBottomPrice();
 
                         out.print("<tr>");
                         out.print("<td>" + topName + "</td>");

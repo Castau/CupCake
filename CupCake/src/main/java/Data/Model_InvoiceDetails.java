@@ -25,9 +25,8 @@ public class Model_InvoiceDetails
     {
     }
 
-    public Model_InvoiceDetails(int id_Invoice_Details, int id_Invoice, int quantity, double price, Model_CupCake cupcake)
+    public Model_InvoiceDetails( int id_Invoice, int quantity, double price, Model_CupCake cupcake)
     {
-        this.id_Invoice_Details = id_Invoice_Details;
         this.id_Invoice = id_Invoice;
         this.quantity = quantity;
         this.price = price;
@@ -74,12 +73,12 @@ public class Model_InvoiceDetails
         this.price = price;
     }
 
-    public Model_CupCake getCupcakes() {
+    public Model_CupCake getCupcake() {
         return cupcake;
     }
 
-    public void setCupcakes(Model_CupCake cupcakes) {
-        this.cupcake = cupcakes;
+    public void setCupcake(Model_CupCake theCupcake) {
+        this.cupcake = theCupcake;
     }
 
 }

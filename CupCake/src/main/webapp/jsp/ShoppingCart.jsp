@@ -71,7 +71,7 @@
         </br>
         <form action="app/checkout" method="get" target="">
             <button type="submit"> 
-                Buy cupcakes </button>
+                Buy cupcake(s) </button>
         </form>
     </div>
 </div>

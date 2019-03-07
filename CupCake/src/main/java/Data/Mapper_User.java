@@ -38,6 +38,17 @@ public class Mapper_User
         return user;
     }
 
+    public boolean updateUserBalance(int userID, double newBalance) throws SQLException
+    {
+        String query = "UPDATE `cupcake`.`User` SET `balance` = ? WHERE (`id_user` = ? );";
+        
+        PreparedStatement stmt = connection.getConnection().prepareStatement(query);
+        stmt.setDouble(1, newBalance);
+        stmt.setInt(2, userID);
+        int done = stmt.executeUpdate();
+        return done != 0;
+    }
+    
     public Model_User getUserByName(String userName) throws SQLException
     {
 

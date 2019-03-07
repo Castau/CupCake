@@ -55,7 +55,7 @@
                 </select>
             </section>
             <section class="bottom">
-                <label for="bottom">What type of top would you like?</label>
+                <label for="bottom">What type of bottom would you like?</label>
                 <select name="bottom" id="bottom">
                     <option value="1"><%=bottom1%></option>
                     <option value="2"><%=bottom2%></option>

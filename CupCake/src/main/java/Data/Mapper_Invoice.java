@@ -1,10 +1,13 @@
 package Data;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This class is for handling all CRUD operations related to @Model_Invoice &
@@ -80,18 +83,67 @@ public class Mapper_Invoice {
         return allInvoices;
     }
 
+    public int getLatestInvoiceID() throws SQLException
+    {
+        String sqlQuery = "SELECT MAX(id_invoice) AS id_invoice FROM cupcake.Invoice ORDER BY 'id_invoices' DESC LIMIT 1;";
+        ResultSet rs = connection.getConnection().prepareStatement(sqlQuery).executeQuery();
+        int id = 0;
+        while (rs.next()) 
+        {
+            id = rs.getInt("id_invoice");
+        }
+        System.out.println("id of latest invoice: " + id);
+        return id;
+    }
+    
     public boolean addInvoice(Model_Invoice i) throws SQLException {
         //int invoice_id, int id_user, double totalPrice
         String sqlQuery = "INSERT INTO cupcake.Invoice"
-                + "(id_invoice, id_user, totalprice)"
-                + "VALUES (?, ?, ?)";
+                + "(id_user, totalprice)"
+                + "VALUES (?, ?)";
 
         PreparedStatement stmt = connection.getConnection().prepareStatement(sqlQuery);
-        stmt.setInt(1, i.getId_invoice());
-        stmt.setInt(2, i.getId_user());
-        stmt.setDouble(3, i.getTotalPrice());
+        stmt.setInt(1, i.getId_user());
+        stmt.setDouble(2, i.getTotalPrice());
         return stmt.execute();
 
+    }
+    
+    public boolean addInvoiceWithAllDetails(Model_Invoice inv, ArrayList<Model_InvoiceDetails> detailsList) throws SQLException
+    {
+        Model_Invoice invoice = inv;
+        ArrayList<Model_InvoiceDetails> details = detailsList;
+        int userID = invoice.getId_user();
+        double totalPrice = invoice.getTotalPrice();
+        Connection conn = connection.getConnection();
+        conn.setAutoCommit(false);
+        String queryInvoice = "INSERT INTO cupcake.Invoice"
+                + "(id_user, totalprice)"
+                + "VALUES (?, ?)";
+        
+        PreparedStatement stmt1 = connection.getConnection().prepareStatement(queryInvoice);
+        stmt1.setInt(1, userID);
+        stmt1.setDouble(2, totalPrice);
+        stmt1.executeUpdate();
+        conn.commit();
+        
+        int latestID = getLatestInvoiceID();
+        String  queryDetails = "INSERT INTO `cupcake`.`Invoice_Details`"
+                + " ( `id_invoice`, `id_top`, `id_bottom`, `quantity`, `price`)"
+                + " VALUES ( " + latestID + ", ?, ?, ?, ?);";
+        
+        PreparedStatement stmt = connection.getConnection().prepareStatement(queryDetails);
+        for (int i = 0; i < detailsList.size(); i++)
+        {
+            stmt.setInt(1, detailsList.get(i).getCupcake().getTopID());
+            stmt.setInt(2, detailsList.get(i).getCupcake().getBottomID());
+            stmt.setInt(3, 1);
+            stmt.setDouble(4, detailsList.get(i).getCupcake().getTotalPrice());
+            stmt.executeUpdate();
+            conn.commit();
+        }
+        conn.setAutoCommit(true);
+        return true;
     }
 
     public Model_Invoice getInvoiceWithDetails(int invoiceID) throws SQLException {
@@ -133,7 +185,7 @@ public class Mapper_Invoice {
             cake.setTopName(rs.getString("top_name"));
             cake.setTopPrice(rs.getDouble("top_price"));
 
-            invoiceDetails.setCupcakes(cake);
+            invoiceDetails.setCupcake(cake);
             detailsList.add(invoiceDetails);
         }
         invoice.setInvoiceDetals(detailsList);
