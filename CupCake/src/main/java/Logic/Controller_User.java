@@ -1,12 +1,8 @@
 package Logic;
 
-import Data.Mapper_Invoice;
 import Data.Mapper_User;
-import Data.Model_Invoice;
 import Data.Model_User;
-import Data.Model_User.Role;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * @author Camilla
@@ -41,4 +37,12 @@ public class Controller_User
         return user;    
     }
     
+    public void updateBalance(int userID, double addedBalance) throws SQLException{
+        Mapper_User mapperUser = new Mapper_User();
+        double oldBalance = mapperUser.getUserByID(userID).getBalance();
+        double newBalance = oldBalance + addedBalance;
+        
+        mapperUser.updateUserBalance(userID, newBalance);
+        
+    }
 }
