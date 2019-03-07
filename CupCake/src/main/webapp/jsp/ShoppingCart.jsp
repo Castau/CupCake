@@ -23,8 +23,6 @@
     boolean enoughCash = false;
 %>
 
-<jsp:include page='Header.jsp'></jsp:include>
-
     <div class="padding">
         <div>
             <h4>Your shopping cart items</h4>
