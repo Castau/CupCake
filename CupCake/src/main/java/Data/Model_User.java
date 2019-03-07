@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * @author Camilla
  */
 public class Model_User {
+
     private int userID;
     private String userName;
     private String password;
@@ -26,7 +27,7 @@ public class Model_User {
         this.role = role;
         this.invoices = invoices;
     }
-    
+
     public int getUserID() {
         return userID;
     }
@@ -74,7 +75,7 @@ public class Model_User {
     public void setRole(Role role) {
         this.role = role;
     }
-    
+
     public ArrayList<Model_Invoice> getInvoices() {
         return invoices;
     }
@@ -82,9 +83,8 @@ public class Model_User {
     public void setInvoices(ArrayList<Model_Invoice> invoices) {
         this.invoices = invoices;
     }
-    
-}
 
-enum Role {
-    admin, user;
+    public enum Role {
+        admin, user;
+    }
 }

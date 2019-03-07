@@ -4,6 +4,7 @@ import Data.Mapper_Invoice;
 import Data.Mapper_User;
 import Data.Model_Invoice;
 import Data.Model_User;
+import Data.Model_User.Role;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
