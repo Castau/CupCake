@@ -42,7 +42,7 @@
                 <h4>Invoices:</h4>
                 <br/>
                 <table class="table">
-                    <tr>
+                    <tr class=" padding">
                         <th>
                             Invoice ID
                         </th>

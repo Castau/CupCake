@@ -48,6 +48,9 @@ public abstract class Command
             case "logout":
                 command = new CMD_Logout();
                 break;
+                case "admin":
+                command = new CMD_Admin();
+                break;
             default:
                 command = new CMD_Unknown();
                 break;

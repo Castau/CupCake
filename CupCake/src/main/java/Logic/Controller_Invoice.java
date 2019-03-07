@@ -1,10 +1,7 @@
 package Logic;
 
 import Data.Mapper_Invoice;
-import Data.Mapper_User;
 import Data.Model_Invoice;
-import Data.Model_InvoiceDetails;
-import Data.Model_User;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -21,6 +18,12 @@ public class Controller_Invoice {
         Model_Invoice invoice = mapperInvoice.getInvoiceWithDetails(invoiceID);
 
         return invoice;    
+    }
+    
+    public ArrayList<Model_Invoice> getAllInvoicesAdmin() throws SQLException{
+        Mapper_Invoice mapperInvoice = new Mapper_Invoice();
+        ArrayList<Model_Invoice> allInvoices = mapperInvoice.getAllInvoices();
+        return allInvoices;
     }
     
 }
