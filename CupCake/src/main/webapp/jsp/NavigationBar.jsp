@@ -41,14 +41,10 @@
             %>
             <a href="app/customer">Logged in as: <%= username%></a>
         </nav>
-        <%            if (user.getRole() == Model_User.role.admin)
+        <%            if (user.getRole() == Model_User.Role.admin)
             {%>
         <nav id="adminpanel">
-            <a href="">Admin Panel</a>
-            %>
-
-
-
+            <a href="app/admin">Admin Panel</a>
         </nav>
         <%
             } %>

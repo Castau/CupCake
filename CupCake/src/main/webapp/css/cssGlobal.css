@@ -61,15 +61,18 @@
     float: left;
 }
 
+#NavBar #adminpanel
+{
+    float: left;
+}
+
 #NavBar #user
 {
-    text-align: center;
     float: left;
 }
 
 #NavBar #logout
 {
-    text-align: center;
     float: right;
 }
 

@@ -33,6 +33,7 @@ public class Model_User
 
     public int getUserID()
     {
+
         return userID;
     }
 
@@ -101,9 +102,9 @@ public class Model_User
         this.invoices = invoices;
     }
 
-}
+    public enum Role
+    {
+        admin, user;
 
-enum Role
-{
-    admin, user;
+    }
 }
