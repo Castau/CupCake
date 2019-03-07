@@ -25,7 +25,7 @@
     Cart cart = (Cart) request.getSession().getAttribute("cart");
     if (cart.getCakes().isEmpty())
     {
-        msg = "Your cart is empty - no order plased";
+        msg = "Your cart is empty - no order placed";
     }
 %>
     
