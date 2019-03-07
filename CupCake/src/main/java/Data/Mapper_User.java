@@ -33,7 +33,7 @@ public class Mapper_User
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setBalance(rs.getDouble("balance"));
-            user.setRole(Role.valueOf(rs.getString("role")));
+            user.setRole(Model_User.Role.valueOf(rs.getString("role")));
         }
         return user;
     }
@@ -64,7 +64,7 @@ public class Mapper_User
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setBalance(rs.getDouble("balance"));
-            user.setRole(Role.valueOf(rs.getString("role")));
+            user.setRole(Model_User.Role.valueOf(rs.getString("role")));
         }
         return user;
     }
@@ -84,7 +84,7 @@ public class Mapper_User
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setBalance(rs.getDouble("balance"));
-            user.setRole(Role.valueOf(rs.getString("role")));
+            user.setRole(Model_User.Role.valueOf(rs.getString("role")));
 
             allUsers.add(user);
         }
@@ -109,7 +109,7 @@ public class Mapper_User
         ResultSet resultSet = stmt.getGeneratedKeys();
         if (resultSet.next())
         {
-            return new Model_User(resultSet.getInt(1), username, password, 0, email, Role.user, null);
+            return new Model_User(resultSet.getInt(1), username, password, 0, email, Model_User.Role.user, null);
         }
         return null;
     }
@@ -135,7 +135,7 @@ public class Mapper_User
                 user.setPassword(rs.getString("password"));
                 user.setEmail(rs.getString("email"));
                 user.setBalance(rs.getDouble("balance"));
-                user.setRole(Role.valueOf(rs.getString("role")));
+                user.setRole(Model_User.Role.valueOf(rs.getString("role")));
             }
             invoice.setId_invoice(rs.getInt("id_invoice"));
             invoice.setId_user(rs.getInt("id_user"));

@@ -72,6 +72,9 @@
                 %>
             </table>
             <p>Total price: <%=invoice.getTotalPrice()%></p>
+            <br/>
+            <br/>
+            <a href="app/customer"> Back to Customer Page</a>
         </div>
     </body>
 </html>

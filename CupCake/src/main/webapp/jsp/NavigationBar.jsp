@@ -35,17 +35,25 @@
             %>
             <a href="jsp/Login.jsp">Login/Register</a>
             <%
-            } else
+            }
+            else
             {
             %>
-            <a href="app/customer"><%= username%></a>
+            <a href="app/customer">Logged in as: <%= username%></a>
         </nav>
+        <%            if (user.getRole() == Model_User.Role.admin)
+            {%>
+        <nav id="adminpanel">
+            <a href="app/admin">Admin Panel</a>
+        </nav>
+        <%
+            } %>
         <nav id="logout">
             <form id = "logoutform" action="app/logout" method="post">
                 <button class ="button" id="logoutbutton" type="submit"/>Log out</button>
             </form>
         </nav>
-        
+
         <%
             }
         %>
