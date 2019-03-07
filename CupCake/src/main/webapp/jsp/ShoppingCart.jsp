@@ -3,7 +3,9 @@
     Created on : 05-03-2019, 22:59:32
     Author     : Shevitar
 --%>
-
+<jsp:include page='Header.jsp'></jsp:include>
+    <h2>Shopping Cart</h2>
+<jsp:include page='NavigationBar.jsp'></jsp:include>
 <%@page import="Data.Model_User"%>
 <%@page import="Data.Cart"%>
 <%@page import="Data.Model_CupCake"%>
@@ -23,12 +25,13 @@
 
 <jsp:include page='Header.jsp'></jsp:include>
 
-    <div>
+    <div class="padding">
         <div>
-            <h3>Your shopping cart items</h3>
+            <h4>Your shopping cart items</h4>
             <p>User: <%= username%></p>
         <p>Balance: <%= cash%></p>
-        <table style="width:50%">
+        <br/>
+        <table class="table">
             <tr>
                 <th>CupCake top</th>
                 <th>CupCake bottom</th>
