@@ -70,7 +70,7 @@ public class FrontController extends HttpServlet
             throws ServletException, IOException
     {
         String path = request.getPathInfo().substring(1);
-        HttpSession session = request.getSession(false); //Do not touch
+        HttpSession session = request.getSession(); //Do not touch
         //Read documentation on above :false: if needed.
         //false means do not create new session. 
         //if set to true, new session will be created. Everything below will then be disregarded and user is granted free access.
@@ -79,7 +79,7 @@ public class FrontController extends HttpServlet
         //System.out.println("(search #1338) pathname: " + path);
         if (!"index".equals(path))
         {
-            if (session == null || session.getAttribute("username") == null)
+            if (session == null || session.getAttribute("user") == null)
             {
                 //valid session doesn't exist -- or user log in went wrong.
                 //do something like send the user to a login screen
@@ -97,7 +97,7 @@ public class FrontController extends HttpServlet
                         out.println("</head>");
                         out.println("<body>");
                         out.println("<h1>Session or user invalid, try again!</h1>");
-                        out.println("<a href=\"/cupcake/login/\"><h2>Start over</h2></a>");
+                        out.println("<a href=\"/cupcake/\"><h2>Start over</h2></a>");
                         out.println("</body>");
                         out.println("</html>");
                     }
