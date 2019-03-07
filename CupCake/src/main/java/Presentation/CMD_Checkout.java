@@ -67,9 +67,7 @@ public class CMD_Checkout extends Command
             try
             {
                 mi.addInvoiceWithAllDetails(invoice, detailsList);
-                System.out.println("Succesfully created invoice in the database");
                 mu.updateUserBalance(user.getUserID(), balance - finalPrice);
-                System.out.println("Succesfully updated balance in the database for the chosen user");
             } catch (SQLException ex)
             {
                 

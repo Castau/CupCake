@@ -33,7 +33,6 @@ public class CMD_Shop extends Command
         
         Mapper_CupCake mc = new Mapper_CupCake();
         Model_User user = (Model_User) request.getSession().getAttribute("user");
-        System.out.println("" + user.getUserName());
         Cart cart = null;
         if (request.getSession().getAttribute("cart") == null)
         {
@@ -61,7 +60,6 @@ public class CMD_Shop extends Command
         {
             cart.clearCart();
         }
-        System.out.println("Amount of shit in the cart: " + cart.getCakes().size());
         request.getSession().setAttribute("cart", cart);
         request.getRequestDispatcher("/jsp/ShopPage.jsp").forward(request, response);
     }

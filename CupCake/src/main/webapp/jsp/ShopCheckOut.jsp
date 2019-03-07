@@ -12,7 +12,6 @@
 <jsp:include page='NavigationBar.jsp'></jsp:include>
 <%
     boolean buyPermission = (boolean)request.getSession().getAttribute("buyPermission");
-    System.out.println("Do we have the ####ing permission or what? : " + buyPermission);
     String msg = "";
     if (buyPermission)
     {
