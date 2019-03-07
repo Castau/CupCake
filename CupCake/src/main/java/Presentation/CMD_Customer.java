@@ -33,6 +33,7 @@ public class CMD_Customer extends Command {
             System.out.println("Couldn't map user " + ex);
         }
         request.setAttribute("user", user);
+        request.getSession().setAttribute("user", user);
 
         request.getRequestDispatcher("/jsp/CustomerPage.jsp").forward(request, response);
 

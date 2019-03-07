@@ -23,11 +23,11 @@
 
 <jsp:include page='Header.jsp'></jsp:include>
 
-<div>
     <div>
-        <h3>Your shopping cart items</h3>
-        <p>User: <%= username %></p>
-        <p>Balance: <%= cash %></p>
+        <div>
+            <h3>Your shopping cart items</h3>
+            <p>User: <%= username%></p>
+        <p>Balance: <%= cash%></p>
         <table style="width:50%">
             <tr>
                 <th>CupCake top</th>
@@ -56,21 +56,23 @@
             </tr>
         </table> 
     </div>
-        <div>
-            </br>
-            <form action="app/checkout" method="get" target="">
-                <button name="buyPermission" type="submit" value="<%
-                            if (cash < finalPrice)
-                            {
-                                enoughCash = false;
-                            }
-                            else
-                            {
-                                enoughCash = true;
-                            }
-                        %><%= enoughCash %>"> 
-                    Buy cupcakes </button>
-            </form>
-        </div>
+    <div>
+        <%
+            if (cash < finalPrice)
+            {
+                enoughCash = false;
+            } else
+            {
+                enoughCash = true;
+            }
+            request.getSession().setAttribute("finalPrice", finalPrice);
+            request.getSession().setAttribute("buyPermission", enoughCash);
+        %>
+        </br>
+        <form action="app/checkout" method="get" target="">
+            <button type="submit"> 
+                Buy cupcakes </button>
+        </form>
+    </div>
 </div>
 <jsp:include page='Footer.jsp'></jsp:include>
