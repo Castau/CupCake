@@ -38,6 +38,7 @@
 <jsp:include page='Header.jsp'></jsp:include>
 
     <div>
+        <h3>The shop</h3>
         <form>
             <section class="top">
                 <label for="top">What type of top would you like?</label>
