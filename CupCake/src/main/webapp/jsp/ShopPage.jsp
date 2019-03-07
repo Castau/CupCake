@@ -76,7 +76,7 @@
     <div class="col-md-6 padding">
         <h4>Shopping cart:</h4>
         <br/>
-        <table style="width:50%">
+        <table style="width:75%">
             <tr>
                 <th>CupCake top</th>
                 <th>CupCake bottom</th>
