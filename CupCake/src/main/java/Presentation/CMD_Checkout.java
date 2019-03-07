@@ -44,11 +44,11 @@ public class CMD_Checkout extends Command
         }
         Model_User user = (Model_User) request.getSession().getAttribute("user");
         boolean buyPermission = (boolean) request.getSession().getAttribute("buyPermission");
-
-        if (buyPermission)
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        
+        if (buyPermission && !cart.getCakes().isEmpty())
         {
             ArrayList<Model_InvoiceDetails> detailsList = new ArrayList();
-            Cart cart = (Cart) request.getSession().getAttribute("cart");
             double balance = user.getBalance();
             double finalPrice = (double) request.getSession().getAttribute("finalPrice");
             Model_InvoiceDetails details = null;

@@ -5,9 +5,11 @@
 --%>
 
 
+<%@page import="Data.Cart"%>
 <%@page import="Data.Model_User"%>
 <jsp:include page='Header.jsp'></jsp:include>
-
+    <h2>Checkout</h2>
+<jsp:include page='NavigationBar.jsp'></jsp:include>
 <%
     boolean buyPermission = (boolean)request.getSession().getAttribute("buyPermission");
     System.out.println("Do we have the ####ing permission or what? : " + buyPermission);
@@ -19,6 +21,11 @@
     else
     {
         msg = "Not enough credits in account";
+    }
+    Cart cart = (Cart) request.getSession().getAttribute("cart");
+    if (cart.getCakes().isEmpty())
+    {
+        msg = "Your cart is empty - no order plased";
     }
 %>
     
