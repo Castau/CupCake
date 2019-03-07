@@ -37,14 +37,10 @@
                 <p>UserID: <%= userID%></p>
                 <p>E-mail: <%= userEmail%></p>
                 <p>Balance: <%= balance%> $</p>
-
-
                 <form action="app/addbalance" method="post">
-                    <input type="number" name="balance" value="" placeholder="Amount" required><br>
+                    <input type="number" name="balance" value="" placeholder="Amount" required min="1"><br>
                     <input type="submit" value="Add balance" id = "LoginSubmit" class="button">
                 </form>
-
-
             </div>
             <div class="col-md-6 padding">
                 <h4>Invoices:</h4>
