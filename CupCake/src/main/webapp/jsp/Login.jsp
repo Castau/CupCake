@@ -10,7 +10,7 @@
 
 <div id="loginpage" class="padding">
     <div id="login" class=" col-md-6 col-md-offset-3" style="margin-bottom: 20px; min-height: 230px">
-        <h3>I have an user</h3>
+        <h3>I have a user</h3>
         <h4>Login</h4>
         <form action="app/login" method="post">
             <input type="text" name="username" value="" placeholder="Username" autofocus required><br>
