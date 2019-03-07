@@ -45,7 +45,7 @@ public class CMD_Login extends Command
                 if (user == null) //COULD NOT CREATE USER
                 {
                     session.invalidate();
-                    request.getRequestDispatcher("/jsp/Login.jsp");
+                    request.getRequestDispatcher("jsp/Login.jsp");
                 }
                 else //user created succesfully
                 {

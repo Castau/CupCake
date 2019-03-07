@@ -1,4 +1,5 @@
 
+<%@page import="Data.Cart"%>
 <%@page import="Data.Model_User"%>
 <%
     Model_User user = (Model_User) session.getAttribute("user");
@@ -7,7 +8,12 @@
     {
         username = user.getUserName().toUpperCase();
     }
-
+    int cartsize = 0;
+    if (session.getAttribute("cart") != null)
+    {
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        cartsize = cart.getCakes().size();
+    }
 %>
 
 <div id="NavBar">
@@ -25,7 +31,7 @@
     <div id ="rightBar">
 
         <nav id="cart">
-            <a href="jsp/ShoppingCart.jsp"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping Cart</a>
+            <a href="app/cart"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping Cart: <%=cartsize%> item(s)</a>
         </nav>
 
         <nav id="user">
@@ -44,7 +50,7 @@
         <%            if (user.getRole() == Model_User.Role.admin)
             {%>
         <nav id="adminpanel">
-            <a href="app/admin">Admin Panel</a>
+            <a href="app/admin" style="color: red">Admin Panel</a>
         </nav>
         <%
             } %>

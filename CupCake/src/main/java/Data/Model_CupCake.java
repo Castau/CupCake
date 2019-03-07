@@ -3,7 +3,9 @@ package Data;
 /**
  * @author Camilla
  */
-public class Model_CupCake {
+public class Model_CupCake
+{
+
     private int bottomID;
     private int topID;
     private String bottomName;
@@ -12,10 +14,12 @@ public class Model_CupCake {
     private double topPrice;
     private double totalPrice;
 
-    public Model_CupCake() {
+    public Model_CupCake()
+    {
     }
 
-    public Model_CupCake(int bottomID, int topID, String bottomName, String topName, double bottomPrice, double topPrice) {
+    public Model_CupCake(int bottomID, int topID, String bottomName, String topName, double bottomPrice, double topPrice)
+    {
         this.bottomID = bottomID;
         this.topID = topID;
         this.bottomName = bottomName;
@@ -29,53 +33,156 @@ public class Model_CupCake {
     {
         return totalPrice;
     }
-    
-    public int getBottomID() {
+
+    public int getBottomID()
+    {
         return bottomID;
     }
 
-    public void setBottomID(int bottomID) {
+    public void setBottomID(int bottomID)
+    {
         this.bottomID = bottomID;
     }
 
-    public int getTopID() {
+    public int getTopID()
+    {
         return topID;
     }
 
-    public void setTopID(int topID) {
+    public void setTopID(int topID)
+    {
         this.topID = topID;
     }
 
-    public String getBottomName() {
+    public String getBottomName()
+    {
         return bottomName;
     }
 
-    public void setBottomName(String bottomName) {
+    public void setBottomName(String bottomName)
+    {
         this.bottomName = bottomName;
     }
 
-    public String getTopName() {
+    public String getTopName()
+    {
         return topName;
     }
 
-    public void setTopName(String topName) {
+    public void setTopName(String topName)
+    {
         this.topName = topName;
     }
 
-    public double getBottomPrice() {
+    public double getBottomPrice()
+    {
         return bottomPrice;
     }
 
-    public void setBottomPrice(double bottomPrice) {
+    public void setBottomPrice(double bottomPrice)
+    {
         this.bottomPrice = bottomPrice;
     }
 
-    public double getTopPrice() {
+    public double getTopPrice()
+    {
         return topPrice;
     }
 
-    public void setTopPrice(double topPrice) {
+    public void setTopPrice(double topPrice)
+    {
         this.topPrice = topPrice;
     }
-    
+
+    public static class Cupcake_Top
+    {
+
+        private int topID;
+        private String topName;
+        private double topPrice;
+
+        public Cupcake_Top(int topID, String topName, double topPrice)
+        {
+            this.topID = topID;
+            this.topName = topName;
+            this.topPrice = topPrice;
+        }
+
+        public int getTopID()
+        {
+            return topID;
+        }
+
+        public void setTopID(int topID)
+        {
+            this.topID = topID;
+        }
+
+        public String getTopName()
+        {
+            return topName;
+        }
+
+        public void setTopName(String topName)
+        {
+            this.topName = topName;
+        }
+
+        public double getTopPrice()
+        {
+            return topPrice;
+        }
+
+        public void setTopPrice(double topPrice)
+        {
+            this.topPrice = topPrice;
+        }
+    }
+
+    public static class Cupcake_Bottom
+    {
+
+        private int bottomID;
+        private String bottomName;
+        private double bottomPrice;
+
+        public Cupcake_Bottom(int bottomID, String bottomName, double bottomPrice)
+        {
+            this.bottomID = bottomID;
+            this.bottomName = bottomName;
+            this.bottomPrice = bottomPrice;
+        }
+
+        public int getBottomID()
+        {
+            return bottomID;
+        }
+
+        public void setBottomID(int bottomID)
+        {
+            this.bottomID = bottomID;
+        }
+
+        public String getBottomName()
+        {
+            return bottomName;
+        }
+
+        public void setBottomName(String bottomName)
+        {
+            this.bottomName = bottomName;
+        }
+
+        public double getBottomPrice()
+        {
+            return bottomPrice;
+        }
+
+        public void setBottomPrice(double bottomPrice)
+        {
+            this.bottomPrice = bottomPrice;
+        }
+
+    }
+
 }

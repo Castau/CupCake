@@ -23,7 +23,7 @@
     <div id="register" class=" col-md-3 col-md-offset-1">
         <h3>I need a new user</h3>
         <h4>Register</h4>
-        <form action="app/login" method="post">
+        <form action="app/login"  method="post">
             <input type="text" name="username" value="" placeholder="Username" required><br>
             <input type="password" name="password" value="" placeholder="Password" required><br>
             <input type="email" name="email" value="" placeholder="Email" required><br>

@@ -9,8 +9,9 @@
 <%@page import="Data.Mapper_CupCake"%>
 <%
     Mapper_CupCake mc = new Mapper_CupCake();
-    ArrayList<Model_CupCake> allCupcakes = mc.getAllCupCakes();
-
+    //ArrayList<Model_CupCake> allCupcakes = mc.getAllCupCakes();
+    ArrayList<Model_CupCake.Cupcake_Top> allTops = mc.getAllCupcakeTops();
+    ArrayList<Model_CupCake.Cupcake_Bottom> allBottoms = mc.getAllCupcakeBottoms();
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -37,45 +38,43 @@
         </div>
     </div>
     <div id ="IndexText" class=" col-md-4 col-md-offset-4">
-        
+
         <h4>Current cupcake options</h4>
     </div>
     <div id="IndexTableTopStyle" class=" col-md-1 col-md-offset-5">
-        <table id="IndexTableTop" class="table-condensed table-striped">
-            <thead>
-            <th class="th-sm">
-                Cupcake Tops
-            </th>
-            </thead>
-        <%    for (int i = 0; i < allCupcakes.size(); i++)
-            {
-                String topName = allCupcakes.get(i).getTopName();
-                int topID = allCupcakes.get(i).getTopID();
-                out.print("<tr>");
-                out.print("<td> #" + topID + " " + topName + "</td>");
-                out.print("</tr>");
-            }
-        %>
+        <table class="table-condensed">
+            <tr class=" padding">
+                <th>
+                    Cupcake tops
+                </th>
+
+            </tr>
+
+        <%
+            for (int i = 0; i < allTops.size(); i++)
+            {%>
+        <tr>
+            <% String topName = allTops.get(i).getTopName();
+                    int topID = allTops.get(i).getTopID();
+                    out.print("<td> #" + topID + " " + topName + "</td>");
+                }%></tr>
     </table>
 </div>
 
 <div id="IndexTableBottomStyle" class=" col-md-1"> <!--col-md-offset-1-->
-    <table id="IndexTableBottom" class="table-condensed table-striped">
-        <thead>
-        <th class="th-sm">
-            Cupcake bottoms
-        </th>
-        </thead>
-        <%    for (int i = 0; i < allCupcakes.size(); i++)
-            {
-                String bottomName = allCupcakes.get(i).getBottomName();
-                int bottomID = allCupcakes.get(i).getBottomID();
-
-                out.print("<tr>");
-                out.print("<td> #" + bottomID + " " + bottomName + "</td>");
-                out.print("</tr>");
-            }
-        %>
+    <table class="table-condensed">
+        <tr>
+            <th>
+                Cupcake bottoms
+            </th>
+        </tr>
+        <%  for (int j = 0; j < allBottoms.size(); j++)
+            {%><tr><%
+                        String bottomName = allBottoms.get(j).getBottomName();
+                        int bottomID = allBottoms.get(j).getBottomID();
+                        out.print("<td> #" + bottomID + " " + bottomName + "</td>");
+                    }%></tr>
+        </tr>
     </table>
 </div>
 

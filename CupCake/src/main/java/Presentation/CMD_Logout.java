@@ -24,7 +24,7 @@ public class CMD_Logout extends Command
         if (session.getAttribute("user") != null)
         {
             session.setAttribute("user", null);
-            response.sendRedirect("/cupcake/index.jsp");
+            response.sendRedirect("/cupcake/");
         }
     }
 }

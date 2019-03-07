@@ -58,6 +58,42 @@ public class Mapper_CupCake
         return allCupCakes;
     }
 
+    public ArrayList<Model_CupCake.Cupcake_Top> getAllCupcakeTops() throws SQLException
+    {
+        DBConnector c = new DBConnector();
+        Connection conn = c.getConnection();
+        String query = "SELECT * FROM Cupcake_top;";
+        PreparedStatement stmt = c.getConnection().prepareStatement(query);
+        ResultSet rs = stmt.executeQuery();
+        ArrayList<Model_CupCake.Cupcake_Top> allCupcakeTops = new ArrayList();
+        while (rs.next())
+        {
+            int topID = rs.getInt("id_top");
+            String topName = rs.getString("top_name");
+            double topPrice = rs.getDouble("top_price");
+            allCupcakeTops.add(new Model_CupCake.Cupcake_Top(topID, topName, topPrice));
+        }
+        return allCupcakeTops;
+    }
+    
+    public ArrayList<Model_CupCake.Cupcake_Bottom> getAllCupcakeBottoms() throws SQLException
+    {
+        DBConnector c = new DBConnector();
+        Connection conn = c.getConnection();
+        String query = "SELECT * FROM Cupcake_bottom;";
+        PreparedStatement stmt = c.getConnection().prepareStatement(query);
+        ResultSet rs = stmt.executeQuery();
+        ArrayList<Model_CupCake.Cupcake_Bottom> allCupcakeBottoms = new ArrayList();
+        while (rs.next())
+        {
+            int bottomID = rs.getInt("id_bottom");
+            String bottomName = rs.getString("bottom_name");
+            double bottomPrice = rs.getDouble("bottom_price");
+            allCupcakeBottoms.add(new Model_CupCake.Cupcake_Bottom(bottomID, bottomName, bottomPrice));
+        }
+        return allCupcakeBottoms;
+    }
+
 //    public ArrayList<Model_CupCake> getAllCupcakesNoDuplicates() throws SQLException //these damn cupcakes aren't unique
 //    {
 //        ArrayList<Model_CupCake> allCupcakes = getAllCupCakes(); //Get all cupcakes
