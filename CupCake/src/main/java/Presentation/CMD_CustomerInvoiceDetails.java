@@ -1,15 +1,11 @@
 package Presentation;
 
-import Data.Model_CupCake;
 import Data.Model_Invoice;
-import Data.Model_InvoiceDetails;
 import Data.Model_User;
 import Logic.Controller_Invoice;
 import Logic.Controller_User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,6 +31,12 @@ public class CMD_CustomerInvoiceDetails extends Command {
             invoice = controllerInvoice.getInvoiceWithInvoiceDetails(invoiceID);
             userID = invoice.getId_user();
             user = controllerUser.getUser(userID);
+
+            Model_User sessionUser = (Model_User) request.getSession().getAttribute("user");
+            if (invoice.getId_user() != sessionUser.getUserID()) {
+                response.sendRedirect("/cupcake/app/customer");
+                return;
+            }
             request.setAttribute("user", user);
             request.setAttribute("invoice", invoice);
             request.getRequestDispatcher("/jsp/InvoiceDetailsPage.jsp").forward(request, response);
