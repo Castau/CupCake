@@ -57,6 +57,10 @@ public class CMD_Shop extends Command
                 Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        if (request.getParameter("clear") != null)
+        {
+            cart.clearCart();
+        }
         System.out.println("Amount of shit in the cart: " + cart.getCakes().size());
         request.getSession().setAttribute("cart", cart);
         request.getRequestDispatcher("/jsp/ShopPage.jsp").forward(request, response);
