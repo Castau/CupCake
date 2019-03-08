@@ -29,5 +29,5 @@ Overview of fulfilled requirements
 <img src="https://i.imgur.com/Xabkifb.png" alt = "image of database diagram" height="500" width="500"/>  
 **Initial class diagram**  
 (Changed during process)  
-<img src="https://i.imgur.com/EcuRNWZ.png" alt="image of class diagram" height="500" width="500"/>
+<img src="https://i.imgur.com/EcuRNWZ.png" alt="image of class diagram" height="750" width="500"/>
 
