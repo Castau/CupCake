@@ -97,7 +97,7 @@ public class FrontController extends HttpServlet
                         out.println("</head>");
                         out.println("<body>");
                         out.println("<h1>Session or user invalid, try again!</h1>");
-                        out.println("<a href=\"/cupcake/\"><h2>Start over</h2></a>");
+                        out.println("<a href=\"/\"><h2>Start over</h2></a>");
                         out.println("</body>");
                         out.println("</html>");
                     }

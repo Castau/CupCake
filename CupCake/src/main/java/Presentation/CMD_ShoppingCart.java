@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author stein
+ * @author brother
  */
 public class CMD_ShoppingCart extends Command {
      @Override

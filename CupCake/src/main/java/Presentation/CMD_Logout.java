@@ -22,9 +22,8 @@ public class CMD_Logout extends Command
     {
         HttpSession session = request.getSession();
         if (session.getAttribute("user") != null)
-        {
-            session.setAttribute("user", null);
-            response.sendRedirect("/cupcake/");
+        {   session.invalidate();
+            response.sendRedirect("/");
         }
     }
 }

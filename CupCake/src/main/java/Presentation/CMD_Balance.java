@@ -30,6 +30,6 @@ public class CMD_Balance extends Command {
         } catch (SQLException ex) {
             System.out.println("Couldn't map user " + ex);
         }
-        response.sendRedirect("/cupcake/app/customer");
+        response.sendRedirect("/app/customer");
     }
 }
