@@ -185,4 +185,31 @@ public class Model_CupCake
 
     }
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+        {
+            return true;
+        }
+        if (obj == null)
+        {
+            return false;
+        }
+        if (getClass() != obj.getClass())
+        {
+            return false;
+        }
+        final Model_CupCake other = (Model_CupCake) obj;
+        if (this.bottomID != other.bottomID)
+        {
+            return false;
+        }
+        if (this.topID != other.topID)
+        {
+            return false;
+        }
+        return true;
+    }
+    
 }

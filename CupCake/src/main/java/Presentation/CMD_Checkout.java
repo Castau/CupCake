@@ -8,12 +8,14 @@ package Presentation;
 import Data.Cart;
 import Data.Mapper_Invoice;
 import Data.Mapper_User;
+import Data.Model_CupCake;
 import Data.Model_Invoice;
 import Data.Model_InvoiceDetails;
 import Data.Model_User;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -56,13 +58,25 @@ public class CMD_Checkout extends Command
             user.setBalance(balance - finalPrice);
             invoice.setId_user(user.getUserID());
             invoice.setTotalPrice(finalPrice);
+            ArrayList<Model_CupCake> cakes = cart.getCakes();
+            cakes.sort(new TheComparator());
             for (int i = 0; i < cart.getCakes().size(); i++)
             {
+                int amount = 0;
+                int j = i;
+                for (j = i; j < cakes.size(); j++)
+                {
+                    if (cakes.get(i).equals(cakes.get(j)))
+                    {
+                        ++amount;
+                    }
+                }
                 details = new Model_InvoiceDetails();
-                details.setCupcake(cart.getCakes().get(i));
-                details.setPrice(cart.getCakes().get(i).getTotalPrice());
-                details.setQuantity(1);
+                details.setCupcake(cakes.get(i));
+                details.setPrice(cakes.get(i).getTotalPrice());
+                details.setQuantity(amount);
                 detailsList.add(details);
+                i += amount - 1;
             }
             try
             {
@@ -73,15 +87,32 @@ public class CMD_Checkout extends Command
                 
                 Logger.getLogger(CMD_Checkout.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
             user.setBalance(balance - finalPrice);
-            //Write the actual code to make the actual changes in the DB
             request.getSession().setAttribute("user", user);
-        } else
-        {
-            //Something
         }
 
         request.getRequestDispatcher("/jsp/ShopCheckOut.jsp").forward(request, response);
+    }
+    
+//    public void sortCakes(ArrayList<Model_CupCake> cakes)
+//    {
+//        Comparator comp = Comparator.naturalOrder();
+//        
+//    }
+    
+    static class TheComparator implements Comparator
+    {
+        @Override
+        public int compare(Object o1, Object o2)
+        {
+            Model_CupCake cake1 = (Model_CupCake) o1;
+            Model_CupCake cake2 = (Model_CupCake) o2;
+            String cake1name = cake1.getTopName() + cake1.getBottomName();
+            String cake2name = cake2.getTopName() + cake2.getBottomName();
+            return 
+            cake1name.compareToIgnoreCase(cake2name);
+        }
     }
 
 }

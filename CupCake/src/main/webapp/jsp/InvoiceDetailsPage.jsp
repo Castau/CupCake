@@ -54,6 +54,9 @@
                     <th>
                         Cake bottom Price
                     </th>
+                    <th>
+                        Quantity
+                    </th>
                 </tr>
                 <%
                     for (int i = 0; i < invoiceDetails.size(); i++) {
@@ -61,12 +64,14 @@
                         Double topPrice = invoiceDetails.get(i).getCupcake().getTopPrice();
                         String bottomName = invoiceDetails.get(i).getCupcake().getBottomName();
                         Double bottomPrice = invoiceDetails.get(i).getCupcake().getBottomPrice();
-
+                        int qty = invoiceDetails.get(i).getQuantity();
+                        
                         out.print("<tr>");
                         out.print("<td>" + topName + "</td>");
                         out.print("<td>" + topPrice + "</td>");
                         out.print("<td>" + bottomName + "</td>");
                         out.print("<td>" + bottomPrice + "</td>");
+                        out.print("<td>" + qty + "</td>");
                         out.print("</tr>");
                     }
                 %>

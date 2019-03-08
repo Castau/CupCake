@@ -26,6 +26,9 @@
     {
         msg = "Your cart is empty - no order placed";
     }
+    Model_User user = (Model_User)request.getSession().getAttribute("user");
+    cart = new Cart(user.getUserID());
+    request.getSession().setAttribute("cart", cart);
 %>
     
 <div>

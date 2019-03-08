@@ -107,7 +107,6 @@ public class Mapper_Invoice {
     public boolean addInvoiceWithAllDetails(Model_Invoice inv, ArrayList<Model_InvoiceDetails> detailsList) throws SQLException
     {
         Model_Invoice invoice = inv;
-        ArrayList<Model_InvoiceDetails> details = detailsList;
         int userID = invoice.getId_user();
         double totalPrice = invoice.getTotalPrice();
         Connection conn = connection.getConnection();
@@ -132,7 +131,7 @@ public class Mapper_Invoice {
         {
             stmt.setInt(1, detailsList.get(i).getCupcake().getTopID());
             stmt.setInt(2, detailsList.get(i).getCupcake().getBottomID());
-            stmt.setInt(3, 1);
+            stmt.setInt(3, detailsList.get(i).getQuantity());
             stmt.setDouble(4, detailsList.get(i).getCupcake().getTotalPrice());
             stmt.executeUpdate();
             conn.commit();
