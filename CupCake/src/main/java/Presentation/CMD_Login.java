@@ -90,7 +90,7 @@ public class CMD_Login extends Command
             if (!valid || valid == null) //Invalid user or something went wrong
             {
                 session.invalidate();
-                request.getRequestDispatcher("/jsp/Login.jsp");
+                request.getRequestDispatcher("/app/unknownlogin").forward(request, response);
             }
 
         }
