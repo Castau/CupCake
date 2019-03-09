@@ -5,6 +5,8 @@
  */
 package Presentation;
 
+import Data.Cart;
+import Data.Model_User;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +24,16 @@ public class CMD_Logout extends Command
     {
         HttpSession session = request.getSession();
         if (session.getAttribute("user") != null)
-        {   session.invalidate();
-            response.sendRedirect("/");
+        {   
+            Cart cart = (Cart) request.getSession().getAttribute("cart");
+            cart.clearCart();           
+            session.invalidate();
+            
+            // LOCALHOST PATH
+            //response.sendRedirect("/cupcake");
+            
+            // DEPLOY PATH
+            response.sendRedirect("/");            
         }
     }
 }
