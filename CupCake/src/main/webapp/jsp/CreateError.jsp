@@ -3,7 +3,7 @@
     Created on : 09-03-2019, 18:24:05
     Author     : Camilla
 --%>
-createusererror
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page='Header.jsp'></jsp:include>
