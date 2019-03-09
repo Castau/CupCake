@@ -44,7 +44,7 @@ public class CMD_Login extends Command
                 if (user == null) //COULD NOT CREATE USER
                 {
                     session.invalidate();
-                    request.getRequestDispatcher("jsp/Login.jsp");
+                    request.getRequestDispatcher("/app/createusererror").forward(request, response);
                 }
                 else //user created succesfully
                 {
@@ -54,6 +54,8 @@ public class CMD_Login extends Command
             }
             catch (SQLException ex)
             {
+                session.invalidate();
+                request.getRequestDispatcher("/app/createusererror").forward(request, response);
                 Logger.getLogger(CMD_Login.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
