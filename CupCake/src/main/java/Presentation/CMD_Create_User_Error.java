@@ -14,12 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Camilla
  */
-//public class CMD_Create_User_Error extends Command {
-//
-//    public CMD_Create_User_Error() {
-//    }
-//    
-//}
+
 public class CMD_Create_User_Error extends Command
 {
 
