@@ -17,23 +17,22 @@ import javax.servlet.http.HttpSession;
  *
  * @author Runi
  */
-public class CMD_Logout extends Command
-{
+public class CMD_Logout extends Command {
+
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session.getAttribute("user") != null)
-        {   
+        if (session.getAttribute("user") != null) {
             Cart cart = (Cart) request.getSession().getAttribute("cart");
-            cart.clearCart();           
+            if (cart != null) {
+                cart.clearCart();
+            }
             session.invalidate();
-            
+
             // LOCALHOST PATH
             //response.sendRedirect("/cupcake");
-            
             // DEPLOY PATH
-            response.sendRedirect("/");            
+            response.sendRedirect("/");
         }
     }
 }

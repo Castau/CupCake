@@ -23,6 +23,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/cssGlobal.css">
         <link rel="icon" href="images/favicon.png" type="image/png">
+        <script type = "text/javascript" src = "js/jsfile.js" ></script>
+        
         <title>Copenhagen Cupcakes</title>
     </head>
     <body>
