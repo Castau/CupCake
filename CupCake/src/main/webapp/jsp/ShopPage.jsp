@@ -69,7 +69,7 @@
                     Amount of cakes:
                 </p>
                     
-                    <input class="form-control" style="max-width: 80px; margin-bottom: 5px" type="number" name="qty" value="1" placeholder="x" required min="1">
+                    <input class="form-control" style="max-width: 80px; margin-bottom: 5px" type="number" name="qty" value="1" placeholder="x" required min="1" max="100">
             <button>
                 Add cake(s) to cart
             </button>
