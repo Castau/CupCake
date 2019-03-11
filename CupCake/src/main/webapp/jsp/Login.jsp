@@ -16,7 +16,7 @@
             <input type="text" name="username" value="" placeholder="Username" autofocus required><br>
             <input type="password" name="password" value="" placeholder="Password" required><br>
             <input type="hidden" name="create" value="false">
-            <input type="submit" value="Log in" id = "LoginSubmit" class="button" onclick="testFunction()">
+            <input type="submit" value="Log in" id = "LoginSubmit" class="button" <!--onclick="testFunction()"-->>
         </form>
     </div>
 

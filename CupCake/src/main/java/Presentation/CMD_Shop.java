@@ -42,16 +42,18 @@ public class CMD_Shop extends Command
         }
         if (request.getParameter("top") != null)
         {
+            int qty = Integer.parseInt(request.getParameter("qty"));
             int top = Integer.parseInt(request.getParameter("top"));
             int bottom = Integer.parseInt(request.getParameter("bottom"));
-            try
-            {
-                Model_CupCake cake = mc.getCupCake(top, bottom);
-                cart.addToCart(cake);
-            } catch (SQLException ex)
-            {
-                System.out.println("Could not fetch cupcake from database in CMD_Shop");
+            Model_CupCake cake = null;
+            try {
+                cake = mc.getCupCake(top, bottom);
+            } catch (SQLException ex) {
                 Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            for (int i = 0; i < qty; i++)
+            {
+                cart.addToCart(cake);
             }
         }
         if (request.getParameter("clear") != null)
