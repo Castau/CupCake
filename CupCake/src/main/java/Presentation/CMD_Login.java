@@ -29,72 +29,83 @@ public class CMD_Login extends Command
     {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String email = request.getParameter("email"); //Only included if we wish to create a new user
+        boolean create = Boolean.valueOf(request.getParameter("create")); //If we want to create a new user or not. Hidden input form from Login.jsp
 
-        boolean create = Boolean.valueOf(request.getParameter("create")); //If we want to create a new user or not.
-
-        HttpSession session = request.getSession();
+        
         if (create) //Register new user
         {
-            String email = request.getParameter("email");
-            try
-            {
-                Mapper_User mu = new Mapper_User();
-                Model_User user = null;
-                user = mu.createUser(username, password, email);
-                if (user == null) //COULD NOT CREATE USER
-                {
-                    session.invalidate();
-                    request.getRequestDispatcher("/app/createusererror").forward(request, response);
-                }
-                else //user created succesfully
-                {
-                    session.setAttribute("user", user);
-                    response.sendRedirect("customer");
-                }
-            }
-            catch (SQLException ex)
-            {
-                session.invalidate();
-                request.getRequestDispatcher("/app/createusererror").forward(request, response);
-                Logger.getLogger(CMD_Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            registerUser(username, password, email, request, response);
         }
         else //Log in user
         {
-            Controller_User cu = new Controller_User();
-            Boolean valid = null;
+            loginUser(username, password, request, response);
+
+        }
+    }
+
+    private void registerUser(String username, String password, String email, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        HttpSession session = request.getSession();
+        try
+        {
+            Mapper_User mu = new Mapper_User();
+            Model_User user = null;
+            user = mu.createUser(username, password, email);
+            if (user == null) //COULD NOT CREATE USER
+            {
+                session.invalidate();
+                request.getRequestDispatcher("/app/createusererror").forward(request, response);
+            }
+            else //user created succesfully
+            {
+                session.setAttribute("user", user);
+                response.sendRedirect("customer");
+            }
+        }
+        catch (SQLException ex)
+        {
+            session.invalidate();
+            request.getRequestDispatcher("/app/createusererror").forward(request, response);
+            Logger.getLogger(CMD_Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void loginUser(String username, String password, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+    {
+        HttpSession session = request.getSession();
+        Controller_User cu = new Controller_User();
+        Boolean valid = null;
+        try
+        {
+            valid = cu.checkPasswordValidity(username, password); //validate user
+            //System.out.println(valid);
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Failed to validate password");
+            Logger.getLogger(CMD_Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (valid) //user exists
+        {
             try
             {
-                valid = cu.checkPasswordValidity(username, password); //validate user
-                //System.out.println(valid);
+                Mapper_User mu = new Mapper_User();
+                Model_User user = mu.getUserByName(username);
+                session.setAttribute("user", user);
             }
             catch (SQLException ex)
             {
-                System.out.println("Failed to validate password");
+                System.out.println("Failed to create new user - check connection. (Error#1337)");
                 Logger.getLogger(CMD_Login.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (valid) //user exists
-            {
-                try
-                {
-                    Mapper_User mu = new Mapper_User();
-                    Model_User user = mu.getUserByName(username);
-                    session.setAttribute("user", user);
-                }
-                catch (SQLException ex)
-                {
-                    System.out.println("Failed to create new user - check connection. (Error#1337)");
-                    Logger.getLogger(CMD_Login.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                request.getRequestDispatcher("customer").forward(request, response);
-            }
+            request.getRequestDispatcher("customer").forward(request, response);
+        }
 
-            if (!valid || valid == null) //Invalid user or something went wrong
-            {
-                session.invalidate();
-                request.getRequestDispatcher("/app/unknownlogin").forward(request, response);
-            }
-
+        if (!valid || valid == null) //Invalid user or something went wrong
+        {
+            session.invalidate();
+            request.getRequestDispatcher("/app/unknownlogin").forward(request, response);
         }
     }
 }
