@@ -13,6 +13,7 @@
 <%
     boolean buyPermission = (boolean)request.getSession().getAttribute("buyPermission");
     String msg = "";
+    Cart cart = (Cart) request.getSession().getAttribute("cart");
     if (buyPermission)
     {
         msg = "Cupcakes have succesfully been ordered";
@@ -21,14 +22,16 @@
     {
         msg = "Not enough credits in account";
     }
-    Cart cart = (Cart) request.getSession().getAttribute("cart");
     if (cart.getCakes().isEmpty())
     {
         msg = "Your cart is empty - no order placed";
     }
-    Model_User user = (Model_User)request.getSession().getAttribute("user");
-    cart = new Cart(user.getUserID());
-    request.getSession().setAttribute("cart", cart);
+    if (buyPermission)
+    {
+        Model_User user = (Model_User)request.getSession().getAttribute("user");
+        cart = new Cart(user.getUserID());
+        request.getSession().setAttribute("cart", cart);
+    }
 %>
     
 <div>
