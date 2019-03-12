@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Command for handling userBalance, the application currency
+ * 
  * @author Camilla
  */
 public class CMD_Balance extends Command {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * Passing information from the frontend along to the Controller_User when  
+     * the user buys more currency.
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -14,17 +14,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Command for handling access to AdminPage
+ * 
  * @author Camilla
  */
 
 public class CMD_Admin extends Command {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * Handles admincheck, gets allInvoices from the Controller_Invoice 
+     * and forwards to AdminPage.jsp
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

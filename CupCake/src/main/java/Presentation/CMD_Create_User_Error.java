@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Command for forwarding to the CreateError.jsp page when the user enters wrong
+ * information in the creation of their user.
+ * 
  * @author Camilla
  */
 
@@ -19,11 +21,12 @@ public class CMD_Create_User_Error extends Command
 {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * Forwards to CreateError.jsp
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

@@ -14,16 +14,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Command for handling access to Customer Page
+ * 
  * @author Camilla
  */
 public class CMD_Customer extends Command {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * Gets the userobject from session parameters and adds the specific users 
+     * invoices to the userobject, then updates the session and request 
+     * parameters with the new userobject and forwards to CustomerPage.jsp
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

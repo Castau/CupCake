@@ -11,16 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Command for handling access to the Invoice Details page
+ * 
  * @author Camilla
  */
 public class CMD_CustomerInvoiceDetails extends Command {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * Gets the specifik invoice id from the request parameters and gets the 
+     * invoicedetails and userinfo from the Controller_Invoice and the
+     * Controller_User, then updates the request before forwarding to
+     * the InvoiceDetailsPage.jsp page.
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
