@@ -6,8 +6,8 @@ Made by [4 students](https://github.com/Castau/CupCake/graphs/contributors) of C
 This is the repository for our first project of the 2nd semester.  
 
 #### Result  
-The program can be found online <a href="http://207.154.233.238" target="blank">here</a>. Feel free to create a new user and play around.
-
+The program can be found online <a href="http://207.154.233.238" target="blank">here</a>. Feel free to create a new user and play around.  
+The javadocs for the program can be found [here](https://castau.github.io/CupCake/).
 #### Project description  
 *"(...)develop a simple web-shop using MySql database, java servlets and jsp pages on the backend and html, css and javascript on the frontend."* ([direct link](https://docs.google.com/document/d/1XKK1GkVE-GtCPGEoVJ2SN4qHpfJnU9j7arugQv2-JfY))
 
@@ -21,9 +21,7 @@ At this time, we have yet to be taught about program architecture. In this situa
 
 We have yet to be taught Javascript, something that this project would definitely benefit from. We are not handling user login/user registration errors properly.
 
-
-Overview of fulfilled requirements
-----
+### Initial development thoughts
 **Initial database layout:**  
 (Changed during process)  
 <img src="https://i.imgur.com/Xabkifb.png" alt = "image of database diagram" height="500" width="500"/>  
@@ -31,3 +29,7 @@ Overview of fulfilled requirements
 (Changed during process)  
 <img src="https://i.imgur.com/EcuRNWZ.png" alt="image of class diagram" height="750" width="500"/>
 
+
+Overview of fulfilled requirements
+----
+Project was turned in with an accompanying report, ~~it's available in the directory or directly [here]().~~
