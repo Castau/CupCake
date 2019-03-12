@@ -1,23 +1,23 @@
 -classpath
-'E:/OneDrive/OneDrive/Documents/NetBeansProjects/CupCake/CupCake/target/classes;C:/Users/Rúni/.m2/repository/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0.jar;C:/Users/Rúni/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar;C:/Users/Rúni/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar'
+'C:/Users/Camilla/Documents/NetBeansProjects/CupCake/CupCake/target/classes;C:/Users/Camilla/.m2/repository/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0.jar;C:/Users/Camilla/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar;C:/Users/Camilla/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar'
 -encoding
 'UTF-8'
 -protected
 -sourcepath
-'E:/OneDrive/OneDrive/Documents/NetBeansProjects/CupCake/CupCake/src/main/java'
+'C:/Users/Camilla/Documents/NetBeansProjects/CupCake/CupCake/src/main/java'
 -author
 -bottom
 'Copyright &#169; 2019. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
-'E:/OneDrive/OneDrive/Documents/NetBeansProjects/CupCake/CupCake/docs/apidocs'
+'C:/Users/Camilla/Documents/NetBeansProjects/CupCake/CupCake/../docs'
 -docencoding
 'UTF-8'
 -doctitle
 'CupCake 1.0-SNAPSHOT API'
 -linkoffline
-'http://docs.oracle.com/javase/7/docs/api' 'E:/OneDrive/OneDrive/Documents/NetBeansProjects/CupCake/CupCake/target/javadoc-bundle-options'
+'http://docs.oracle.com/javase/7/docs/api' 'C:/Users/Camilla/Documents/NetBeansProjects/CupCake/CupCake/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle

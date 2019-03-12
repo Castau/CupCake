@@ -83,7 +83,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.9</version>
                 <configuration>
-                    <destDir>/docs/apidocs</destDir>
+                    <destDir>../docs</destDir>
                     <reportOutputDirectory>${basedir}</reportOutputDirectory>
                 </configuration>
             </plugin>
