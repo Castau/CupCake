@@ -29,7 +29,15 @@ public class CMD_Shop extends Command
     {
         response.setContentType("text/html;charset=UTF-8");
         
-        Mapper_CupCake mc = new Mapper_CupCake();
+        Mapper_CupCake mc = null;
+        try
+        {
+            mc = new Mapper_CupCake();
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(CMD_Shop.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Model_User user = (Model_User) request.getSession().getAttribute("user");
         Cart cart = null;
         if (request.getSession().getAttribute("cart") == null)
