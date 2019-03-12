@@ -14,22 +14,22 @@
 
 <%
     //Top names
-    String top1 = "Chocolate";
-    String top2 = "Blueberry";
-    String top3 = "Raspberry";
-    String top4 = "Crispy";
-    String top5 = "Strawberry";
-    String top6 = "Rum/Raisin";
-    String top7 = "Orange";
-    String top8 = "Lemon";
-    String top9 = "Blue cheese";
+    String top1 = "Chocolate $5";
+    String top2 = "Blueberry $5";
+    String top3 = "Raspberry $5";
+    String top4 = "Crispy $6";
+    String top5 = "Strawberry $6";
+    String top6 = "Rum/Raisin $7";
+    String top7 = "Orange $8";
+    String top8 = "Lemon $8";
+    String top9 = "Blue cheese $9";
 
     //Bottom names
-    String bottom1 = "Chocolate";
-    String bottom2 = "Vanilla";
-    String bottom3 = "Nutmeg";
-    String bottom4 = "Pistacio";
-    String bottom5 = "Almond";
+    String bottom1 = "Chocolate $5";
+    String bottom2 = "Vanilla $5";
+    String bottom3 = "Nutmeg $5";
+    String bottom4 = "Pistacio $6";
+    String bottom5 = "Almond $7";
 
     Cart cart = (Cart) request.getSession().getAttribute("cart");
     double finalPrice = 0;
@@ -41,7 +41,7 @@
         <br/>
         <form>
             <section class="top">
-                <label for="top">What type of top would you like?</label>
+                <label for="top">What type of top would you like?  </label>
                 <select name="top" id="top">
                     <option value="1"><%=top1%></option>
                     <option value="2"><%=top2%></option>
