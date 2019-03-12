@@ -8,17 +8,21 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Shevitar
+ * @author Asger
  */
 public class Mapper_CupCake
 {
-
+    DBConnector connection;
+    
+    public Mapper_CupCake() throws SQLException
+    {
+        connection = new DBConnector();
+    }
+    
     public Model_CupCake getCupCake(int tID, int bID) throws SQLException
     {
-        DBConnector c = new DBConnector();
-        Connection conn = c.getConnection();
         String query = "SELECT * FROM Cupcake_top JOIN Cupcake_bottom WHERE id_top = ? AND id_bottom = ?;";
-        PreparedStatement stmt = c.getConnection().prepareStatement(query);
+        PreparedStatement stmt = connection.getConnection().prepareStatement(query);
         stmt.setInt(1, tID);
         stmt.setInt(2, bID);
         ResultSet rs = stmt.executeQuery();
@@ -36,8 +40,7 @@ public class Mapper_CupCake
 
     public ArrayList<Model_CupCake> getAllCupCakes() throws SQLException
     {
-        DBConnector c = new DBConnector();
-        Connection conn = c.getConnection();
+        Connection conn = connection.getConnection();
         String query = "SELECT * FROM Cupcake_top JOIN Cupcake_bottom;";
         ResultSet rs = conn.createStatement().executeQuery(query);
         ArrayList<Model_CupCake> allCupCakes = new ArrayList();
@@ -58,10 +61,8 @@ public class Mapper_CupCake
 
     public ArrayList<Model_CupCake.Cupcake_Top> getAllCupcakeTops() throws SQLException
     {
-        DBConnector c = new DBConnector();
-        Connection conn = c.getConnection();
         String query = "SELECT * FROM Cupcake_top;";
-        PreparedStatement stmt = c.getConnection().prepareStatement(query);
+        PreparedStatement stmt = connection.getConnection().prepareStatement(query);
         ResultSet rs = stmt.executeQuery();
         ArrayList<Model_CupCake.Cupcake_Top> allCupcakeTops = new ArrayList();
         while (rs.next())
@@ -76,10 +77,8 @@ public class Mapper_CupCake
 
     public ArrayList<Model_CupCake.Cupcake_Bottom> getAllCupcakeBottoms() throws SQLException
     {
-        DBConnector c = new DBConnector();
-        Connection conn = c.getConnection();
         String query = "SELECT * FROM Cupcake_bottom;";
-        PreparedStatement stmt = c.getConnection().prepareStatement(query);
+        PreparedStatement stmt = connection.getConnection().prepareStatement(query);
         ResultSet rs = stmt.executeQuery();
         ArrayList<Model_CupCake.Cupcake_Bottom> allCupcakeBottoms = new ArrayList();
         while (rs.next())
