@@ -15,6 +15,13 @@ public class Controller_User
         
     }
     
+    /**
+     * Used to check if a given name and password pair matches any user in the database
+     * @param name String representing the username
+     * @param password String representing the supposed password matching the given username
+     * @return boolean - True if the given name and password matches that of an existing user, False otherwise
+     * @throws SQLException 
+     */
     public boolean checkPasswordValidity(String name, String password) throws SQLException
     {
         String passwordDB ="";
@@ -24,6 +31,14 @@ public class Controller_User
         return password.equals(passwordDB);
     }
 
+    /**
+     * Used to fetch a user from the database. 
+     * This method returns a user object based on the given ID. The user object 
+     * will contain invoices. The invoices will not contain any details
+     * @param userID The ID of the chosen user
+     * @return Model_User
+     * @throws SQLException 
+     */
     public Model_User getUserWithInvoices(int userID) throws SQLException {
         Mapper_User mapperUser = new Mapper_User();
         Model_User user = mapperUser.getUserWithInvoice(userID);
@@ -31,16 +46,33 @@ public class Controller_User
         return user;    
     }
     
+    /**
+     * Used to fetch a user from the database. 
+     * This method returns a user object based on the given ID. The user object 
+     * will not contain invoices. 
+     * @param userID The ID of the chosen user
+     * @return Model_User
+     * @throws SQLException 
+     */
     public Model_User getUser(int userID) throws SQLException {
         Mapper_User mapperUser = new Mapper_User();
         Model_User user = mapperUser.getUserByID(userID);
         return user;    
     }
     
-    public void updateBalance(int userID, double addedBalance) throws SQLException{
+    /**
+     * Used to update the balance of a given user. 
+     * This method will update the balance of a user if the given userID matches 
+     * an ID in the database. 
+     * @param userID The ID of the chosen user
+     * @param balance A double representing the amount of money that should either 
+     * be added or removed from the user
+     * @throws SQLException 
+     */
+    public void updateBalance(int userID, double balance) throws SQLException{
         Mapper_User mapperUser = new Mapper_User();
         double oldBalance = mapperUser.getUserByID(userID).getBalance();
-        double newBalance = oldBalance + addedBalance;
+        double newBalance = oldBalance + balance;
         
         mapperUser.updateUserBalance(userID, newBalance);
         
