@@ -14,8 +14,10 @@ public class Mapper_User
     DBConnector connection;
 
     /**
+     * Handles Users from the frontend to the backend and vice versa.
      *
-     * @throws SQLException
+     *
+     * @throws SQLException goodbye exception.
      */
     public Mapper_User() throws SQLException
     {
@@ -23,10 +25,13 @@ public class Mapper_User
     }
 
     /**
+     * Returns user based on their UID (ID)
      *
-     * @param userID
-     * @return
-     * @throws SQLException
+     * @see Model_User.
+     *
+     * @param userID Users ID
+     * @return Model_User
+     * @throws SQLException bye exception.
      */
     public Model_User getUserByID(int userID) throws SQLException
     {
@@ -49,27 +54,10 @@ public class Mapper_User
     }
 
     /**
+     * Returns user based on their name.
      *
-     * @param userID
-     * @param newBalance
-     * @return
-     * @throws SQLException
-     */
-    public boolean updateUserBalance(int userID, double newBalance) throws SQLException
-    {
-        String query = "UPDATE `cupcake`.`User` SET `balance` = ? WHERE (`id_user` = ? );";
-        
-        PreparedStatement stmt = connection.getConnection().prepareStatement(query);
-        stmt.setDouble(1, newBalance);
-        stmt.setInt(2, userID);
-        int done = stmt.executeUpdate();
-        return done != 0;
-    }
-    
-    /**
-     *
-     * @param userName
-     * @return
+     * @param userName Users username
+     * @return Model_User object with username in question
      * @throws SQLException
      */
     public Model_User getUserByName(String userName) throws SQLException
@@ -94,8 +82,9 @@ public class Mapper_User
 
     /**
      *
-     * @return
-     * @throws SQLException
+     *
+     * @return @throws SQLException Returns all users currently in database. bye
+     * exception.
      */
     public ArrayList<Model_User> getAllUsers() throws SQLException
     {
@@ -120,12 +109,14 @@ public class Mapper_User
     }
 
     /**
+     * Create a new user and inser into database. Return User object at the same
+     * time.
      *
-     * @param username
-     * @param password
-     * @param email
-     * @return
-     * @throws SQLException
+     * @param username user username
+     * @param password user password
+     * @param email user email
+     * @return returns user if successful, otherwise null
+     * @throws SQLException bye exception
      */
     public Model_User createUser(String username, String password, String email) throws SQLException
     {
@@ -152,9 +143,12 @@ public class Mapper_User
 
     /**
      *
-     * @param userID
-     * @return
-     * @throws SQLException
+     * Returns an User object with their invoice objects tied to the User
+     * object.
+     *
+     * @param userID User in question.
+     * @return User object with their invoices as well.
+     * @throws SQLException bye exception.
      */
     public Model_User getUserWithInvoice(int userID) throws SQLException
     {
@@ -186,6 +180,25 @@ public class Mapper_User
         }
         user.setInvoices(userInvoices);
         return user;
+    }
+
+    /**
+     * Updates the users balance using PreparedStatement.
+     *
+     * @param userID Users ID
+     * @param newBalance balance we wish to set
+     * @return boolean value (true/false) depending completion.
+     * @throws SQLException
+     */
+    public boolean updateUserBalance(int userID, double newBalance) throws SQLException
+    {
+        String query = "UPDATE `cupcake`.`User` SET `balance` = ? WHERE (`id_user` = ? );";
+
+        PreparedStatement stmt = connection.getConnection().prepareStatement(query);
+        stmt.setDouble(1, newBalance);
+        stmt.setInt(2, userID);
+        int done = stmt.executeUpdate();
+        return done != 0;
     }
 
 }

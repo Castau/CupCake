@@ -8,34 +8,43 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Asger
+ * @author Shevitar
  */
 public class Mapper_CupCake
 {
+
     DBConnector connection;
-    
+
     /**
+     * Handles cupcakes from the frontend to the backend and vice versa.
      *
-     * @throws SQLException
+     * @see DBConnector.
+     *
+     * @throws SQLException goodbye exception
      */
     public Mapper_CupCake() throws SQLException
     {
         connection = new DBConnector();
     }
-    
+
     /**
+     * Creates a new cupcake-object by the use of the cupcake_top and
+     * cupcake_bottom UID (ID)
      *
-     * @param tID
-     * @param bID
-     * @return
-     * @throws SQLException
+     * @see Model_CupCake.
+     *
+     * @param topID ID of cupcake_top
+     * @param bottomID ID of cupcake_bottom
+     * @return Returns a new cupcake object containing the requested cupcake_top
+     * and cupcake_bottom
+     * @throws SQLException bye exception
      */
-    public Model_CupCake getCupCake(int tID, int bID) throws SQLException
+    public Model_CupCake getCupCake(int topID, int bottomID) throws SQLException
     {
         String query = "SELECT * FROM Cupcake_top JOIN Cupcake_bottom WHERE id_top = ? AND id_bottom = ?;";
         PreparedStatement stmt = connection.getConnection().prepareStatement(query);
-        stmt.setInt(1, tID);
-        stmt.setInt(2, bID);
+        stmt.setInt(1, topID);
+        stmt.setInt(2, bottomID);
         ResultSet rs = stmt.executeQuery();
         Model_CupCake cupCake = null;
         while (rs.next())
@@ -44,15 +53,18 @@ public class Mapper_CupCake
             String bottomName = rs.getString("bottom_name");
             double topPrice = rs.getDouble("top_price");
             double bottomPrice = rs.getDouble("bottom_price");
-            cupCake = new Model_CupCake(bID, tID, bottomName, topName, bottomPrice, topPrice);
+            cupCake = new Model_CupCake(bottomID, topID, bottomName, topName, bottomPrice, topPrice);
         }
         return cupCake;
     }
 
     /**
      *
-     * @return
-     * @throws SQLException
+     * Returns all cupcake_tops and cupcake_bottoms combined into
+     * Cupcake-objects.
+     *
+     * @see Model_CupCake.
+     * @return @throws SQLException Returns an ArrayList of Cupcake_objects
      */
     public ArrayList<Model_CupCake> getAllCupCakes() throws SQLException
     {
@@ -76,9 +88,10 @@ public class Mapper_CupCake
     }
 
     /**
+     * Returns cupcake_tops only.
      *
-     * @return
-     * @throws SQLException
+     * @return @throws SQLException Returns all cupcake tops (without bottoms).
+     * goodbye exception.
      */
     public ArrayList<Model_CupCake.Cupcake_Top> getAllCupcakeTops() throws SQLException
     {
@@ -97,9 +110,10 @@ public class Mapper_CupCake
     }
 
     /**
+     * Returns cupcake_bottoms only.
      *
-     * @return
-     * @throws SQLException
+     * @return @throws SQLException Returns all cupcake bottoms (without tops).
+     * goodbye exception.
      */
     public ArrayList<Model_CupCake.Cupcake_Bottom> getAllCupcakeBottoms() throws SQLException
     {

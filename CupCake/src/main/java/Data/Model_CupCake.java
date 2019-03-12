@@ -1,6 +1,23 @@
 package Data;
 
 /**
+ * Fields:
+ *
+ * BottomID: id of cupcake_bottom.
+ *
+ * topID: id of cupcake_top.
+ *
+ * bottomName - name of cupcake_bottom.
+ *
+ * topName - name of cupcake_top.
+ *
+ * bottomPrice - price of cupcake_bottom.
+ *
+ * topPrice - price of cupcake_top.
+ *
+ * totalPrice - combined price of cupcake_bottom and cupcake_top.
+ *
+ *
  * @author Camilla
  */
 public class Model_CupCake
@@ -16,6 +33,7 @@ public class Model_CupCake
 
     /**
      *
+     * Used for (empty) object creation.
      */
     public Model_CupCake()
     {
@@ -23,12 +41,18 @@ public class Model_CupCake
 
     /**
      *
-     * @param bottomID
-     * @param topID
-     * @param bottomName
-     * @param topName
-     * @param bottomPrice
-     * @param topPrice
+     * Java object for a cupcake (top + bottom).
+     *
+     * Used for handling of objects from backend to frontend and vice-versa.
+     *
+     * bottomPrice & topPrice is used to calculate totalPrice.
+     *
+     * @param bottomID ID of cupcake_bottom
+     * @param topID ID of cupcake_top
+     * @param bottomName Name of cupcake_bottom
+     * @param topName Name of cupcake_top
+     * @param bottomPrice Price of cupcake_bottom
+     * @param topPrice Price of cupcake_top
      */
     public Model_CupCake(int bottomID, int topID, String bottomName, String topName, double bottomPrice, double topPrice)
     {
@@ -41,124 +65,75 @@ public class Model_CupCake
         this.totalPrice = bottomPrice + topPrice;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getTotalPrice()
     {
         return totalPrice;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getBottomID()
     {
         return bottomID;
     }
 
-    /**
-     *
-     * @param bottomID
-     */
     public void setBottomID(int bottomID)
     {
         this.bottomID = bottomID;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getTopID()
     {
         return topID;
     }
 
-    /**
-     *
-     * @param topID
-     */
     public void setTopID(int topID)
     {
         this.topID = topID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getBottomName()
     {
         return bottomName;
     }
 
-    /**
-     *
-     * @param bottomName
-     */
     public void setBottomName(String bottomName)
     {
         this.bottomName = bottomName;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getTopName()
     {
         return topName;
     }
 
-    /**
-     *
-     * @param topName
-     */
     public void setTopName(String topName)
     {
         this.topName = topName;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getBottomPrice()
     {
         return bottomPrice;
     }
 
-    /**
-     *
-     * @param bottomPrice
-     */
     public void setBottomPrice(double bottomPrice)
     {
         this.bottomPrice = bottomPrice;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getTopPrice()
     {
         return topPrice;
     }
 
-    /**
-     *
-     * @param topPrice
-     */
     public void setTopPrice(double topPrice)
     {
         this.topPrice = topPrice;
     }
 
     /**
+     *
+     * Inner class used to display a cupcake_top by itself - no correlation to
+     * cupcake_bottom. (Used for index.jsp tables as of writing).
      *
      */
     public static class Cupcake_Top
@@ -170,9 +145,9 @@ public class Model_CupCake
 
         /**
          *
-         * @param topID
-         * @param topName
-         * @param topPrice
+         * @param topID ID of cupcake_top
+         * @param topName Name of cupcake_top
+         * @param topPrice Price of cupcake_top
          */
         public Cupcake_Top(int topID, String topName, double topPrice)
         {
@@ -181,55 +156,31 @@ public class Model_CupCake
             this.topPrice = topPrice;
         }
 
-        /**
-         *
-         * @return
-         */
         public int getTopID()
         {
             return topID;
         }
 
-        /**
-         *
-         * @param topID
-         */
         public void setTopID(int topID)
         {
             this.topID = topID;
         }
 
-        /**
-         *
-         * @return
-         */
         public String getTopName()
         {
             return topName;
         }
 
-        /**
-         *
-         * @param topName
-         */
         public void setTopName(String topName)
         {
             this.topName = topName;
         }
 
-        /**
-         *
-         * @return
-         */
         public double getTopPrice()
         {
             return topPrice;
         }
 
-        /**
-         *
-         * @param topPrice
-         */
         public void setTopPrice(double topPrice)
         {
             this.topPrice = topPrice;
@@ -237,6 +188,9 @@ public class Model_CupCake
     }
 
     /**
+     *
+     * Inner class used to display a cupcake_bottom by itself - no correlation
+     * to cupcake_top. (Used for index.jsp tables as of writing).
      *
      */
     public static class Cupcake_Bottom
@@ -248,9 +202,9 @@ public class Model_CupCake
 
         /**
          *
-         * @param bottomID
-         * @param bottomName
-         * @param bottomPrice
+         * @param bottomID ID of cupcake_bottom.
+         * @param bottomName Name of cupcake_bottom.
+         * @param bottomPrice Price of cupcake_bottom.
          */
         public Cupcake_Bottom(int bottomID, String bottomName, double bottomPrice)
         {
@@ -259,55 +213,31 @@ public class Model_CupCake
             this.bottomPrice = bottomPrice;
         }
 
-        /**
-         *
-         * @return
-         */
         public int getBottomID()
         {
             return bottomID;
         }
 
-        /**
-         *
-         * @param bottomID
-         */
         public void setBottomID(int bottomID)
         {
             this.bottomID = bottomID;
         }
 
-        /**
-         *
-         * @return
-         */
         public String getBottomName()
         {
             return bottomName;
         }
 
-        /**
-         *
-         * @param bottomName
-         */
         public void setBottomName(String bottomName)
         {
             this.bottomName = bottomName;
         }
 
-        /**
-         *
-         * @return
-         */
         public double getBottomPrice()
         {
             return bottomPrice;
         }
 
-        /**
-         *
-         * @param bottomPrice
-         */
         public void setBottomPrice(double bottomPrice)
         {
             this.bottomPrice = bottomPrice;
@@ -341,5 +271,5 @@ public class Model_CupCake
         }
         return true;
     }
-    
+
 }

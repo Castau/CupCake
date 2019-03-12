@@ -17,21 +17,23 @@ public class Model_User
     private ArrayList<Model_Invoice> invoices;
 
     /**
-     *
+     * Used for empty object creation
      */
     public Model_User()
     {
     }
 
     /**
+     * Java object for a User as seen in the database. Used for handling of
+     * objects from backend to frontend and vice-versa.
      *
-     * @param userID
-     * @param userName
-     * @param password
-     * @param balance
-     * @param email
-     * @param role
-     * @param invoices
+     * @param userID Users ID (AUTO_INCREMENT, use RETURN_GENERATED_KEYS)
+     * @param userName Users username
+     * @param password Users password
+     * @param balance Users Balance (Default: 0.00 (set by database))
+     * @param email Users email (Used at registration)
+     * @param role Users role (Enum: user, admin) (see inner class Role)
+     * @param invoices An arraylist of users @Model_Invoice's
      */
     public Model_User(int userID, String userName, String password, double balance, String email, Role role, ArrayList<Model_Invoice> invoices)
     {
@@ -44,110 +46,61 @@ public class Model_User
         this.invoices = invoices;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getUserID()
     {
-
         return userID;
     }
 
-    /**
-     *
-     * @param userID
-     */
     public void setUserID(int userID)
     {
         this.userID = userID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getUserName()
     {
         return userName;
     }
 
-    /**
-     *
-     * @param userName
-     */
     public void setUserName(String userName)
     {
         this.userName = userName;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getPassword()
     {
         return password;
     }
 
-    /**
-     *
-     * @param password
-     */
     public void setPassword(String password)
     {
         this.password = password;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getBalance()
     {
         return balance;
     }
 
-    /**
-     *
-     * @param balance
-     */
     public void setBalance(double balance)
     {
         this.balance = balance;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getEmail()
     {
         return email;
     }
 
-    /**
-     *
-     * @param email
-     */
     public void setEmail(String email)
     {
         this.email = email;
     }
 
-    /**
-     *
-     * @return
-     */
     public Role getRole()
     {
         return role;
     }
 
-    /**
-     *
-     * @param role
-     */
     public void setRole(Role role)
     {
         this.role = role;
@@ -155,7 +108,8 @@ public class Model_User
 
     /**
      *
-     * @return
+     * @return returns a list of all the users invoices, containing
+     * Model_InvoiceDetails
      */
     public ArrayList<Model_Invoice> getInvoices()
     {
@@ -163,8 +117,9 @@ public class Model_User
     }
 
     /**
+     * Updates or changes the users invoice list
      *
-     * @param invoices
+     * @param invoices the new invoice list
      */
     public void setInvoices(ArrayList<Model_Invoice> invoices)
     {
@@ -172,20 +127,11 @@ public class Model_User
     }
 
     /**
-     *
+     * Enum used to specify the users role. Admin is used for access to the
+     * admin panel and admin functions Default (by database) is user.
      */
     public enum Role
     {
-
-        /**
-         *
-         */
-        admin,
-
-        /**
-         *
-         */
-        user;
-
+        admin, user;
     }
 }
