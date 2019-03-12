@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.Cart;
 import Data.Mapper_User;
 import Data.Model_User;
 import Logic.Controller_User;
@@ -80,6 +81,8 @@ public class CMD_Login extends Command
             }
             else //user created succesfully
             {
+                Cart cart = new Cart(user.getUserID());
+                session.setAttribute("cart", cart);
                 session.setAttribute("user", user);
                 response.sendRedirect("customer");
             }
@@ -127,6 +130,8 @@ public class CMD_Login extends Command
             {
                 Mapper_User mu = new Mapper_User();
                 Model_User user = mu.getUserByName(username);
+                Cart cart = new Cart(user.getUserID());
+                session.setAttribute("cart", cart);
                 session.setAttribute("user", user);
             }
             catch (SQLException ex)
