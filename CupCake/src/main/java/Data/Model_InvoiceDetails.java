@@ -1,6 +1,5 @@
 package Data;
 
-import java.util.ArrayList;
 
 /**
  * Fields: (All are related to the invoice in question) id_Invoice_Details - the

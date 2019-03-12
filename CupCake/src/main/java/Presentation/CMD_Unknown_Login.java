@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Command for forwarding to the LoginError.jsp page when the user enters wrong
+ * information while loggin in.
+ * 
  * @author Camilla
  */
 
@@ -14,11 +16,12 @@ public class CMD_Unknown_Login extends Command
 {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * Forwards to LoginError.jsp
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

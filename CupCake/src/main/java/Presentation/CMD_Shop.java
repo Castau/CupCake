@@ -18,18 +18,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author stein
+ * Command for handling the Shop page.
+ * 
+ * @author Shevitar
  */
 public class CMD_Shop extends Command
 {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * Gets the cupcake info from the session, creates a Model_CupCake object
+     * and a Cart object and adds the Model_CupCake to the Cart. If the 
+     * requestparameter clear is used, the Cart ArrayList with the Model_CupCake
+     * objects is cleared.
+     * Updates the session with the new Cart object and forwards to ShopPage.jsp
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
