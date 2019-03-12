@@ -7,19 +7,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * This class is for handling all CRUD operations related to @Model_Invoice &
+ * Handling all CRUD operations related to @Model_Invoice and @Model_InvoiceDetails
  *
- * @Model_InvoiceDetails
- *
- * @author runin
+ * @author Camilla
  */
 public class Mapper_Invoice {
 
     DBConnector connection;
 
     /**
-     *
-     * @throws SQLException
+     * Constructor, gets connection
+     * 
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
     public Mapper_Invoice() throws SQLException {
         connection = new DBConnector();
@@ -28,10 +28,13 @@ public class Mapper_Invoice {
     /* This is for Model_Invoice*/
 
     /**
-     *
-     * @param invoiceID
-     * @return
-     * @throws SQLException
+     * Sends querry to databse and creates a Model_Invoice object with the
+     * returned data
+     * 
+     * @param invoiceID the id for the specific invoice
+     * @return Model_Invoice object 
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
 
     public Model_Invoice getInvoiceByID(int invoiceID) throws SQLException {
@@ -48,10 +51,13 @@ public class Mapper_Invoice {
     }
 
     /**
-     *
-     * @param userID
-     * @return
-     * @throws SQLException
+     * Sends querry to databse and creates a Model_Invoice object with the
+     * returned data
+     * 
+     * @param userID the id for the specific user
+     * @return Model_Invoice object 
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
     public Model_Invoice getInvoiceByUserID(int userID) throws SQLException {
         Model_Invoice invoice = new Model_Invoice();
@@ -67,10 +73,13 @@ public class Mapper_Invoice {
     }
 
     /**
-     *
-     * @param userID
-     * @return
-     * @throws SQLException
+     * Sends querry to databse and creates an ArrayList of Model_Invoice objects 
+     * with the returned data
+     * 
+     * @param userID the id for the specific user
+     * @return ArrayList
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
     public ArrayList<Model_Invoice> getAllInvoicesByID(int userID) throws SQLException {
         ArrayList<Model_Invoice> allInvoices = new ArrayList();
@@ -89,9 +98,12 @@ public class Mapper_Invoice {
     }
 
     /**
-     *
-     * @return
-     * @throws SQLException
+     * Sends querry to databse and creates an ArrayList of Model_Invoice objects 
+     * with the returned data
+     * 
+     * @return ArrayList 
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
     public ArrayList<Model_Invoice> getAllInvoices() throws SQLException {
         ArrayList<Model_Invoice> allInvoices = new ArrayList();
@@ -109,9 +121,11 @@ public class Mapper_Invoice {
     }
 
     /**
-     *
-     * @return
-     * @throws SQLException
+     * Sends querry to databse and gets the highest invoice_id number
+     * 
+     * @return invoice id as int 
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
     public int getLatestInvoiceID() throws SQLException
     {
@@ -126,30 +140,36 @@ public class Mapper_Invoice {
     }
     
     /**
-     *
-     * @param i
-     * @return
-     * @throws SQLException
+     * Sends querry to databse and adds the specific Model_Invoice to the 
+     * the database
+     * 
+     * @param invoice specific Model_Invoice object
+     * @return boolean to specify wether the execute returns data
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
-    public boolean addInvoice(Model_Invoice i) throws SQLException {
+    public boolean addInvoice(Model_Invoice invoice) throws SQLException {
         //int invoice_id, int id_user, double totalPrice
         String sqlQuery = "INSERT INTO cupcake.Invoice"
                 + "(id_user, totalprice)"
                 + "VALUES (?, ?)";
 
         PreparedStatement stmt = connection.getConnection().prepareStatement(sqlQuery);
-        stmt.setInt(1, i.getId_user());
-        stmt.setDouble(2, i.getTotalPrice());
+        stmt.setInt(1, invoice.getId_user());
+        stmt.setDouble(2, invoice.getTotalPrice());
         return stmt.execute();
 
     }
     
     /**
-     *
-     * @param inv
-     * @param detailsList
-     * @return
-     * @throws SQLException
+     * Sends querry to databse and adds the specific Model_Invoice and 
+     * ArrayList of Model_InvoiceDetails to the database
+     * 
+     * @param inv Model_Invoice Object
+     * @param detailsList ArrayList of Model_InvoiceDetails
+     * @return true
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
     public boolean addInvoiceWithAllDetails(Model_Invoice inv, ArrayList<Model_InvoiceDetails> detailsList) throws SQLException
     {
@@ -188,10 +208,13 @@ public class Mapper_Invoice {
     }
 
     /**
-     *
-     * @param invoiceID
-     * @return
-     * @throws SQLException
+     * Sends querry to databse gets the specific Model_Invoice and the ArrayList 
+     * of Invoice_Details connected to it from the database
+     * 
+     * @param invoiceID id of the specific Model_Invoice object
+     * @return the Model_Invoice object with the ArrayList of Invoice_Details
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
     public Model_Invoice getInvoiceWithDetails(int invoiceID) throws SQLException {
 

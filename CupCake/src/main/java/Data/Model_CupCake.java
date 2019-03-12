@@ -45,7 +45,8 @@ public class Model_CupCake
      *
      * Used for handling of objects from backend to frontend and vice-versa.
      *
-     * bottomPrice & topPrice is used to calculate totalPrice.
+     * [bottomPrice and topPrice is used to calculate totalPrice.]
+     *
      *
      * @param bottomID ID of cupcake_bottom
      * @param topID ID of cupcake_top

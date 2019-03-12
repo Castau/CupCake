@@ -11,9 +11,11 @@ package Data;
  *
  * id_Top - id of the top part of the cupcake in question.
  *
- * price - total price of the two cupcake-parts combined
+ * price - total price of the two cupcake-parts combined.
+ * 
+ * cupcake - the combined cupcake (top and bottom) in question
+ * 
  *
- * cupcake - the combined cupcake (top&bottom) in question.
  *
  * @author Camilla
  */

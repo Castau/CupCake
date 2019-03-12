@@ -27,7 +27,7 @@ public class Mapper_User
     /**
      * Returns user based on their UID (ID)
      *
-     * @see Model_User.
+     * @see Model_User
      *
      * @param userID Users ID
      * @return Model_User
@@ -58,7 +58,7 @@ public class Mapper_User
      *
      * @param userName Users username
      * @return Model_User object with username in question
-     * @throws SQLException
+     * @throws SQLException bye exception.
      */
     public Model_User getUserByName(String userName) throws SQLException
     {
@@ -83,8 +83,9 @@ public class Mapper_User
     /**
      *
      *
-     * @return @throws SQLException Returns all users currently in database. bye
-     * exception.
+     * @return Returns all users currently in database.
+     * @throws SQLException bye exception.
+     *
      */
     public ArrayList<Model_User> getAllUsers() throws SQLException
     {
@@ -188,7 +189,7 @@ public class Mapper_User
      * @param userID Users ID
      * @param newBalance balance we wish to set
      * @return boolean value (true/false) depending completion.
-     * @throws SQLException
+     * @throws SQLException bye exception.
      */
     public boolean updateUserBalance(int userID, double newBalance) throws SQLException
     {

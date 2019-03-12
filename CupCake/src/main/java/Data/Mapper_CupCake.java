@@ -18,7 +18,7 @@ public class Mapper_CupCake
     /**
      * Handles cupcakes from the frontend to the backend and vice versa.
      *
-     * @see DBConnector.
+     * @see DBConnector
      *
      * @throws SQLException goodbye exception
      */
@@ -31,7 +31,7 @@ public class Mapper_CupCake
      * Creates a new cupcake-object by the use of the cupcake_top and
      * cupcake_bottom UID (ID)
      *
-     * @see Model_CupCake.
+     * @see Model_CupCake
      *
      * @param topID ID of cupcake_top
      * @param bottomID ID of cupcake_bottom
@@ -63,8 +63,9 @@ public class Mapper_CupCake
      * Returns all cupcake_tops and cupcake_bottoms combined into
      * Cupcake-objects.
      *
-     * @see Model_CupCake.
-     * @return @throws SQLException Returns an ArrayList of Cupcake_objects
+     * @see Model_CupCake
+     * @return Returns an ArrayList of Cupcake_objects
+     * @throws SQLException bye exception.
      */
     public ArrayList<Model_CupCake> getAllCupCakes() throws SQLException
     {
@@ -90,8 +91,8 @@ public class Mapper_CupCake
     /**
      * Returns cupcake_tops only.
      *
-     * @return @throws SQLException Returns all cupcake tops (without bottoms).
-     * goodbye exception.
+     * @return Returns all cupcake tops (without bottoms).
+     * @throws SQLException goodbye exception.
      */
     public ArrayList<Model_CupCake.Cupcake_Top> getAllCupcakeTops() throws SQLException
     {
@@ -112,8 +113,9 @@ public class Mapper_CupCake
     /**
      * Returns cupcake_bottoms only.
      *
-     * @return @throws SQLException Returns all cupcake bottoms (without tops).
-     * goodbye exception.
+     * @return Returns all cupcake bottoms (without tops).
+     * @throws SQLException goodbye exception.
+     *
      */
     public ArrayList<Model_CupCake.Cupcake_Bottom> getAllCupcakeBottoms() throws SQLException
     {

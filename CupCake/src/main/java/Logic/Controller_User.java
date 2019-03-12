@@ -23,7 +23,7 @@ public class Controller_User
      * @param name String representing the username
      * @param password String representing the supposed password matching the given username
      * @return boolean - True if the given name and password matches that of an existing user, False otherwise
-     * @throws SQLException 
+     * @throws SQLException bye exception.
      */
     public boolean checkPasswordValidity(String name, String password) throws SQLException
     {
@@ -40,7 +40,7 @@ public class Controller_User
      * will contain invoices. The invoices will not contain any details
      * @param userID The ID of the chosen user
      * @return Model_User
-     * @throws SQLException 
+     * @throws SQLException  bye exception.
      */
     public Model_User getUserWithInvoices(int userID) throws SQLException {
         Mapper_User mapperUser = new Mapper_User();
@@ -55,7 +55,7 @@ public class Controller_User
      * will not contain invoices. 
      * @param userID The ID of the chosen user
      * @return Model_User
-     * @throws SQLException 
+     * @throws SQLException bye exception.
      */
     public Model_User getUser(int userID) throws SQLException {
         Mapper_User mapperUser = new Mapper_User();
@@ -69,8 +69,8 @@ public class Controller_User
      * an ID in the database. 
      * @param userID The ID of the chosen user
      * @param balance A double representing the amount of money that should either 
-     * be added or removed from the user
-     * @throws SQLException 
+     * be added or removed from the user.
+     * @throws SQLException bye exception.
      */
     public void updateBalance(int userID, double balance) throws SQLException{
         Mapper_User mapperUser = new Mapper_User();

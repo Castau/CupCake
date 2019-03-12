@@ -12,18 +12,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author stein
+ * Command for handling and showing application errors
+ * 
+ * @author Camilla
  */
 public class CMD_Unknown extends Command
 {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * This is the application default command which is called when nothing else
+     * in the Command switchcase is called. Usually it's called when the sesison
+     * is expired.
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
