@@ -11,6 +11,9 @@ import java.util.ArrayList;
  */
 public class Controller_Invoice {
 
+    /**
+     *
+     */
     public Controller_Invoice() {
     }
     

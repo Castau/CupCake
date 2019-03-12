@@ -25,6 +25,13 @@ import javax.servlet.http.HttpSession;
 public class CMD_Login extends Command
 {
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {

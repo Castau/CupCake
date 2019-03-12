@@ -12,8 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 public abstract class Command
 {
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public abstract void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
+    /**
+     *
+     * @param request
+     * @return
+     */
     public static Command from(HttpServletRequest request)
     {
         Command command;

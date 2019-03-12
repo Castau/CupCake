@@ -14,11 +14,22 @@ public class Mapper_CupCake
 {
     DBConnector connection;
     
+    /**
+     *
+     * @throws SQLException
+     */
     public Mapper_CupCake() throws SQLException
     {
         connection = new DBConnector();
     }
     
+    /**
+     *
+     * @param tID
+     * @param bID
+     * @return
+     * @throws SQLException
+     */
     public Model_CupCake getCupCake(int tID, int bID) throws SQLException
     {
         String query = "SELECT * FROM Cupcake_top JOIN Cupcake_bottom WHERE id_top = ? AND id_bottom = ?;";
@@ -38,6 +49,11 @@ public class Mapper_CupCake
         return cupCake;
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Model_CupCake> getAllCupCakes() throws SQLException
     {
         Connection conn = connection.getConnection();
@@ -59,6 +75,11 @@ public class Mapper_CupCake
         return allCupCakes;
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Model_CupCake.Cupcake_Top> getAllCupcakeTops() throws SQLException
     {
         String query = "SELECT * FROM Cupcake_top;";
@@ -75,6 +96,11 @@ public class Mapper_CupCake
         return allCupcakeTops;
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Model_CupCake.Cupcake_Bottom> getAllCupcakeBottoms() throws SQLException
     {
         String query = "SELECT * FROM Cupcake_bottom;";

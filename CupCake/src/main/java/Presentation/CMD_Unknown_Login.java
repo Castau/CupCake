@@ -13,6 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 public class CMD_Unknown_Login extends Command
 {
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {

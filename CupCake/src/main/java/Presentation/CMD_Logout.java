@@ -19,6 +19,13 @@ import javax.servlet.http.HttpSession;
  */
 public class CMD_Logout extends Command {
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();

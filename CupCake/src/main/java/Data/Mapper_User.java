@@ -13,11 +13,21 @@ public class Mapper_User
 
     DBConnector connection;
 
+    /**
+     *
+     * @throws SQLException
+     */
     public Mapper_User() throws SQLException
     {
         this.connection = new DBConnector();
     }
 
+    /**
+     *
+     * @param userID
+     * @return
+     * @throws SQLException
+     */
     public Model_User getUserByID(int userID) throws SQLException
     {
 
@@ -38,6 +48,13 @@ public class Mapper_User
         return user;
     }
 
+    /**
+     *
+     * @param userID
+     * @param newBalance
+     * @return
+     * @throws SQLException
+     */
     public boolean updateUserBalance(int userID, double newBalance) throws SQLException
     {
         String query = "UPDATE `cupcake`.`User` SET `balance` = ? WHERE (`id_user` = ? );";
@@ -49,6 +66,12 @@ public class Mapper_User
         return done != 0;
     }
     
+    /**
+     *
+     * @param userName
+     * @return
+     * @throws SQLException
+     */
     public Model_User getUserByName(String userName) throws SQLException
     {
 
@@ -69,6 +92,11 @@ public class Mapper_User
         return user;
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Model_User> getAllUsers() throws SQLException
     {
 
@@ -91,6 +119,14 @@ public class Mapper_User
         return allUsers;
     }
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @param email
+     * @return
+     * @throws SQLException
+     */
     public Model_User createUser(String username, String password, String email) throws SQLException
     {
 
@@ -114,6 +150,12 @@ public class Mapper_User
         return null;
     }
 
+    /**
+     *
+     * @param userID
+     * @return
+     * @throws SQLException
+     */
     public Model_User getUserWithInvoice(int userID) throws SQLException
     {
 

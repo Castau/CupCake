@@ -10,6 +10,9 @@ import java.sql.SQLException;
 public class Controller_User 
 {
 
+    /**
+     *
+     */
     public Controller_User() 
     {
         

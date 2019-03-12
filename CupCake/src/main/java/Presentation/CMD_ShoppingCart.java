@@ -10,7 +10,15 @@ import javax.servlet.http.HttpServletResponse;
  * @author Shevitar
  */
 public class CMD_ShoppingCart extends Command {
-     @Override
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
         response.setContentType("text/html;charset=UTF-8");

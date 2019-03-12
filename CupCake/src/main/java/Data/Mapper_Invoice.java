@@ -17,11 +17,23 @@ public class Mapper_Invoice {
 
     DBConnector connection;
 
+    /**
+     *
+     * @throws SQLException
+     */
     public Mapper_Invoice() throws SQLException {
         connection = new DBConnector();
     }
 
     /* This is for Model_Invoice*/
+
+    /**
+     *
+     * @param invoiceID
+     * @return
+     * @throws SQLException
+     */
+
     public Model_Invoice getInvoiceByID(int invoiceID) throws SQLException {
         Model_Invoice invoice = new Model_Invoice();
         String sqlQuery = "SELECT * FROM cupcake.Invoice "
@@ -35,6 +47,12 @@ public class Mapper_Invoice {
         return invoice;
     }
 
+    /**
+     *
+     * @param userID
+     * @return
+     * @throws SQLException
+     */
     public Model_Invoice getInvoiceByUserID(int userID) throws SQLException {
         Model_Invoice invoice = new Model_Invoice();
         String sqlQuery = "SELECT * FROM cupcake.Invoice "
@@ -48,6 +66,12 @@ public class Mapper_Invoice {
         return invoice;
     }
 
+    /**
+     *
+     * @param userID
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Model_Invoice> getAllInvoicesByID(int userID) throws SQLException {
         ArrayList<Model_Invoice> allInvoices = new ArrayList();
         Model_Invoice invoice = new Model_Invoice();
@@ -64,6 +88,11 @@ public class Mapper_Invoice {
         return allInvoices;
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Model_Invoice> getAllInvoices() throws SQLException {
         ArrayList<Model_Invoice> allInvoices = new ArrayList();
         String sqlQuery = "SELECT * FROM cupcake.Invoice;";
@@ -79,6 +108,11 @@ public class Mapper_Invoice {
         return allInvoices;
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public int getLatestInvoiceID() throws SQLException
     {
         String sqlQuery = "SELECT MAX(id_invoice) AS id_invoice FROM cupcake.Invoice ORDER BY 'id_invoices' DESC LIMIT 1;";
@@ -91,6 +125,12 @@ public class Mapper_Invoice {
         return id;
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     * @throws SQLException
+     */
     public boolean addInvoice(Model_Invoice i) throws SQLException {
         //int invoice_id, int id_user, double totalPrice
         String sqlQuery = "INSERT INTO cupcake.Invoice"
@@ -104,6 +144,13 @@ public class Mapper_Invoice {
 
     }
     
+    /**
+     *
+     * @param inv
+     * @param detailsList
+     * @return
+     * @throws SQLException
+     */
     public boolean addInvoiceWithAllDetails(Model_Invoice inv, ArrayList<Model_InvoiceDetails> detailsList) throws SQLException
     {
         Model_Invoice invoice = inv;
@@ -140,6 +187,12 @@ public class Mapper_Invoice {
         return true;
     }
 
+    /**
+     *
+     * @param invoiceID
+     * @return
+     * @throws SQLException
+     */
     public Model_Invoice getInvoiceWithDetails(int invoiceID) throws SQLException {
 
         Model_Invoice invoice = new Model_Invoice();
