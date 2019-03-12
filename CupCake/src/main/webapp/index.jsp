@@ -53,7 +53,7 @@
     <br/>
     <div id="IndexTableTopStyle" class="col-md-2 col-md-offset-4 col-sm-2 col-sm-offset-4 col-xs-3 col-xs-offset-3">
         <table class="table-condensed">
-            <tr class=" padding">
+            <tr class="padding">
                 <th>
                     Cupcake tops
                 </th>
