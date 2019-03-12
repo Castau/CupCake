@@ -23,7 +23,7 @@ public class Controller_Invoice {
      * including all its details
      * @param invoiceID The ID of the specific invoice
      * @return Model_invoice 
-     * @throws SQLException 
+     * @throws SQLException bye exception.
      */
     public Model_Invoice getInvoiceWithInvoiceDetails(int invoiceID) throws SQLException {
         Mapper_Invoice mapperInvoice = new Mapper_Invoice();
@@ -38,7 +38,7 @@ public class Controller_Invoice {
      * to be used as an admin-only feature. The invoices returned from this method do not 
      * contain any details.
      * @return ArrayList - An ArrayList containing Model_Invoice objects
-     * @throws SQLException 
+     * @throws SQLException bye exception.
      */
     public ArrayList<Model_Invoice> getAllInvoicesAdmin() throws SQLException{
         Mapper_Invoice mapperInvoice = new Mapper_Invoice();

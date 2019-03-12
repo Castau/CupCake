@@ -1,24 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Data;
 
 import java.util.ArrayList;
 
 /**
+ * A java object containing current line items, until cleared.
+ *
+ * Fields:
+ *
+ * cakes - An ArrayList of Cupcakes contained within the cart.
+ *
+ * UserID - the user who the Cart belongs to.
  *
  * @author Shevitar
  */
 public class Cart
 {
+
     private ArrayList<Model_CupCake> cakes = new ArrayList();
     private int userID;
 
     /**
+     * The cart object is tied to a specific user for later use when updating
+     * user records. (Balance, invoice, invoice_details).
      *
-     * @param userID
+     * The user ID is always readily available through session object "user".
+     *
+     * @param userID User in questions ID
      */
     public Cart(int userID)
     {
@@ -27,7 +34,8 @@ public class Cart
 
     /**
      *
-     * @return
+     *
+     * @return returns all the cakes currently in the Cart.
      */
     public ArrayList<Model_CupCake> getCakes()
     {
@@ -35,8 +43,9 @@ public class Cart
     }
 
     /**
+     * Updates the ArrayList of cakes.
      *
-     * @param cakes
+     * @param cakes the ArrayList to update to.
      */
     public void setCakes(ArrayList<Model_CupCake> cakes)
     {
@@ -44,8 +53,9 @@ public class Cart
     }
 
     /**
+     * The User ID that the Cart-object belongs to.
      *
-     * @return
+     * @return Returns the userID of the cart.
      */
     public int getUserID()
     {
@@ -53,20 +63,25 @@ public class Cart
     }
 
     /**
+     * Add a specific cupcake to the cakes ArrayList.
      *
-     * @param cupcake
+     * @param cupcake The cupcake in question.
      */
     public void addToCart(Model_CupCake cupcake)
     {
         cakes.add(cupcake);
     }
-    
+
     /**
+     *
+     * In case of an successful order, a request to clear the cart or a session
+     * runout, this command can be used to wipe the ArrayLists contents and
+     * therefore return a new cart.
      *
      */
     public void clearCart()
     {
         cakes = new ArrayList();
     }
-    
+
 }

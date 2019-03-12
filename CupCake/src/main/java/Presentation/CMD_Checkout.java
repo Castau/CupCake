@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Presentation;
 
 import Data.Cart;
@@ -30,11 +25,19 @@ public class CMD_Checkout extends Command
 {
 
     /**
+     * CMD_Checkout handles completion of orders from CMD_shop.
+     * 
+     * It updates user balance on completion and adds invoices to its User-object.
      *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * @see Model_User
+     * @see Model_Invoice
+     * @see Model_InvoiceDetails
+     * @see CMD_Shop
+     * 
+     * @param request http request.
+     * @param response http response.
+     * @throws ServletException bye exception.
+     * @throws IOException bye exception.
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -46,7 +49,8 @@ public class CMD_Checkout extends Command
         {
             mu = new Mapper_User();
             mi = new Mapper_Invoice();
-        } catch (SQLException ex)
+        }
+        catch (SQLException ex)
         {
             System.out.println("Could not create Mapper_Invoice (error from CMD_Checkout)");
             Logger.getLogger(CMD_Checkout.class.getName()).log(Level.SEVERE, null, ex);
@@ -54,7 +58,7 @@ public class CMD_Checkout extends Command
         Model_User user = (Model_User) request.getSession().getAttribute("user");
         boolean buyPermission = (boolean) request.getSession().getAttribute("buyPermission");
         Cart cart = (Cart) request.getSession().getAttribute("cart");
-        
+
         if (buyPermission && !cart.getCakes().isEmpty())
         {
             ArrayList<Model_InvoiceDetails> detailsList = new ArrayList();
@@ -89,27 +93,32 @@ public class CMD_Checkout extends Command
             {
                 mi.addInvoiceWithAllDetails(invoice, detailsList);
                 mu.updateUserBalance(user.getUserID(), balance - finalPrice);
-            } catch (SQLException ex)
+            }
+            catch (SQLException ex)
             {
-                
+
                 Logger.getLogger(CMD_Checkout.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             user.setBalance(balance - finalPrice);
             request.getSession().setAttribute("user", user);
         }
 
         request.getRequestDispatcher("/jsp/ShopCheckOut.jsp").forward(request, response);
     }
-    
+
 //    public void sortCakes(ArrayList<Model_CupCake> cakes)
 //    {
 //        Comparator comp = Comparator.naturalOrder();
 //        
 //    }
     
+    /**
+     * Compares two cakes based on their name.
+     */
     static class TheComparator implements Comparator
     {
+
         @Override
         public int compare(Object o1, Object o2)
         {
@@ -117,8 +126,7 @@ public class CMD_Checkout extends Command
             Model_CupCake cake2 = (Model_CupCake) o2;
             String cake1name = cake1.getTopName() + cake1.getBottomName();
             String cake2name = cake2.getTopName() + cake2.getBottomName();
-            return 
-            cake1name.compareToIgnoreCase(cake2name);
+            return cake1name.compareToIgnoreCase(cake2name);
         }
     }
 

@@ -6,31 +6,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author stein
+ * Command for handling all incomming requests
+ * 
+ * @author Camilla
  */
 public abstract class Command
 {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * This is the command from which all other CMD's are called.
+     * 
+     * @param request the Http request
+     * @param response the Http response
+     * @throws ServletException when error occurs while forwarding
+     * @throws IOException when error occurs while redirecting
      */
     public abstract void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
     /**
-     *
-     * @param request
-     * @return
+     * Creates the specific command requested from the pathinfo and returns it
+     * @param request the Http request
+     * @return the comman corresponding to the request pathinfo
      */
     public static Command from(HttpServletRequest request)
     {
         Command command;
         String path = request.getPathInfo().substring(1);
-        //String path = request.getParameter("path");
 
         switch (path)
         {

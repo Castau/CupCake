@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Presentation;
 
 import Data.Cart;
-import Data.Model_User;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,11 +14,11 @@ import javax.servlet.http.HttpSession;
 public class CMD_Logout extends Command {
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * Clears session attributes and logs the user out. Then redirects to front page (Index.jsp)
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException servlet exception
+     * @throws IOException ioexception
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,10 +28,10 @@ public class CMD_Logout extends Command {
             if (cart != null) {
                 cart.clearCart();
             }
-            session.invalidate();
+            session.invalidate(); //Didn't seem to work for all cases, therefore we made sure to clear cart specifically.
 
-            // LOCALHOST PATH
-            //response.sendRedirect("/cupcake");
+                // LOCALHOST PATH
+                //response.sendRedirect("/cupcake");
             // DEPLOY PATH
             response.sendRedirect("/");
         }

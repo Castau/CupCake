@@ -28,10 +28,10 @@ public class CMD_Login extends Command
 
     /**
      *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * @param request http request
+     * @param response http response
+     * @throws ServletException bye exception
+     * @throws IOException bye exception
      */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

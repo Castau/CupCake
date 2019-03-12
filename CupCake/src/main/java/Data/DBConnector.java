@@ -6,24 +6,25 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
+ * Command for handling the database connection
+ * 
  * @author Camilla
  */
 public class DBConnector {
 
     private final String IP = "207.154.233.238";
     private final String PORT = "3306";
-
-    /**
-     *
-     */
     public final String DATABASE = "cupcake";
     private final String USERNAME = "admin";
     private final String PASSWORD = "1234";
     private Connection connection = null;
 
     /**
-     *
-     * @throws SQLException
+     * Constructor for the database connector. Establishes the connection and
+     * saves the connection in the field connection
+     * 
+     * @throws SQLException when error occurs while establishing connection to 
+     * the database
      */
     public DBConnector() throws SQLException {
         try {
@@ -48,8 +49,9 @@ public class DBConnector {
     }
     
     /**
-     *
-     * @return
+     * Returns the connection
+     * 
+     * @return connection
      */
     public Connection getConnection() {
         return this.connection;
