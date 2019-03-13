@@ -8,7 +8,7 @@
     <h2>Welcome - Please log in or register below</h2>
 <jsp:include page='NavigationBar.jsp'></jsp:include>
 
-<div id="loginpage" class="padding">
+<div class="padding">
     <div id="login" class=" col-md-6 col-md-offset-3" style="margin-bottom: 20px; min-height: 230px">
         <h3>I have a user</h3>
         <h4>Login</h4>
