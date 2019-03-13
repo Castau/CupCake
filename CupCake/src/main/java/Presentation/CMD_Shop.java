@@ -80,6 +80,7 @@ public class CMD_Shop extends Command
         if (request.getParameter("clear") != null)
         {
             cart.clearCart();
+            request.getSession().setAttribute("finalPrice", 0);
         }
         request.getSession().setAttribute("cart", cart);
         request.getRequestDispatcher("/jsp/ShopPage.jsp").forward(request, response);

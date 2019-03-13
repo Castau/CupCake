@@ -47,7 +47,7 @@
             <div class="col-md-6 padding">
                 <h4>Invoices:</h4>
                 <br/>
-                <table class="table">
+                <table class="table table-striped">
                     <tr class=" padding">
                         <th>
                             Invoice ID

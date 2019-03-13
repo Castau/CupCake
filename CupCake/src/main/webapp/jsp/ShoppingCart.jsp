@@ -28,7 +28,7 @@
         <p>User: <%= username%></p>
         <p>Balance: £<%= cash%></p>
         <br/>
-        <table class="table">
+        <table class="table table-striped">
             <tr>
                 <th>CupCake top</th>
                 <th>CupCake bottom</th>
