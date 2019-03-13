@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Command for handling the Shop page.
  * 
- * @author Shevitar
+ * @author Asger
  */
 public class CMD_Shop extends Command
 {

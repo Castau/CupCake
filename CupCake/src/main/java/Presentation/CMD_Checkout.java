@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Shevitar
+ * @author Asger
  */
 public class CMD_Checkout extends Command
 {

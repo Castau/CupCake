@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Shevitar
+ * @author Asger
  */
 @WebServlet(name = "FrontController", urlPatterns =
 {

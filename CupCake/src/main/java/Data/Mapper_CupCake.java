@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Shevitar
+ * @author Asger
  */
 public class Mapper_CupCake
 {

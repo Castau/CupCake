@@ -1,7 +1,7 @@
 <%-- 
     Document   : ShopCheckOut
     Created on : 07-03-2019, 11:20:25
-    Author     : Shevitar
+    Author     : Asger
 --%>
 
 
