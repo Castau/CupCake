@@ -36,7 +36,7 @@
             <br/>
             <p>User name: <%= userName%></p>
             <p>UserID: <%= userID%></p>
-            <p>Balance: <%= balance%> $</p>
+            <p>Balance: <%= balance%> £</p>
             <br/>
             <p>Invoice Details for invoice number: <%= invoiceID%></p>
             <br/>
@@ -68,15 +68,15 @@
                         
                         out.print("<tr>");
                         out.print("<td>" + topName + "</td>");
-                        out.print("<td>" + topPrice + "</td>");
+                        out.print("<td>£" + topPrice + "</td>");
                         out.print("<td>" + bottomName + "</td>");
-                        out.print("<td>" + bottomPrice + "</td>");
+                        out.print("<td>£" + bottomPrice + "</td>");
                         out.print("<td>" + qty + "</td>");
                         out.print("</tr>");
                     }
                 %>
             </table>
-            <p>Total price: <%=invoice.getTotalPrice()%></p>
+            <p>Total price: £<%=invoice.getTotalPrice()%></p>
             <br/>
             <br/>
             <a href="app/customer"> Back to Customer Page</a>

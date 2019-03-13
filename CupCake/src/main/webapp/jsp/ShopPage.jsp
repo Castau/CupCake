@@ -14,22 +14,22 @@
 
 <%
     //Top names
-    String top1 = "Chocolate $5";
-    String top2 = "Blueberry $5";
-    String top3 = "Raspberry $5";
-    String top4 = "Crispy $6";
-    String top5 = "Strawberry $6";
-    String top6 = "Rum/Raisin $7";
-    String top7 = "Orange $8";
-    String top8 = "Lemon $8";
-    String top9 = "Blue cheese $9";
+    String top1 = "Chocolate £5";
+    String top2 = "Blueberry £5";
+    String top3 = "Raspberry £5";
+    String top4 = "Crispy £6";
+    String top5 = "Strawberry £6";
+    String top6 = "Rum/Raisin £7";
+    String top7 = "Orange £8";
+    String top8 = "Lemon £8";
+    String top9 = "Blue cheese £9";
 
     //Bottom names
-    String bottom1 = "Chocolate $5";
-    String bottom2 = "Vanilla $5";
-    String bottom3 = "Nutmeg $5";
-    String bottom4 = "Pistacio $6";
-    String bottom5 = "Almond $7";
+    String bottom1 = "Chocolate £5";
+    String bottom2 = "Vanilla £5";
+    String bottom3 = "Nutmeg £5";
+    String bottom4 = "Pistacio £6";
+    String bottom5 = "Almond £7";
 
     Cart cart = (Cart) request.getSession().getAttribute("cart");
     double finalPrice = 0;
@@ -64,12 +64,12 @@
                     <option value="5"><%=bottom5%></option>
                 </select>
             </section>
-                <br/>
-                <p>
-                    Amount of cakes:
-                </p>
-                    
-                    <input class="form-control" style="max-width: 80px; margin-bottom: 5px" type="number" name="qty" value="1" placeholder="x" required min="1" max="100">
+            <br/>
+            <p>
+                Amount of cakes:
+            </p>
+
+            <input class="form-control" style="max-width: 80px; margin-bottom: 5px" type="number" name="qty" value="1" placeholder="x" required min="1" max="100">
             <button>
                 Add cake(s) to cart
             </button>
@@ -89,7 +89,8 @@
                 <th>Final price</th>
             </tr>
             <%
-                for (int i = 0; i < cart.getCakes().size(); i++) {%>
+                for (int i = 0; i < cart.getCakes().size(); i++)
+                {%>
             <tr>
                 <td>
                     <%= cart.getCakes().get(i).getTopName()%>
@@ -98,12 +99,12 @@
                     <%= cart.getCakes().get(i).getBottomName()%>
                 </td>
                 <td>
-                    <%= cart.getCakes().get(i).getTotalPrice()%>
+                    <%= "£" + cart.getCakes().get(i).getTotalPrice()%>
                     <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
                 </td>
                 <% }%>
                 <td>
-                    <%= finalPrice%>
+                    <%= "£" + finalPrice%>
                 </td>
             </tr>
         </table> 

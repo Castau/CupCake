@@ -14,38 +14,41 @@
 %>
 
 <div class="padding">
-    <h4>All Invoices for all users:</h4>
-    <br/>
-    <table class="table">
-        <tr>
-            <th>
-                Invoice ID
-            </th>
-            <th>
-                User ID
-            </th>
-            <th>
-                Total price
-            </th>
-            <th>
-                Order details
-            </th>
-        </tr>
-        <%
-            for (int i = 0; i < invoices.size(); i++)
-            {
-                int invoiceID = invoices.get(i).getId_invoice();
-                int userID = invoices.get(i).getId_user();
-                Double price = invoices.get(i).getTotalPrice();
 
-                out.print("<tr>");
-                out.print("<td>" + invoiceID + "</td>");
-                out.print("<td>" + userID + "</td>");
-                out.print("<td>" + price + "</td>");
-                out.print("<td> <a href=\"app/customerinvoice?invoiceid=" + invoices.get(i).getId_invoice() + "\">See order details</a> </td>");
-                out.print("</tr>");
-            }
-        %>
-    </table>
+    <h4 class="col-md-offset-5 col-sm-offset-4 col-xs-offset-3">All Invoices for all users:</h4>
+    <br/>
+    <div class="col-md-5 col-md-offset-3">
+        <table class="table  table-hover">
+            <tr>
+                <th>
+                    Invoice ID
+                </th>
+                <th>
+                    User ID
+                </th>
+                <th>
+                    Total price
+                </th>
+                <th>
+                    Order details
+                </th>
+            </tr>
+            <%
+                for (int i = 0; i < invoices.size(); i++)
+                {
+                    int invoiceID = invoices.get(i).getId_invoice();
+                    int userID = invoices.get(i).getId_user();
+                    Double price = invoices.get(i).getTotalPrice();
+
+                    out.print("<tr>");
+                    out.print("<td class=\"col-md-1\">" + invoiceID + "</td>");
+                    out.print("<td class=\"col-md-1\">" + userID + "</td>");
+                    out.print("<td class=\"col-md-1\">£" + price + "</td>");
+                    out.print("<td class=\"col-md-1\"> <a href=\"app/customerinvoice?invoiceid=" + invoices.get(i).getId_invoice() + "\">See order details</a> </td>");
+                    out.print("</tr>");
+                }
+            %>
+        </table>
+    </div>
 </div>
 <jsp:include page='Footer.jsp'></jsp:include>

@@ -36,11 +36,11 @@
                 <p>Logged in as: <%= userName%></p>
                 <p>UserID: <%= userID%></p>
                 <p>E-mail: <%= userEmail%></p>
-                <p>Balance: <%= balance%> $</p>
+                <p>Balance: <%= balance%> £</p>
                 <br/>
                 <p>Buy more Balance</p>
                 <form action="app/addbalance" method="post">
-                    <input class="form-control" style="max-width: 80px; margin-bottom: 5px" type="number" step="0.01" name="balance" value="" placeholder="$" required min="1">
+                    <input class="form-control" style="max-width: 80px; margin-bottom: 5px" type="number" step="0.01" name="balance" value="" placeholder="£" required min="1">
                     <input type="submit" value="Add balance" id = "LoginSubmit" class="button">
                 </form>
             </div>
@@ -66,7 +66,7 @@
                             <%= userInvoices.get(i).getId_invoice()%>
                         </td>
                         <td>
-                            <%= userInvoices.get(i).getTotalPrice()%>
+                            <%= "£"+ userInvoices.get(i).getTotalPrice()%>
                         </td>
                         <td>
                             <a href="app/customerinvoice?invoiceid=<%=userInvoices.get(i).getId_invoice()%>"> Order details</a>

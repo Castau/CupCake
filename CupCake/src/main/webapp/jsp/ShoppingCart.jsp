@@ -22,11 +22,11 @@
     boolean enoughCash = false;
 %>
 
-    <div class="padding">
-        <div>
-            <h4>Your shopping cart items</h4>
-            <p>User: <%= username%></p>
-        <p>Balance: <%= cash%></p>
+<div class="padding">
+    <div>
+        <h4>Your shopping cart items</h4>
+        <p>User: <%= username%></p>
+        <p>Balance: £<%= cash%></p>
         <br/>
         <table class="table">
             <tr>
@@ -46,12 +46,12 @@
                     <%= cart.getCakes().get(i).getBottomName()%>
                 </td>
                 <td>
-                    <%= cart.getCakes().get(i).getTotalPrice()%>
+                    <%= "£" + cart.getCakes().get(i).getTotalPrice()%>
                     <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
                 </td>
                 <% }%>
                 <td>
-                    <%= finalPrice%>
+                    <%= "£" + finalPrice%>
                 </td>
             </tr>
         </table> 
