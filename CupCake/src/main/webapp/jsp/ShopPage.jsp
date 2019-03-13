@@ -33,6 +33,7 @@
 
     Cart cart = (Cart) request.getSession().getAttribute("cart");
     double finalPrice = 0;
+    String finalPriceTag = "";
 %>
 
 <div class="row antimargin">
@@ -81,7 +82,7 @@
     <div class="col-md-6 padding">
         <h4>Shopping cart:</h4>
         <br/>
-        <table class="table">
+        <table class="table table-striped">
             <tr>
                 <th>CupCake top</th>
                 <th>CupCake bottom</th>
@@ -102,10 +103,16 @@
                     <%= "£" + cart.getCakes().get(i).getTotalPrice()%>
                     <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
                 </td>
-                <% }%>
                 <td>
-                    <%= "£" + finalPrice%>
+                    
+                    <%if (i == cart.getCakes().size() - 1)
+                    {
+                        finalPriceTag = "£" + finalPrice;
+                    }
+                    %>
+                    <%=finalPriceTag%>
                 </td>
+                <% }%>
             </tr>
         </table> 
 
