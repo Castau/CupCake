@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * UserID - the user who the Cart belongs to.
  *
- * @author Shevitar
+ * @author Asger
  */
 public class Cart
 {

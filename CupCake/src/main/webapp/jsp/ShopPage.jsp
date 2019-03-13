@@ -1,7 +1,7 @@
 <%-- 
     Document   : ShopPage
     Created on : 05-03-2019, 14:48:28
-    Author     : Shevitar
+    Author     : Asger
 --%>
 <jsp:include page='Header.jsp'></jsp:include>
     <h2>Shop</h2>

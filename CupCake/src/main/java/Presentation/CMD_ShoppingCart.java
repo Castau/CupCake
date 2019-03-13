@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Command for forwarding to the ShoppingCart.jsp 
  * 
- * @author Shevitar
+ * @author Asger
  */
 public class CMD_ShoppingCart extends Command {
 

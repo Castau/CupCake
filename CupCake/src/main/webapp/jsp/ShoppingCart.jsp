@@ -1,7 +1,7 @@
 <%-- 
     Document   : ShoppingCart
     Created on : 05-03-2019, 22:59:32
-    Author     : Shevitar
+    Author     : Asger
 --%>
 <jsp:include page='Header.jsp'></jsp:include>
     <h2>Shopping Cart</h2>
