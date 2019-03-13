@@ -9,10 +9,15 @@
         username = user.getUserName().toUpperCase();
     }
     int cartsize = 0;
+    double cartPrice = 0;
     if (session.getAttribute("cart") != null)
     {
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         cartsize = cart.getCakes().size();
+    }
+    if (session.getAttribute("finalPrice") != null)
+    {
+        cartPrice = (double) request.getSession().getAttribute("finalPrice");
     }
 %>
 
@@ -31,7 +36,7 @@
     <div id ="rightBar">
 
         <nav id="cart">
-            <a href="app/cart"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping Cart: <%=cartsize%> item(s)</a>
+            <a href="app/cart"><img src="images/shoppingcart.png" height="20" width="20" alt="Shopping cart image"/>Shopping Cart: <%=cartsize%> item(s) ¦ £<%=cartPrice%></a>
         </nav>
 
         <nav id="user">
