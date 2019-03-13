@@ -41,8 +41,7 @@
             %>
             <a href="jsp/Login.jsp">Login/Register</a>
             <%
-            }
-            else
+            } else
             {
             %>
             <a href="app/customer">Logged in as: <%= username%></a>
