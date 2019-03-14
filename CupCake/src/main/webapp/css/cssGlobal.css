@@ -22,6 +22,11 @@
     float: left;
 }
 
+#centerBar
+{
+
+}
+
 #rightBar
 {
     float: right;
@@ -85,6 +90,20 @@
     background-color: red;
 }
 
+#error
+{
+    display: inline-block;
+}
+
+.errorMessage
+{
+    text-align: center;
+    background-color: maroon; 
+    background-size: cover;
+    color: white;
+    padding: 4px 4px 4px 4px;
+}
+
 /*-------Footer css-------*/
 
 
@@ -102,12 +121,15 @@
 /*-------Index.jsp css-------*/
 #IndexImages
 {
+    /*padding: 8px 0px 8px -25px; */
     text-align: center;
 }
 
 #IndexText
 {
     text-align: center;
+    width: 225px;
+    display: block;
 }
 
 #index
@@ -195,8 +217,3 @@ h1, h2, h3, h4, h5, p, a, label
     margin-right: 15px;
 }
 
-.errormessage
-{
-    background-color: maroon; 
-    color: honeydew
-}
