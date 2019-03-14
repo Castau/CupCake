@@ -88,6 +88,7 @@
                 <th>CupCake bottom</th>
                 <th>Total cake price</th>
                 <th>Final price</th>
+                <th></th>
             </tr>
             <%
                 for (int i = 0; i < cart.getCakes().size(); i++)
@@ -111,6 +112,13 @@
                     }
                     %>
                     <%=finalPriceTag%>
+                </td>
+                <td>
+                    <form>
+                        <button name="remove" type="submit" value="<%=i%>">
+                            Remove
+                        </button>
+                    </form>
                 </td>
                 <% }%>
             </tr>

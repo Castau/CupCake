@@ -77,6 +77,19 @@ public class CMD_Shop extends Command
                 cart.addToCart(cake);
             }
         }
+        if (request.getParameter("remove") != null)
+        {
+            int removal = 0;
+            try
+            {
+                removal = Integer.parseInt(request.getParameter("remove"));
+                cart.removeSpecific(removal);
+            }
+            catch (NumberFormatException | IndexOutOfBoundsException nx)
+            {
+                request.setAttribute("error", "Could not remove the cupcake (Error #7)");
+            }
+        }
         if (request.getParameter("clear") != null)
         {
             cart.clearCart();

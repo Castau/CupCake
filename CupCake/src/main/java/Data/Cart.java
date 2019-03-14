@@ -84,4 +84,9 @@ public class Cart
         cakes = new ArrayList();
     }
 
+    public void removeSpecific(int cakeNumber) throws IndexOutOfBoundsException
+    {
+        cakes.remove(cakeNumber);
+    }
+    
 }
