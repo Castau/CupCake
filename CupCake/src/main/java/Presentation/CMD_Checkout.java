@@ -81,6 +81,10 @@ public class CMD_Checkout extends Command
                     {
                         ++amount;
                     }
+                    else
+                    {
+                        break;
+                    }
                 }
                 details = new Model_InvoiceDetails();
                 details.setCupcake(cakes.get(i));

@@ -104,7 +104,6 @@
                     <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
                 </td>
                 <td>
-                    
                     <%if (i == cart.getCakes().size() - 1)
                     {
                         finalPriceTag = "£" + finalPrice;

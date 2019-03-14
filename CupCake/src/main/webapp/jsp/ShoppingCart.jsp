@@ -20,6 +20,7 @@
     String username = user.getUserName();
     double finalPrice = 0;
     boolean enoughCash = false;
+    String finalPriceTag = "";
 %>
 
 <div class="padding">
@@ -28,7 +29,7 @@
         <p>User: <%= username%></p>
         <p>Balance: £<%= cash%></p>
         <br/>
-        <table class="table">
+        <table class="table table-striped">
             <tr>
                 <th>CupCake top</th>
                 <th>CupCake bottom</th>
@@ -49,10 +50,16 @@
                     <%= "£" + cart.getCakes().get(i).getTotalPrice()%>
                     <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
                 </td>
-                <% }%>
                 <td>
-                    <%= "£" + finalPrice%>
+                    <%if (i == cart.getCakes().size() - 1)
+                    {
+                        finalPriceTag = "£" + finalPrice;
+                    }
+                    %>
+                    <%=finalPriceTag%>
                 </td>
+                <% }%>
+                
             </tr>
         </table> 
     </div>
