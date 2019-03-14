@@ -16,14 +16,14 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `cupcake`.`Cupcake_top` (
   `id_top` INT NOT NULL,
-  `top_name` VARCHAR(45) NOT NULL,
+  `top_name` VARCHAR(45) NOT NULL UNIQUE,
   `top_price` DOUBLE NOT NULL,
   PRIMARY KEY (`id_top`))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `cupcake`.`Cupcake_bottom` (
   `id_bottom` INT NOT NULL,
-  `bottom_name` VARCHAR(45) NOT NULL,
+  `bottom_name` VARCHAR(45) NOT NULL UNIQUE,
   `bottom_price` DOUBLE NOT NULL,
   PRIMARY KEY (`id_bottom`))
 ENGINE = InnoDB;
@@ -67,9 +67,3 @@ CREATE TABLE IF NOT EXISTS `cupcake`.`Invoice_Details` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-ALTER TABLE `cupcake`.`Cupcake_top` 
-ADD UNIQUE INDEX `top_name_UNIQUE` (`top_name` ASC) VISIBLE;
-
-
-ALTER TABLE `cupcake`.`Cupcake_bottom` 
-ADD UNIQUE INDEX `bottom_name_UNIQUE` (`bottom_name` ASC) VISIBLE;
