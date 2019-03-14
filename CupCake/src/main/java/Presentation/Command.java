@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Command for handling all incomming requests
- * 
+ *
  * @author Camilla
  */
 public abstract class Command
@@ -15,7 +15,7 @@ public abstract class Command
 
     /**
      * This is the command from which all other CMD's are called.
-     * 
+     *
      * @param request the Http request
      * @param response the Http response
      * @throws ServletException when error occurs while forwarding
@@ -25,6 +25,7 @@ public abstract class Command
 
     /**
      * Creates the specific command requested from the pathinfo and returns it
+     *
      * @param request the Http request
      * @return the comman corresponding to the request pathinfo
      */
@@ -48,7 +49,7 @@ public abstract class Command
                 command = new CMD_Checkout();
                 break;
             case "customer":
-                command = new CMD_Customer();   
+                command = new CMD_Customer();
                 break;
             case "customerinvoice":
                 command = new CMD_CustomerInvoiceDetails();
@@ -56,16 +57,16 @@ public abstract class Command
             case "logout":
                 command = new CMD_Logout();
                 break;
-                case "admin":
+            case "admin":
                 command = new CMD_Admin();
                 break;
-                case "addbalance":
+            case "addbalance":
                 command = new CMD_Balance();
                 break;
-                case "unknownlogin":
+            case "unknownlogin":
                 command = new CMD_Unknown_Login();
                 break;
-                case "createusererror":
+            case "createusererror":
                 command = new CMD_Create_User_Error();
                 break;
             default:

@@ -1,0 +1,16 @@
+@startuml
+title "Buying CupCakes - Sequence Diagram"
+actor Customer
+boundary "CMD_CheckOut" as GUI
+control "Mapper_Invoice" as mapI
+control "Mapper_User" as mapU
+database Database
+Customer -> GUI : Buy CupCake
+GUI -> mapI : addInvoiceWithAllDetails
+mapI -> Database : To Database
+mapI -> GUI : Confirmation (T/F)
+GUI -> mapU : updateUserBalance
+mapU -> Database : To Database
+mapU -> GUI : Confirmation (T/F)
+GUI -> Customer : redirect checkout.jsp
+@enduml

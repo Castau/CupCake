@@ -199,7 +199,7 @@ public class Mapper_User
         stmt.setDouble(1, newBalance);
         stmt.setInt(2, userID);
         int done = stmt.executeUpdate();
-        return done != 0;
+        return done == 1;
     }
 
 }

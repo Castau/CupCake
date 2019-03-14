@@ -1,0 +1,41 @@
+@startuml
+scale 1200 width
+[*] -> Home
+Home : Index.jsp
+Login : Login.jsp
+LoginError : LoginError.jsp
+Home --> Login
+Login --> LoggedIn : Succeeded Login/Register, start Session
+Login --> LoginError : \nFailed Login/Register
+LoginError --> LoggedIn : Succeeded Login/Register, start Session\n
+LoginError --> LoginError : \n\nFailed Login/Register
+state LoggedIn {
+    state Admin {
+        AdminPanel : AdminPage.jsp
+    }
+    [*] -> CustomerPage : Default CustomerPage
+    Navigationbar : navigationBar.jsp
+    Navigationbar --> HomeLoggedIn
+    Navigationbar --> Shop
+    Navigationbar --> ShoppingCart
+    Navigationbar --> CustomerPage
+    Navigationbar --> AdminPanel : if Admin
+    Navigationbar --> LogOut 
+    HomeLoggedIn : Index.jsp
+    Shop : ShopPage.jsp
+    ShoppingCart : ShoppingCart.jsp
+    CustomerPage : CustomerPage.jsp
+    InvoiceDetails : InvoiceDetails.jsp
+    CheckOut : CheckOut.jsp
+    LogOut :
+    CustomerPage --> CustomerPage : Add Balance to Customer
+    CustomerPage --> InvoiceDetails : Order details
+    InvoiceDetails --> CustomerPage : Back to CustomerPage
+    Shop --> Shop : Add Cake(s) to Cart
+    Shop --> ShoppingCart : Order Cakes
+    ShoppingCart --> CheckOut : Buy Cakes
+    CheckOut --> CustomerPage : Return to CustomerPage
+    AdminPanel --> InvoiceDetails : See order details
+    LogOut --> Home : End Session
+}
+@enduml

@@ -107,6 +107,7 @@
                     <%if (i == cart.getCakes().size() - 1)
                     {
                         finalPriceTag = "£" + finalPrice;
+                        session.setAttribute("finalPrice", finalPrice);
                     }
                     %>
                     <%=finalPriceTag%>
