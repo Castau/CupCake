@@ -5,12 +5,14 @@
 <%
     Model_User user = (Model_User) session.getAttribute("user");
     String username = "NULL";
+    int cartsize = 0;
+    double cartPrice = 0;
+    String errorMsg = "";
     if (user != null)
     {
         username = user.getUserName().toUpperCase();
     }
-    int cartsize = 0;
-    double cartPrice = 0;
+
     if (session.getAttribute("cart") != null)
     {
         Cart cart = (Cart) request.getSession().getAttribute("cart");
@@ -24,6 +26,16 @@
     {
         cartPrice = (double) request.getSession().getAttribute("finalPrice");
     }*/
+
+    if (request.getAttribute("error") != null)
+    {
+        errorMsg = (String) request.getAttribute("error");
+
+        /*finally
+        {
+            request.removeAttribute("error");
+        }*/
+    }
 %>
 
 <div id="NavBar">
@@ -38,6 +50,7 @@
         </nav>
 
     </div>
+
     <div id ="rightBar">
 
         <nav id="cart">
@@ -74,5 +87,10 @@
             }
         %>
     </div>
-
 </div>
+<%if (errorMsg != null && !errorMsg.isEmpty())
+    {%>
+<div id="error" class = " col-md-offset-5 col-sm-offset-4 col-xs-offset-3 ">
+    <h3 class="errorMessage"><%=errorMsg%></h3>
+</div>
+<%}%>

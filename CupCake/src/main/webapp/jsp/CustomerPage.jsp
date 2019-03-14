@@ -44,6 +44,7 @@
                     <input type="submit" value="Add balance" id = "LoginSubmit" class="button">
                 </form>
             </div>
+
             <div class="col-md-6 padding">
                 <h4>Invoices:</h4>
                 <br/>
@@ -59,14 +60,16 @@
                             See details
                         </th>
                     </tr>
-                    <%
-                        for (int i = 0; i < userInvoices.size(); i++) {%>
+                    <%if (userInvoices.get(0).getId_invoice() > 0) //Users start with their first invoice_id set to 0 (nonexistant)
+                        {
+                            for (int i = 0; i < userInvoices.size(); i++)
+                            {%>
                     <tr>
                         <td>
                             <%= userInvoices.get(i).getId_invoice()%>
                         </td>
                         <td>
-                            <%= "£"+ userInvoices.get(i).getTotalPrice()%>
+                            <%= "£" + userInvoices.get(i).getTotalPrice()%>
                         </td>
                         <td>
                             <a href="app/customerinvoice?invoiceid=<%=userInvoices.get(i).getId_invoice()%>"> Order details</a>
@@ -76,6 +79,7 @@
                 </table>
             </div>
         </div>
+        <% }%>
     </body>
 </html>
 
