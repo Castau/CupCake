@@ -40,7 +40,7 @@
             <br/>
             <p>Invoice Details for invoice number: <%= invoiceID%></p>
             <br/>
-            <table class="table">
+            <table class="table table-striped">
                 <tr>
                     <th>
                         Cake Top
