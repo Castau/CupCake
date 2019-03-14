@@ -1,4 +1,5 @@
 
+<%@page import="Data.Model_CupCake"%>
 <%@page import="Data.Cart"%>
 <%@page import="Data.Model_User"%>
 <%
@@ -14,11 +15,15 @@
     {
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         cartsize = cart.getCakes().size();
+        for (Model_CupCake c : cart.getCakes())
+        {
+            cartPrice += c.getTotalPrice();
+        }
     }
-    if (session.getAttribute("finalPrice") != null)
+    /*if (session.getAttribute("finalPrice") != null)
     {
         cartPrice = (double) request.getSession().getAttribute("finalPrice");
-    }
+    }*/
 %>
 
 <div id="NavBar">
@@ -46,7 +51,8 @@
             %>
             <a href="jsp/Login.jsp">Login/Register</a>
             <%
-            } else
+            }
+            else
             {
             %>
             <a href="app/customer">Logged in as: <%= username%></a>
