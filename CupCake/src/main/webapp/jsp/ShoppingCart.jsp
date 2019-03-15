@@ -16,6 +16,12 @@
 <%
     Cart cart = (Cart) request.getSession().getAttribute("cart");
     Model_User user = (Model_User) request.getSession().getAttribute("user");
+    if (user == null)
+    {
+        response.sendRedirect("/");
+        return;
+    }
+
     double cash = user.getBalance();
     String username = user.getUserName();
     double finalPrice = 0;
@@ -52,14 +58,14 @@
                 </td>
                 <td>
                     <%if (i == cart.getCakes().size() - 1)
-                    {
-                        finalPriceTag = "£" + finalPrice;
-                    }
+                        {
+                            finalPriceTag = "£" + finalPrice;
+                        }
                     %>
                     <%=finalPriceTag%>
                 </td>
                 <% }%>
-                
+
             </tr>
         </table> 
     </div>

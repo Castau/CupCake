@@ -13,6 +13,13 @@
 <%@page import="Data.Mapper_CupCake"%>
 
 <%
+    Model_User user = (Model_User)request.getSession().getAttribute("user");
+    if (user == null)
+    {
+        response.sendRedirect("/");
+        return;
+    }
+    
     //Top names
     String top1 = "Chocolate £5";
     String top2 = "Blueberry £5";

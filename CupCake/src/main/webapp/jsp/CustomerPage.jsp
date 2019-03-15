@@ -12,6 +12,13 @@
 <%@page import="Data.Model_User"%>
 <%
     Model_User user = (Model_User) request.getAttribute("user");
+    
+
+    if (user == null)
+    {
+        response.sendRedirect("/");
+        return;
+    }
 
     int userID = user.getUserID();
     String userName = user.getUserName();

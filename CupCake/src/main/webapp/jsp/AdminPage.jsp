@@ -3,6 +3,7 @@
     Created on : 07-03-2019, 10:41:34
     Author     : Camilla
 --%>
+<%@page import="Data.Model_User"%>
 <jsp:include page='Header.jsp'></jsp:include>
     <h2>Admin Page</h2>
 <jsp:include page='NavigationBar.jsp'></jsp:include>
@@ -10,6 +11,13 @@
 <%@page import="Data.Model_Invoice"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    Model_User user = (Model_User) request.getSession().getAttribute("user");
+
+    if (user == null || Model_User.Role.admin != user.getRole())
+    {
+        response.sendRedirect("/");
+        return;
+    }
     ArrayList<Model_Invoice> invoices = (ArrayList<Model_Invoice>) request.getAttribute("allInvoices");
 %>
 

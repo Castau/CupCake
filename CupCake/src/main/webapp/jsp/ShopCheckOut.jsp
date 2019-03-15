@@ -11,14 +11,19 @@
     <h2>Checkout</h2>
 <jsp:include page='NavigationBar.jsp'></jsp:include>
 <%
-    boolean buyPermission = (boolean)request.getSession().getAttribute("buyPermission");
+    Model_User user = (Model_User) request.getSession().getAttribute("user");
+    if (user == null)
+    {
+        response.sendRedirect("/");
+        return;
+    }
+    boolean buyPermission = (boolean) request.getSession().getAttribute("buyPermission");
     String msg = "";
     Cart cart = (Cart) request.getSession().getAttribute("cart");
     if (buyPermission)
     {
         msg = "Cupcakes have succesfully been ordered";
-    }
-    else
+    } else
     {
         msg = "Not enough credits in account";
     }
@@ -28,15 +33,15 @@
     }
     if (buyPermission)
     {
-        Model_User user = (Model_User)request.getSession().getAttribute("user");
+        /*user = (Model_User) request.getSession().getAttribute("user");*/
         cart = new Cart(user.getUserID());
         request.getSession().setAttribute("cart", cart);
     }
 %>
-    
+
 <div>
     <h3>Checkout</h3>
-        
+
     <p><%=msg%></p>
     </br>
     </br>
