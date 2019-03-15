@@ -32,6 +32,7 @@ public class FrontController extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        
         try
         {
             Command c = Command.from(request);
