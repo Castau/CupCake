@@ -15,6 +15,8 @@
 
     if (user == null || Model_User.Role.admin != user.getRole())
     {
+        //request.setAttribute("error", "u no admin");
+        //request.getRequestDispatcher("/").forward(request, response);
         response.sendRedirect("/");
         return;
     }
