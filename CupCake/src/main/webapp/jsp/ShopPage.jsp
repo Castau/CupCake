@@ -13,13 +13,12 @@
 <%@page import="Data.Mapper_CupCake"%>
 
 <%
-    Model_User user = (Model_User)request.getSession().getAttribute("user");
-    if (user == null)
-    {
+    Model_User user = (Model_User) request.getSession().getAttribute("user");
+    if (user == null) {
         response.sendRedirect("/");
         return;
     }
-    
+
     //Top names
     String top1 = "Chocolate £5";
     String top2 = "Blueberry £5";
@@ -94,12 +93,10 @@
                 <th>CupCake top</th>
                 <th>CupCake bottom</th>
                 <th>Total cake price</th>
-                <th>Final price</th>
                 <th></th>
             </tr>
             <%
-                for (int i = 0; i < cart.getCakes().size(); i++)
-                {%>
+                for (int i = 0; i < cart.getCakes().size(); i++) {%>
             <tr>
                 <td>
                     <%= cart.getCakes().get(i).getTopName()%>
@@ -109,16 +106,7 @@
                 </td>
                 <td>
                     <%= "£" + cart.getCakes().get(i).getTotalPrice()%>
-                    <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
-                </td>
-                <td>
-                    <%if (i == cart.getCakes().size() - 1)
-                    {
-                        finalPriceTag = "£" + finalPrice;
-                        session.setAttribute("finalPrice", finalPrice);
-                    }
-                    %>
-                    <%=finalPriceTag%>
+                    <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice();%>
                 </td>
                 <td>
                     <form>
@@ -127,9 +115,18 @@
                         </button>
                     </form>
                 </td>
+                <%if (i == cart.getCakes().size() - 1) {
+                        finalPriceTag = "£" + finalPrice;
+                        session.setAttribute("finalPrice", finalPrice);
+                    }
+                %>
                 <% }%>
             </tr>
         </table> 
+        <div style="float: right; margin-right: 75px">
+            <h4>Total price</h4>
+            <%=finalPriceTag%>
+        </div>
 
         </br>
 

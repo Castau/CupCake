@@ -16,8 +16,7 @@
 <%
     Cart cart = (Cart) request.getSession().getAttribute("cart");
     Model_User user = (Model_User) request.getSession().getAttribute("user");
-    if (user == null)
-    {
+    if (user == null) {
         response.sendRedirect("/");
         return;
     }
@@ -40,11 +39,9 @@
                 <th>CupCake top</th>
                 <th>CupCake bottom</th>
                 <th>Total cake price</th>
-                <th>Final price</th>
             </tr>
             <%
-                for (int i = 0; i < cart.getCakes().size(); i++)
-                {%>
+                for (int i = 0; i < cart.getCakes().size(); i++) {%>
             <tr>
                 <td>
                     <%= cart.getCakes().get(i).getTopName()%>
@@ -56,26 +53,24 @@
                     <%= "£" + cart.getCakes().get(i).getTotalPrice()%>
                     <% finalPrice = finalPrice + cart.getCakes().get(i).getTotalPrice(); %>
                 </td>
-                <td>
-                    <%if (i == cart.getCakes().size() - 1)
-                        {
-                            finalPriceTag = "£" + finalPrice;
-                        }
-                    %>
-                    <%=finalPriceTag%>
-                </td>
+                <%if (i == cart.getCakes().size() - 1) {
+                        finalPriceTag = "£" + finalPrice;
+                    }
+                %>
                 <% }%>
 
             </tr>
         </table> 
+        <div style="float: right; margin-right: 100px">
+            <h4>Total price</h4>
+            <%=finalPriceTag%>
+        </div>
     </div>
     <div>
         <%
-            if (cash < finalPrice)
-            {
+            if (cash < finalPrice) {
                 enoughCash = false;
-            } else
-            {
+            } else {
                 enoughCash = true;
             }
             request.getSession().setAttribute("finalPrice", finalPrice);
