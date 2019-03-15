@@ -119,10 +119,25 @@
 }
 
 /*-------Index.jsp css-------*/
-#IndexImages
+
+.ImagesMargin{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.IndexImages
 {
-    /*padding: 8px 0px 8px -25px; */
-    text-align: center;
+    width: 100%;
+}
+
+
+@media screen and (min-width: 768px)
+{
+.IndexImages
+{
+    width: 768px;
+    margin: 0 auto;
+}
 }
 
 #IndexText
@@ -217,3 +232,12 @@ h1, h2, h3, h4, h5, p, a, label
     margin-right: 15px;
 }
 
+.inline-block
+{
+    display: inline-block;
+}
+
+.center
+{
+    text-align: center;
+}
