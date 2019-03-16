@@ -1,14 +1,15 @@
 @startuml
-scale 1200 width
+scale max 800 width
+
+title "CupCakes - Navigation Diagram"
 [*] -> Home
 Home : Index.jsp
 Login : Login.jsp
-LoginError : LoginError.jsp
-Home --> Login
-Login --> LoggedIn : Succeeded Login/Register, start Session
-Login --> LoginError : \nFailed Login/Register
-LoginError --> LoggedIn : Succeeded Login/Register, start Session\n
-LoginError --> LoginError : \n\nFailed Login/Register
+Home -down-> Login
+Login -down-> LoggedIn : Succeeded Login/Register, start Session
+Login --> Login: Failed Login/Register, error message
+
+
 state LoggedIn {
     state Admin {
         AdminPanel : AdminPage.jsp
@@ -36,6 +37,6 @@ state LoggedIn {
     ShoppingCart --> CheckOut : Buy Cakes
     CheckOut --> CustomerPage : Return to CustomerPage
     AdminPanel --> InvoiceDetails : See order details
-    LogOut --> Home : End Session
+    LogOut -up-> Home : End Session
 }
 @enduml
