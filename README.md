@@ -21,18 +21,17 @@ Week 2: We were taught JSP and promptly changed our html and several of our serv
 There was a lot of consideration and thought about how the classes and the program came to be, especially the architecture.  
 At this time, we have yet to be taught about program architecture. In this situation we take use of [Three-tier architecture](https://en.wikipedia.org/wiki/Multitier_architecture#Three-tier_architecture) and we considered using MVC. 
 
-We have yet to be taught Javascript, something that this project would definitely benefit from. 
+We have yet to be taught Javascript, something that this project would definitely benefit from.  
 We take use of a [Frontcontroller](https://en.wikipedia.org/wiki/Front_controller) but handle our wrong URL paths by a) checking session and b) sending the user to the front page. We considered adding an actual `error 404` page.  
 More discussion can be found in the program report.
 
-### Initial development thoughts
-**Initial database layout:**  
-(Changed during process)  
-<img src="https://i.imgur.com/Xabkifb.png" alt = "image of database diagram" height="500" width="500"/>  
-**Initial class diagram**  
-(Changed during process)  
-<img src="https://i.imgur.com/EcuRNWZ.png" alt="image of class diagram" height="750" width="500"/>
 
+<h2 align="center">Initial development thoughts</h2>
+<p align="center"> <b>Initial database layout:</b> (Changed during process)<br>  
+<img src="https://i.imgur.com/Xabkifb.png" alt = "image of database diagram" height="500" width="500"/>  
+<strong>Initial class diagram:</strong>  (Changed during process)<br>
+<img src="https://i.imgur.com/EcuRNWZ.png" alt="image of class diagram" height="750" width="500"/>
+</p>
 
 Overview of fulfilled requirements
 ----
