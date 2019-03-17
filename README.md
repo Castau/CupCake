@@ -27,11 +27,11 @@ More discussion can be found in the program report.
 
 
 <h2 align="center">Initial development thoughts</h2>
-<p align="center"> <b>Initial database layout:</b> (Changed during process)<br>  
-<img src="https://i.imgur.com/Xabkifb.png" alt = "image of database diagram" height="500" width="500"/>  
-<strong>Initial class diagram:</strong>  (Changed during process)<br>
-<img src="https://i.imgur.com/EcuRNWZ.png" alt="image of class diagram" height="750" width="500"/>
-</p>
+<p align="center"> <b>Initial database layout:</b> (Changed during process)<br> </p> 
+<p align="center"><img src="https://i.imgur.com/Xabkifb.png" alt = "image of database diagram" height="500" width="500"/></p> 
+<p align="center"><strong>Initial class diagram:</strong>  (Changed during process)<br></p>
+<p align="center"><img src="https://i.imgur.com/EcuRNWZ.png" alt="image of class diagram" height="750" width="500"/></p>
+
 
 Overview of fulfilled requirements
 ----
