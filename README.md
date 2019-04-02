@@ -9,7 +9,7 @@ This is the repository for our first project of the 2nd semester.
 *"(...)develop a simple web-shop using MySql database, java servlets and jsp pages on the backend and html, css and javascript on the frontend."* ([direct link](https://docs.google.com/document/d/1XKK1GkVE-GtCPGEoVJ2SN4qHpfJnU9j7arugQv2-JfY))
 
 #### Result  
-The program can be found online <a href="http://207.154.233.238" target="blank">here</a>.  
+The program can be found online <a href="http://207.154.233.238/cupcake/" target="blank">here</a>.  
 The javadocs for the program can be found [here](https://castau.github.io/CupCake/).  
 Project turn-in in form of a [program report](https://github.com/Castau/CupCake/raw/master/_extra/CupcakeRapport.pdf).
 
